@@ -1,0 +1,36 @@
+.AdminDashboardScreen {
+    width:100%;
+    min-height: 100vh;
+    background-color:grey;
+}
+
+.AdminDashboardScreen .Top {
+    padding: 20px 30px;
+}
+
+.AdminDashboardScreen .ButtonsContainer .Button:first-child {
+    margin-right: 40px;
+}
+
+.AdminDashboardScreen .ButtonsContainer .Button:last-child {
+    margin-left: 40px;
+}
+
+.AdminDashboardScreen .ButtonsContainer .Button {
+    background-color: white;
+    padding: 40px 30px;
+    border: solid black;
+    border-radius: 10%;
+}
+
+@media only screen and (max-width: 768px) {
+    .AdminDashboardScreen .ButtonsContainer .Button:first-child {
+        margin-bottom: 40px;
+        margin-right:0;
+    }
+    
+    .AdminDashboardScreen .ButtonsContainer .Button:last-child {
+        margin-top: 40px;
+        margin-left:0;
+    }   
+}
