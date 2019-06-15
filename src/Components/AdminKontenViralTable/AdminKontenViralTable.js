@@ -26,6 +26,15 @@ class AdminKontenViralTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.handleClickMore = this.handleClickMore.bind(this);
+  }
+
+
+  handleClickMore(index) {
+    this.setState();
+    const baseUrl = './admin-konten-detail/';
+    const direct = baseUrl + index;
+    window.location.href = direct;
   }
 
   render() {
@@ -34,7 +43,7 @@ class AdminKontenViralTable extends React.Component {
       header,
       name,
       className,
-      withSearchBox
+      withSearchBox,
     } = this.props;
     return (
       <Grid
@@ -84,7 +93,7 @@ class AdminKontenViralTable extends React.Component {
                         <InputAdornment position="start">
                           <Search />
                         </InputAdornment>
-                      )
+                      ),
                     }}
                   />
                 </Paper>
@@ -203,7 +212,9 @@ class AdminKontenViralTable extends React.Component {
                                 item
                                 md={4}
                               >
-                                <ButtonBase>
+                                <ButtonBase
+                                  onClick={e => this.handleClickMore(row.id, e)}
+                                >
                                   <More />
                                 </ButtonBase>
                               </Grid>
@@ -228,7 +239,7 @@ AdminKontenViralTable.defaultProps = {
   className: '',
   header: '',
   rows: [],
-  withSearchBox: false
+  withSearchBox: false,
 };
 
 AdminKontenViralTable.propTypes = {
@@ -236,7 +247,7 @@ AdminKontenViralTable.propTypes = {
   className: PropTypes.string,
   header: PropTypes.string,
   rows: PropTypes.arrayOf(PropTypes.object),
-  withSearchBox: PropTypes.bool
+  withSearchBox: PropTypes.bool,
 };
 
 export default AdminKontenViralTable;
