@@ -1,7 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
+
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+
 const MODULE_PATHS = ['./node_modules', './src'];
-var path = require('path')
+const path = require('path');
 
 module.exports = {
   module: {
@@ -32,37 +34,33 @@ module.exports = {
           // modules: true,
           // localIdentName: '[name]',
         },
-      }
+      },
     ],
   },
   resolve: {
     modules: MODULE_PATHS,
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   devtool: 'inline-source-map',
-  devServer: {
-    historyApiFallback: true,
-    contentBase: './',
-    hot: true
-  },
   plugins: [
     new HtmlWebPackPlugin(
-       {
-    //   hash: true,
-    template:  path.resolve('./public/index.html')
-     }
+      {
+        //   hash: true,
+        template: path.resolve('./public/index.html'),
+      },
     ),
   ],
   entry: [
-    './src/index.js'
+    './src/index.js',
   ],
   output: {
     path: path.resolve(__dirname, './public'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   devServer: {
-    contentBase: "./build"
+    historyApiFallback: true,
+    contentBase: './build',
   },
-  stats: { children: false }
+  stats: { children: false },
 };
