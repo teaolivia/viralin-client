@@ -9,9 +9,10 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
+        use: ['babel-loader', 'eslint-loader'],
+        // use: {
+        //   loader: 'babel-loader',
+        // },
       },
       {
         test: /\.html$/,
@@ -38,6 +39,7 @@ module.exports = {
     modules: MODULE_PATHS,
     extensions: ['.js', '.jsx'],
   },
+  devtool: 'inline-source-map',
   devServer: {
     historyApiFallback: true,
     contentBase: './',
@@ -49,4 +51,15 @@ module.exports = {
       filename: './index.html',
     }),
   ],
+  entry: [
+    './src/index.js'
+  ],
+  output: {
+    path: path.resolve(__dirname, 'build'),
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  devServer: {
+    contentBase: "./build", 
+  },
 };

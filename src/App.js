@@ -8,8 +8,10 @@ import AdminDashboardScreen from 'Components/AdminDashboardScreen/AdminDashboard
 import PromotorDatabaseScreen from 'Components/PromotorDatabaseScreen/PromotorDatabaseScreen';
 import SellerDatabaseScreen from 'Components/SellerDatabaseScreen/SellerDatabaseScreen';
 import AdminKelolaKontenViralScreen from 'Components/AdminKelolaKontenViralScreen/AdminKelolaKontenViralScreen';
+import SellerDashboard from './Components/SellerDashboard/SellerDashboard';
 
 import './App.css';
+
 
 class App extends Component {
   constructor(props) {
@@ -19,19 +21,18 @@ class App extends Component {
 
   render() {
     return (
-      <form action="http://127.0.0.1:5000" method="post">
         <Router>
           <div className="App">
             <Route path="/" exact component={LoginScreen} />
             <Route path="/login" exact component={LoginScreen} />
             <Route path="/register" exact component={RegisterScreen} />
+            <Route path="/seller-dashboard" exact component={SellerDashboard} />
             <Route path="/admin-dashboard" exact component={AdminDashboardScreen} />
             <Route path="/admin-kelola-konten-viral" exact component={AdminKelolaKontenViralScreen} />
             <Route path="/seller-database" exact component={SellerDatabaseScreen} />
             <Route path="/promotor-database" exact component={PromotorDatabaseScreen} />
           </div>
         </Router>
-      </form>
     );
   }
 }

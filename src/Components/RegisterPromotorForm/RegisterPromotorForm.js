@@ -11,6 +11,7 @@ import Select from '@material-ui/core/Select';
 import FilledInput from '@material-ui/core/FilledInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import axios from 'axios';
 
 import fetchProvinsiApi from 'Api/fetchProvinsiApi';
 import fetchKabupatenKotaApi from 'Api/fetchKabupatenKotaApi';
@@ -224,7 +225,7 @@ class RegisterPromotorForm extends React.Component {
     );
     return (
       <div>
-        <form action="http://localhost:5000/promotors" method="post">
+        <form onSubmit={this.handleSubmit}>
           <Typography variant="subtitle1">Registrasi Akun Promotor</Typography>
           <TextField
             id="filled-namaPromotor"

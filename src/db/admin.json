@@ -1,0 +1,14 @@
+[
+  {
+    "admin_id (S)": "admin1",
+    "password (S)": "viralin1"
+  },
+  {
+    "admin_id (S)": "admin2",
+    "password (S)": "viralin2"
+  },
+  {
+    "admin_id (S)": "admin3",
+    "password (S)": "viralin3"
+  }
+]

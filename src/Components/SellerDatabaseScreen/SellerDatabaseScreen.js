@@ -14,15 +14,15 @@ const createData = (
   jumlahPromotor,
   jumlahIklanAktif,
   namaKonten,
-) => {
-  const returnData = {
-    namaPebisnis,
-    kota,
-    tanggalRegistrasi,
-    status,
-    jumlahPromotor,
-    jumlahIklanAktif,
-    namaKonten,
+  ) => {
+    const returnData = {
+      namaPebisnis,
+      kota,
+      tanggalRegistrasi,
+      status,
+      jumlahPromotor,
+      jumlahIklanAktif,
+      namaKonten,
   };
   return returnData;
 };

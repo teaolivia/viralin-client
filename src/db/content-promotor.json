@@ -1,0 +1,32 @@
+[
+  {
+    "_id": 2,
+    "content_id": "content4",
+    "seller_id": "seller2",
+    "promotor_id": "promotor3"
+  },
+  {
+    "_id": 1,
+    "content_id": "content1",
+    "seller_id": "seller1",
+    "promotor_id": "promotor1"
+  },
+  {
+    "_id": 5,
+    "content_id": "content3",
+    "seller_id": "seller2",
+    "promotor_id": "promotor2"
+  },
+  {
+    "_id": 4,
+    "content_id": "content2",
+    "seller_id": "seller1",
+    "promotor_id": "promotor1"
+  },
+  {
+    "_id": 3,
+    "content_id": "content5",
+    "seller_id": "seller1",
+    "promotor_id": "promotor2"
+  }
+]

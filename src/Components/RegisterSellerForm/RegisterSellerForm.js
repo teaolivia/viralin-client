@@ -193,6 +193,10 @@ class RegisterSellerForm extends React.Component {
     );
   }
 
+  goToDashboard() {
+    window.location.hash = "#/seller-dashboard";
+  }
+
   render() {
     const {
       namaUsaha,
@@ -221,7 +225,7 @@ class RegisterSellerForm extends React.Component {
     );
     return (
       <div>
-        <form action="http://localhost:5000/sellers/register" method="post">
+        <form onSubmit={this.handleSubmit}>
           <Typography variant="subtitle1">Registrasi Akun Bisnis</Typography>
           <TextField
             id="filled-namausaha"
@@ -414,6 +418,7 @@ class RegisterSellerForm extends React.Component {
             color="primary"
             className="Button"
             type="submit"
+            onClick={this.goToDashboard}
           >
             <Typography variant="subtitle1">Register</Typography>
           </Button>
