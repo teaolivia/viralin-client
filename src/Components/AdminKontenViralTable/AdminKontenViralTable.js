@@ -34,7 +34,7 @@ class AdminKontenViralTable extends React.Component {
       header,
       name,
       className,
-      withSearchBox,
+      withSearchBox
     } = this.props;
     return (
       <Grid
@@ -84,7 +84,7 @@ class AdminKontenViralTable extends React.Component {
                         <InputAdornment position="start">
                           <Search />
                         </InputAdornment>
-                      ),
+                      )
                     }}
                   />
                 </Paper>
@@ -163,7 +163,9 @@ class AdminKontenViralTable extends React.Component {
                             xs={4}
                             direction="column"
                           >
-                            <Typography variant="subtitle1" align="center">{`${endDay}-${endMonth}-${endDate.getFullYear()}`}</Typography>
+                            <Typography variant="subtitle1" align="center">
+                              {`${endDay}-${endMonth}-${endDate.getFullYear()}`}
+                            </Typography>
                           </Grid>
                           <Grid
                             container
@@ -226,7 +228,7 @@ AdminKontenViralTable.defaultProps = {
   className: '',
   header: '',
   rows: [],
-  withSearchBox: false,
+  withSearchBox: false
 };
 
 AdminKontenViralTable.propTypes = {
@@ -234,7 +236,7 @@ AdminKontenViralTable.propTypes = {
   className: PropTypes.string,
   header: PropTypes.string,
   rows: PropTypes.arrayOf(PropTypes.object),
-  withSearchBox: PropTypes.bool,
+  withSearchBox: PropTypes.bool
 };
 
 export default AdminKontenViralTable;

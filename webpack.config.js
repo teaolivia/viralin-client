@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-
 const MODULE_PATHS = ['./node_modules', './src'];
+var path = require('path')
 
 module.exports = {
   module: {
@@ -9,7 +9,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader', 'eslint-loader'],
+        use: 'babel-loader',
         // use: {
         //   loader: 'babel-loader',
         // },
@@ -32,34 +32,37 @@ module.exports = {
           // modules: true,
           // localIdentName: '[name]',
         },
-      },
+      }
     ],
   },
   resolve: {
     modules: MODULE_PATHS,
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx']
   },
   devtool: 'inline-source-map',
   devServer: {
     historyApiFallback: true,
     contentBase: './',
-    hot: true,
+    hot: true
   },
   plugins: [
-    new HtmlWebPackPlugin({
-      template: './public/index.html',
-      filename: './index.html',
-    }),
+    new HtmlWebPackPlugin(
+    //   {
+    //   hash: true,
+    //   filename: './public/index.html'
+    // }
+    ),
   ],
   entry: [
     './src/index.js'
   ],
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, './public'),
     publicPath: '/',
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: "./build", 
+    contentBase: "./build"
   },
+  stats: { children: false }
 };

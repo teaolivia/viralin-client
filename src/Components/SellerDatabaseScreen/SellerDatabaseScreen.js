@@ -13,7 +13,7 @@ const createData = (
   status,
   jumlahPromotor,
   jumlahIklanAktif,
-  namaKonten,
+  namaKonten
   ) => {
     const returnData = {
       namaPebisnis,
@@ -22,7 +22,7 @@ const createData = (
       status,
       jumlahPromotor,
       jumlahIklanAktif,
-      namaKonten,
+      namaKonten
   };
   return returnData;
 };
@@ -33,7 +33,7 @@ class SellerDatabaseScreen extends React.Component {
     this.state = {
       rows: [
         createData('Joko1', 'Bandung', '10-06-2019', 'Aktif', '1', '1', 'Peduli kasih'),
-        createData('Joko2', 'Bandung', '10-06-2019', 'Aktif', '1', '1', 'Peduli kasih'),
+        createData('Joko2', 'Bandung', '10-06-2019', 'Aktif', '1', '1', 'Peduli kasih')
       ],
     };
   }
@@ -56,7 +56,7 @@ class SellerDatabaseScreen extends React.Component {
             'Status',
             'Jumlah Promotor',
             'Jumlah Iklan Aktif',
-            'Nama Konten Viral',
+            'Nama Konten Viral'
           ]}
           rows={rows}
         />
