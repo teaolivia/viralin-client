@@ -8,6 +8,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import PropTypes from 'prop-types';
 import Person from '@material-ui/icons/Person';
 import Home from '@material-ui/icons/Home';
+import ArrowBack from '@material-ui/icons/ArrowBack';
 
 import 'Components/AdminNavigation/AdminNavigation.css';
 
@@ -16,6 +17,7 @@ class AdminNavigation extends React.Component {
     super(props);
     this.state = {};
     this.handleClick = this.handleClick.bind(this);
+    this.handleClickBack = this.handleClickBack.bind(this);
   }
 
   handleClick(event) {
@@ -24,10 +26,17 @@ class AdminNavigation extends React.Component {
     console.log(event.target);
   }
 
+  handleClickBack() {
+    const { history } = this.props;
+    this.setState();
+    history.goBack();
+  }
+
   render() {
     const {
       header,
       isWithHomeButton,
+      isWithBackButton,
       username,
       imageUrl,
     } = this.props;
@@ -51,6 +60,11 @@ class AdminNavigation extends React.Component {
           { isWithHomeButton && (
             <ButtonBase onClick={this.handleClick}>
               <Home />
+            </ButtonBase>
+          )}
+          { isWithBackButton && (
+            <ButtonBase onClick={this.handleClickBack}>
+              <ArrowBack />
             </ButtonBase>
           )}
         </Grid>
@@ -90,6 +104,8 @@ AdminNavigation.defaultProps = {
   username: 'User',
   imageUrl: '',
   isWithHomeButton: false,
+  isWithBackButton: false,
+  history: {},
 };
 
 AdminNavigation.propTypes = {
@@ -97,6 +113,8 @@ AdminNavigation.propTypes = {
   username: PropTypes.string,
   imageUrl: PropTypes.string,
   isWithHomeButton: PropTypes.bool,
+  isWithBackButton: PropTypes.bool,
+  history: PropTypes.shape({}),
 };
 
 export default AdminNavigation;
