@@ -47,10 +47,10 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin(
-    //   {
+       {
     //   hash: true,
-    //   filename: './public/index.html'
-    // }
+    template:  path.resolve('./public/index.html')
+     }
     ),
   ],
   entry: [
@@ -59,7 +59,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './public'),
     publicPath: '/',
-    filename: 'index.js'
+    filename: 'bundle.js'
   },
   devServer: {
     contentBase: "./build"

@@ -194,7 +194,7 @@ class RegisterSellerForm extends React.Component {
   }
 
   goToDashboard() {
-    window.location.hash = "#/seller-dashboard";
+    window.location.hash = "/seller-dashboard";
   }
 
   render() {
