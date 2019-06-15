@@ -82,7 +82,7 @@ class LoginScreen extends React.Component {
           spacing={0}
         >
           <Grid item xs={12}>
-            <Typography className="Header" variant="h1" component="h2">
+            <Typography className="Header" variant="h1" component="h2" align="center">
                 VIRALIN
             </Typography>
           </Grid>
