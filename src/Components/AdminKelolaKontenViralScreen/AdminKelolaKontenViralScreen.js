@@ -16,7 +16,7 @@ const activeData = {
   status: 'TRUE',
   referral: 0,
   duration_start: '01/01/2019',
-  duration_end: '01/02/2019'
+  duration_end: '01/02/2019',
 };
 
 const nonActiveData = {
@@ -26,12 +26,12 @@ const nonActiveData = {
   status: 'FALSE',
   referral: 0,
   duration_start: '01/01/2019',
-  duration_end: '01/02/2019'
+  duration_end: '01/02/2019',
 };
 
 const rowsData = [
   activeData,
-  nonActiveData
+  nonActiveData,
 ];
 
 class AdminKelolaKontenViralScreen extends React.Component {
@@ -39,7 +39,7 @@ class AdminKelolaKontenViralScreen extends React.Component {
     super(props);
     this.state = {
       activeRows: rowsData.filter(row => row.status === 'TRUE'),
-      nonActiveRows: rowsData.filter(row => row.status === 'FALSE')
+      nonActiveRows: rowsData.filter(row => row.status === 'FALSE'),
     };
   }
 
