@@ -31,7 +31,8 @@ class SellerDashboard extends React.Component {
                   count: 0,
                 },
               ],
-        };
+            };
+        this.handleClick = this.handleClick.bind(this);
       }
 
 handleContentFormPopOut() {
@@ -45,15 +46,15 @@ handleContentFormPopOut() {
 handleClick(index) {
     this.setState();
     switch (index) {
-        case 1:
-        window.location.href = '/promotor-view';
-        break;
-        case 0:
-        window.location.href = '/contents-form';
-        break;
-        default:
-        break;
-    }
+            case 1:
+            window.location.href = '/promotor-view';
+            break;
+            case 0:
+            window.location.href = '/contents-form';
+            break;
+            default:
+            break;
+        }
     }
 
     render() {
