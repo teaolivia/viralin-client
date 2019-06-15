@@ -17,23 +17,50 @@ import ChatBubbleOutline from '@material-ui/icons/ChatBubbleOutline';
 
 import 'Components/AdminKontenDetailScreen/AdminKontenDetailScreen.css';
 
+const dummyData = {
+  kontenViral: 'Ayam Geprek Hot',
+  pebisnis: 'Joko',
+  promotors: [
+    'Ani',
+    'Supri',
+  ],
+  startDate: '',
+  endDate: '',
+  status: true,
+};
+
 class AdminKontenDetailScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: false,
+      data: {},
     };
+    this.fetchData = this.fetchData.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+
+  fetchData() {
+    const { match } = this.props;
+    this.setState({ data: dummyData });
   }
 
   render() {
-    const { match, history } = this.props;
-    const { status } = this.state;
+    const { history } = this.props;
+    const { data } = this.state;
+    let promotorsCount = 0;
+    if (data.promotors) {
+      promotorsCount = data.promotors.length;
+    }
     return (
       <div className="AdminKontenDetail">
         <AdminNavigation isWithBackButton username="Admin" history={history} />
         <Grid
           container
-          spacing={1}
+          spacing={10}
         >
           <Grid
             container
@@ -47,7 +74,49 @@ class AdminKontenDetailScreen extends React.Component {
               md={12}
               xs={12}
             >
-              <Paper>{match.params.id}</Paper>
+              <Paper>
+                <Grid
+                  container
+                  alignContent="flex-start"
+                  justify="center"
+                  direction="column"
+                  spacing={0}
+                >
+                  <Grid
+                    item
+                  >
+                    <Typography variant="subtitle1">Nama Konten Viral:</Typography>
+                  </Grid>
+                  <Grid
+                    item
+                  >
+                    <Typography variant="h6">{data.kontenViral}</Typography>
+                  </Grid>
+                  <Grid
+                    item
+                  >
+                    <Typography variant="subtitle1">Nama Pebisnis:</Typography>
+                  </Grid>
+                  <Grid
+                    item
+                  >
+                    <Typography variant="h6">{data.pebisnis}</Typography>
+                  </Grid>
+                  <Grid
+                    item
+                  >
+                    <Typography variant="subtitle1">{`Jumlah Promotor/Referral (${promotorsCount}):`}</Typography>
+                  </Grid>
+                  { data.promotors && data.promotors.map((promotor, index) => (
+                    <Grid
+                      item
+                      key={promotor}
+                    >
+                      <Typography variant="h6">{`${index + 1}. ${promotor}`}</Typography>
+                    </Grid>
+                  ))}
+                </Grid>
+              </Paper>
             </Grid>
             <Grid
               item
@@ -90,12 +159,12 @@ class AdminKontenDetailScreen extends React.Component {
                         spacing={0}
                       >
                         <Grid item>
-                          { status && <Typography variant="subtitle1">Stop</Typography>}
-                          { !status && <Typography variant="subtitle1">Publish</Typography>}
+                          { data.status && <Typography variant="subtitle1">Stop</Typography>}
+                          { !data.status && <Typography variant="subtitle1">Publish</Typography>}
                         </Grid>
                         <Grid item>
-                          { status && <Stop /> }
-                          { !status && <ArrowUpward /> }
+                          { data.status && <Stop /> }
+                          { !data.status && <ArrowUpward /> }
                         </Grid>
                       </Grid>
                     </ButtonBase>
