@@ -20,6 +20,7 @@ class AdminNavigation extends React.Component {
     this.state = {};
     this.handleClick = this.handleClick.bind(this);
     this.handleClickBack = this.handleClickBack.bind(this);
+    this.handleClickMyProgress = this.handleClickMyProgress.bind(this);
   }
 
   handleClick(event) {
@@ -32,6 +33,11 @@ class AdminNavigation extends React.Component {
     const { history } = this.props;
     this.setState();
     history.goBack();
+  }
+
+  handleClickMyProgress() {
+    this.setState();
+    window.location.href = '/promotor-my-progress';
   }
 
   render() {
@@ -86,7 +92,7 @@ class AdminNavigation extends React.Component {
           )}
           { isWithMyProgressButton && (
             <Grid item>
-              <Button className="MyProgressButton">My Progress</Button>
+              <Button className="MyProgressButton" onClick={this.handleClickMyProgress}>My Progress</Button>
             </Grid>
           )}
         </Grid>
