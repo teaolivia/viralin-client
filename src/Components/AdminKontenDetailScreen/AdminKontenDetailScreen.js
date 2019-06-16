@@ -104,7 +104,7 @@ class AdminKontenDetailScreen extends React.Component {
         parseInt(data.endDate.slice(3, 5), 10) - 1,
         data.endDate.slice(0, 2),
       );
-      progress = ((today - startDate) / (endDate - startDate));
+      progress = ((today - startDate) / (endDate - startDate)) * 100;
     }
     let promotorsCount = 0;
     if (data.promotors) {

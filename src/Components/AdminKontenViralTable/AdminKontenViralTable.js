@@ -124,7 +124,7 @@ class AdminKontenViralTable extends React.Component {
                   let endMonth = `0${endDate.getMonth() + 1}`;
                   endMonth = endMonth.slice(-2);
 
-                  const progress = ((today - startDate) / (endDate - startDate));
+                  const progress = ((today - startDate) / (endDate - startDate)) * 100;
                   return (
                     <TableRow key={`${row.id}-row`}>
                       <TableCell>

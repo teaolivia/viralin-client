@@ -1,0 +1,22 @@
+.PromotorMyProgressScreen {
+  width:100%;
+  min-height: 100vh;
+  background-color:grey;
+}
+
+.PromotorMyProgressScreen .Main {
+  border: 5px black solid;
+  padding-bottom: 35px;
+}
+
+.PromotorMyProgressScreen .Main .Header {
+  display: inline-block;
+  margin-top: -10px;
+  margin-left: 10px;  
+  background: white;
+}
+
+.PromotorMyProgressScreen .MainContainer{
+  padding-left: 100px;
+  padding-right: 100px;
+}

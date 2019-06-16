@@ -32,7 +32,7 @@ const bulan = [
   'Desember',
 ];
 
-class AdminKontenViralTable extends React.Component {
+class PromotorKontenViralDashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -222,14 +222,14 @@ class AdminKontenViralTable extends React.Component {
   }
 }
 
-AdminKontenViralTable.defaultProps = {
+PromotorKontenViralDashboard.defaultProps = {
   className: '',
   rows: [],
 };
 
-AdminKontenViralTable.propTypes = {
+PromotorKontenViralDashboard.propTypes = {
   className: PropTypes.string,
   rows: PropTypes.arrayOf(PropTypes.object),
 };
 
-export default AdminKontenViralTable;
+export default PromotorKontenViralDashboard;
