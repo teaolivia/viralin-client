@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import Person from '@material-ui/icons/Person';
 import Home from '@material-ui/icons/Home';
@@ -39,6 +40,7 @@ class AdminNavigation extends React.Component {
       isWithHomeButton,
       isWithBackButton,
       isWithNotificationButton,
+      isWithMyProgressButton,
       isWithAvatar,
       username,
       type,
@@ -57,24 +59,35 @@ class AdminNavigation extends React.Component {
           item
           direction="row"
           alignItems="center"
-          spacing={0}
+          spacing={2}
           className="Left"
           xs={4}
         >
           { isWithNotificationButton && (
-            <ButtonBase onClick={this.handleClick}>
-              <Notifications />
-            </ButtonBase>
+            <Grid item>
+              <ButtonBase onClick={this.handleClick}>
+                <Notifications />
+              </ButtonBase>
+            </Grid>
           )}
           { isWithHomeButton && (
-            <ButtonBase onClick={this.handleClick}>
-              <Home />
-            </ButtonBase>
+            <Grid item>
+              <ButtonBase onClick={this.handleClick}>
+                <Home />
+              </ButtonBase>
+            </Grid>
           )}
           { isWithBackButton && (
-            <ButtonBase onClick={this.handleClickBack}>
-              <ArrowBack />
-            </ButtonBase>
+            <Grid item>
+              <ButtonBase onClick={this.handleClickBack}>
+                <ArrowBack />
+              </ButtonBase>
+            </Grid>
+          )}
+          { isWithMyProgressButton && (
+            <Grid item>
+              <Button className="MyProgressButton">My Progress</Button>
+            </Grid>
           )}
         </Grid>
         <Grid
@@ -131,6 +144,7 @@ AdminNavigation.defaultProps = {
   isWithBackButton: false,
   isWithNotificationButton: false,
   isWithAvatar: false,
+  isWithMyProgressButton: false,
   history: {},
 };
 
@@ -142,6 +156,7 @@ AdminNavigation.propTypes = {
   isWithHomeButton: PropTypes.bool,
   isWithBackButton: PropTypes.bool,
   isWithNotificationButton: PropTypes.bool,
+  isWithMyProgressButton: PropTypes.bool,
   isWithAvatar: PropTypes.bool,
   history: PropTypes.shape({}),
 };
