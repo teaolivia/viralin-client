@@ -2,7 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
-import AdminNavigation from 'Components/AdminNavigation/AdminNavigation';
+import Navigation from 'Components/Navigation/Navigation';
 import AdminDatabaseTable from 'Components/AdminDatabaseTable/AdminDatabaseTable';
 import 'Components/SellerDatabaseScreen/SellerDatabaseScreen.css';
 
@@ -13,16 +13,16 @@ const createData = (
   status,
   jumlahPromotor,
   jumlahIklanAktif,
-  namaKonten
-  ) => {
-    const returnData = {
-      namaPebisnis,
-      kota,
-      tanggalRegistrasi,
-      status,
-      jumlahPromotor,
-      jumlahIklanAktif,
-      namaKonten
+  namaKonten,
+) => {
+  const returnData = {
+    namaPebisnis,
+    kota,
+    tanggalRegistrasi,
+    status,
+    jumlahPromotor,
+    jumlahIklanAktif,
+    namaKonten,
   };
   return returnData;
 };
@@ -42,7 +42,7 @@ class SellerDatabaseScreen extends React.Component {
     const { rows } = this.state;
     return (
       <div className="SellerDatabaseScreen">
-        <AdminNavigation
+        <Navigation
           header="DATABASE PEBISNIS"
           isWithHomeButton
           isWithAvatar
@@ -57,7 +57,7 @@ class SellerDatabaseScreen extends React.Component {
             'Status',
             'Jumlah Promotor',
             'Jumlah Iklan Aktif',
-            'Nama Konten Viral'
+            'Nama Konten Viral',
           ]}
           rows={rows}
         />
