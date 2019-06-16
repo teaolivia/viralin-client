@@ -2,7 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
-import AdminNavigation from 'Components/AdminNavigation/AdminNavigation';
+import Navigation from 'Components/Navigation/Navigation';
 import AdminDatabaseTable from 'Components/AdminDatabaseTable/AdminDatabaseTable';
 import 'Components/PromotorDatabaseScreen/PromotorDatabaseScreen.css';
 
@@ -44,7 +44,7 @@ class PromotorDatabaseScreen extends React.Component {
     const { rows } = this.state;
     return (
       <div className="PromotorDatabaseScreen">
-        <AdminNavigation
+        <Navigation
           header="DATABASE PROMOTOR"
           isWithHomeButton
           isWithAvatar

@@ -8,7 +8,7 @@ import VolumeUp from '@material-ui/icons/VolumeUp';
 import Group from '@material-ui/icons/Group';
 import Accessibility from '@material-ui/icons/Accessibility';
 
-import AdminNavigation from 'Components/AdminNavigation/AdminNavigation';
+import Navigation from 'Components/Navigation/Navigation';
 import 'Components/AdminDashboardScreen/AdminDashboardScreen.css';
 
 class AdminDashboardScreen extends React.Component {
@@ -66,7 +66,7 @@ class AdminDashboardScreen extends React.Component {
     const { buttons } = this.state;
     return (
       <div className="AdminDashboardScreen">
-        <AdminNavigation username="Admin" isWithAvatar />
+        <Navigation username="Admin" isWithAvatar />
         <Grid
           container
           direction="row"

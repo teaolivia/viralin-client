@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Search from '@material-ui/icons/Search';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import AdminNavigation from 'Components/AdminNavigation/AdminNavigation';
+import Navigation from 'Components/Navigation/Navigation';
 import PromotorKontenViralDashboard from 'Components/PromotorKontenViralDashboard/PromotorKontenViralDashboard';
 
 import 'Components/PromotorDashboardScreen/PromotorDashboardScreen.css';
@@ -66,7 +66,7 @@ class PromotorDashboardScreen extends React.Component {
     const { data, activeRows, searchInput } = this.state;
     return (
       <div className="PromotorDashboardScreen">
-        <AdminNavigation
+        <Navigation
           isWithHomeButton
           isWithNotificationButton
           isWithAvatar

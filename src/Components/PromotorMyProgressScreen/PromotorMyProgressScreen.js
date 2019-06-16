@@ -3,7 +3,7 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import AdminNavigation from 'Components/AdminNavigation/AdminNavigation';
+import Navigation from 'Components/Navigation/Navigation';
 import PromotorKontenViralMyProgress from 'Components/PromotorKontenViralMyProgress/PromotorKontenViralMyProgress';
 
 import 'Components/PromotorMyProgressScreen/PromotorMyProgressScreen.css';
@@ -66,7 +66,7 @@ class PromotorMyProgressScreen extends React.Component {
     const { data, activeRows } = this.state;
     return (
       <div className="PromotorMyProgressScreen">
-        <AdminNavigation
+        <Navigation
           isWithHomeButton
           isWithNotificationButton
           isWithAvatar

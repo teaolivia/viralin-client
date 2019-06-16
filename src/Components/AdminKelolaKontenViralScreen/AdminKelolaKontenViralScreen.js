@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import AdminNavigation from 'Components/AdminNavigation/AdminNavigation';
+import Navigation from 'Components/Navigation/Navigation';
 import AdminKontenViralTable from 'Components/AdminKontenViralTable/AdminKontenViralTable';
 import 'Components/AdminKelolaKontenViralScreen/AdminKelolaKontenViralScreen.css';
 
@@ -47,7 +47,7 @@ class AdminKelolaKontenViralScreen extends React.Component {
     const { activeRows, nonActiveRows } = this.state;
     return (
       <div className="AdminKelolaKontenViral">
-        <AdminNavigation username="Admin" header="KONTEN VIRAL" isWithAvatar />
+        <Navigation username="Admin" header="KONTEN VIRAL" isWithAvatar />
         <AdminKontenViralTable
           className="Tabel"
           rows={activeRows}

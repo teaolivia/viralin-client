@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Person from '@material-ui/icons/Person';
-import AdminNavigation from 'Components/AdminNavigation/AdminNavigation';
+import Navigation from 'Components/Navigation/Navigation';
 
 import 'Components/ProfileScreen/ProfileScreen.css';
 
@@ -56,7 +56,7 @@ class ProfileScreen extends React.Component {
     const { data } = this.state;
     return (
       <div className="ProfileScreen">
-        <AdminNavigation isWithHomeButton isWithNotificationButton />
+        <Navigation isWithHomeButton isWithNotificationButton />
         <div className={classes.profile}>
           <Paper className={classes.profileContainer}>
             <Grid

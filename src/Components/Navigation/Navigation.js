@@ -12,9 +12,9 @@ import Home from '@material-ui/icons/Home';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import Notifications from '@material-ui/icons/Notifications';
 
-import 'Components/AdminNavigation/AdminNavigation.css';
+import 'Components/Navigation/Navigation.css';
 
-class AdminNavigation extends React.Component {
+class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -141,11 +141,11 @@ class AdminNavigation extends React.Component {
   }
 }
 
-AdminNavigation.defaultProps = {
+Navigation.defaultProps = {
   header: '',
   username: 'User',
   imageUrl: '',
-  type: 'User',
+  type: '',
   isWithHomeButton: false,
   isWithBackButton: false,
   isWithNotificationButton: false,
@@ -154,7 +154,7 @@ AdminNavigation.defaultProps = {
   history: {},
 };
 
-AdminNavigation.propTypes = {
+Navigation.propTypes = {
   header: PropTypes.string,
   type: PropTypes.string,
   username: PropTypes.string,
@@ -167,4 +167,4 @@ AdminNavigation.propTypes = {
   history: PropTypes.shape({}),
 };
 
-export default AdminNavigation;
+export default Navigation;
