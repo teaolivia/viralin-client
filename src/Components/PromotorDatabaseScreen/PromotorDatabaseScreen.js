@@ -47,6 +47,7 @@ class PromotorDatabaseScreen extends React.Component {
         <AdminNavigation
           header="DATABASE PROMOTOR"
           isWithHomeButton
+          isWithAvatar
           username="Admin"
         />
         <AdminDatabaseTable
