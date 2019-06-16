@@ -11,6 +11,7 @@ import AdminKelolaKontenViralScreen from 'Components/AdminKelolaKontenViralScree
 import AdminKontenDetailScreen from 'Components/AdminKontenDetailScreen/AdminKontenDetailScreen';
 import ProfileScreen from 'Components/ProfileScreen/ProfileScreen';
 import PromotorDashboardScreen from 'Components/PromotorDashboardScreen/PromotorDashboardScreen';
+import PromotorMyProgressScreen from 'Components/PromotorMyProgressScreen/PromotorMyProgressScreen';
 
 import SellerDashboard from './Components/SellerDashboard/SellerDashboard';
 
@@ -38,6 +39,7 @@ class App extends Component {
           <Route path="/promotor-database" exact component={PromotorDatabaseScreen} />
           <Route path="/profile" exact component={ProfileScreen} />
           <Route path="/promotor-dashboard" exact component={PromotorDashboardScreen} />
+          <Route path="/promotor-my-progress" exact component={PromotorMyProgressScreen} />
         </div>
       </Router>
     );
