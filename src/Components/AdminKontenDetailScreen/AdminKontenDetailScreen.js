@@ -112,7 +112,7 @@ class AdminKontenDetailScreen extends React.Component {
     }
     return (
       <div className="AdminKontenDetail">
-        <AdminNavigation isWithBackButton username="Admin" history={history} />
+        <AdminNavigation isWithBackButton isWithAvatar username="Admin" history={history} />
         <Grid
           className="Container"
           container
