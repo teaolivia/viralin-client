@@ -47,7 +47,7 @@ class AdminKelolaKontenViralScreen extends React.Component {
     const { activeRows, nonActiveRows } = this.state;
     return (
       <div className="AdminKelolaKontenViral">
-        <Navigation username="Admin" header="KONTEN VIRAL" isWithAvatar />
+        <Navigation username="Admin" header="KONTEN VIRAL" isWithAvatar isWithHomeButton />
         <AdminKontenViralTable
           className="Tabel"
           rows={activeRows}
