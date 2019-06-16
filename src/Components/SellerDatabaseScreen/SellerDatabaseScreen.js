@@ -33,7 +33,7 @@ class SellerDatabaseScreen extends React.Component {
     this.state = {
       rows: [
         createData('Joko1', 'Bandung', '10-06-2019', 'Aktif', '1', '1', 'Peduli kasih'),
-        createData('Joko2', 'Bandung', '10-06-2019', 'Aktif', '1', '1', 'Peduli kasih')
+        createData('Joko2', 'Bandung', '10-06-2019', 'Aktif', '1', '1', 'Peduli kasih'),
       ],
     };
   }
@@ -45,6 +45,7 @@ class SellerDatabaseScreen extends React.Component {
         <AdminNavigation
           header="DATABASE PEBISNIS"
           isWithHomeButton
+          isWithAvatar
           username="Admin"
         />
         <AdminDatabaseTable
