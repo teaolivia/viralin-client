@@ -10,6 +10,8 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 import { Link } from 'react-router-dom';
 
 import 'Components/LoginScreen/LoginScreen.css';
@@ -18,7 +20,8 @@ import TabContainer from 'Components/TabContainer/TabContainer';
 
 const ADMIN_PASSWORD = 'asdf';
 
-const loginAdmin = (password) => {
+const loginAdmin = (adminValue, password) => {
+  console.log(adminValue);
   if (password === ADMIN_PASSWORD) {
     window.location.href = '/admin-dashboard';
   } else {
@@ -33,11 +36,13 @@ class LoginScreen extends React.Component {
       tabValue: 0,
       username: '',
       password: '',
+      adminValue: '',
     };
     this.changeTabValue = this.changeTabValue.bind(this);
     this.changeUsernameValue = this.changeUsernameValue.bind(this);
     this.changePasswordValue = this.changePasswordValue.bind(this);
     this.loginButtonClickHandler = this.loginButtonClickHandler.bind(this);
+    this.changeAdminValue = this.changeAdminValue.bind(this);
   }
 
   changeTabValue(event, newValue) {
@@ -52,18 +57,29 @@ class LoginScreen extends React.Component {
     this.setState({ password: event.target.value });
   }
 
+  changeAdminValue(event) {
+    this.setState({ adminValue: event.target.value });
+  }
+
   loginButtonClickHandler() {
-    const { username, password, tabValue } = this.state;
+    const {
+      username,
+      password,
+      tabValue,
+      adminValue,
+    } = this.state;
     switch (tabValue) {
       case 0:
         // Login pebisnis
+        console.log(username);
         break;
       case 1:
         // Login promotor
+        console.log(username);
         break;
       case 2:
         // Login admin
-        loginAdmin(password);
+        loginAdmin(adminValue, password);
         break;
       default:
         break;
@@ -71,7 +87,12 @@ class LoginScreen extends React.Component {
   }
 
   render() {
-    const { tabValue, username, password } = this.state;
+    const {
+      tabValue,
+      username,
+      password,
+      adminValue,
+    } = this.state;
     return (
       <div className="LoginScreen">
         <Grid
@@ -114,6 +135,19 @@ class LoginScreen extends React.Component {
                         onChange={this.changeUsernameValue}
                       />
                       )}
+                  { tabValue === 2 && (
+                    <FormControl className="FormControl" variant="filled" fullWidth>
+                      <Select
+                        native
+                        value={adminValue}
+                        onChange={this.changeAdminValue}
+                      >
+                        <option value={0}>admin1</option>
+                        <option value={1}>admin2</option>
+                        <option value={2}>admin3</option>
+                      </Select>
+                    </FormControl>
+                  )}
                   <TextField
                     id="filled-password"
                     label="Password"

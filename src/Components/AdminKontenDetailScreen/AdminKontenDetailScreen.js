@@ -364,7 +364,7 @@ class AdminKontenDetailScreen extends React.Component {
                   </Grid>
                 </Grid>
                 <Grid item md={4}>
-                  <canvas id="myChart" width="200" height="200"></canvas>
+                  <canvas id="myChart" width="200" height="200" />
                 </Grid>
                 <Grid item md={12}>
                   <Typography variant="h6">Aktif Hingga:</Typography>
