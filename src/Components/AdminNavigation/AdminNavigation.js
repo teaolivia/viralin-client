@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import Person from '@material-ui/icons/Person';
 import Home from '@material-ui/icons/Home';
 import ArrowBack from '@material-ui/icons/ArrowBack';
+import Notifications from '@material-ui/icons/Notifications';
 
 import 'Components/AdminNavigation/AdminNavigation.css';
 
@@ -37,7 +38,10 @@ class AdminNavigation extends React.Component {
       header,
       isWithHomeButton,
       isWithBackButton,
+      isWithNotificationButton,
+      isWithAvatar,
       username,
+      type,
       imageUrl,
     } = this.props;
     return (
@@ -57,6 +61,11 @@ class AdminNavigation extends React.Component {
           className="Left"
           xs={4}
         >
+          { isWithNotificationButton && (
+            <ButtonBase onClick={this.handleClick}>
+              <Notifications />
+            </ButtonBase>
+          )}
           { isWithHomeButton && (
             <ButtonBase onClick={this.handleClick}>
               <Home />
@@ -80,20 +89,34 @@ class AdminNavigation extends React.Component {
         >
           <Typography variant="h5">{header}</Typography>
         </Grid>
-        <Grid
-          container
-          item
-          direction="row-reverse"
-          alignItems="center"
-          spacing={0}
-          className="Right"
-          xs={4}
-        >
-          { imageUrl ? <Avatar src={imageUrl} /> : <Avatar><Person /></Avatar>}
-          <span>&nbsp;</span>
-          <span>&nbsp;</span>
-          <Typography>{username}</Typography>
-        </Grid>
+        {isWithAvatar && (
+          <Grid
+            container
+            item
+            direction="row-reverse"
+            alignItems="center"
+            spacing={1}
+            className="Right"
+            xs={4}
+          >
+            <Grid
+              container
+              item
+              md={1}
+            >
+              { imageUrl ? <Avatar src={imageUrl} /> : <Avatar><Person /></Avatar>}
+            </Grid>
+            <Grid
+              container
+              item
+              md={11}
+              direction="column"
+            >
+              <Typography variant="subtitle1" align="right"><u>{username}</u></Typography>
+              <Typography variant="subtitle1" align="right">{type}</Typography>
+            </Grid>
+          </Grid>
+        )}
       </Grid>
     );
   }
@@ -103,17 +126,23 @@ AdminNavigation.defaultProps = {
   header: '',
   username: 'User',
   imageUrl: '',
+  type: 'User',
   isWithHomeButton: false,
   isWithBackButton: false,
+  isWithNotificationButton: false,
+  isWithAvatar: false,
   history: {},
 };
 
 AdminNavigation.propTypes = {
   header: PropTypes.string,
+  type: PropTypes.string,
   username: PropTypes.string,
   imageUrl: PropTypes.string,
   isWithHomeButton: PropTypes.bool,
   isWithBackButton: PropTypes.bool,
+  isWithNotificationButton: PropTypes.bool,
+  isWithAvatar: PropTypes.bool,
   history: PropTypes.shape({}),
 };
 
