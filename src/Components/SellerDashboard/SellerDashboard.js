@@ -61,7 +61,7 @@ handleClick(index) {
         const { buttons } = this.state;
         return(
         <div className="SellerDashboardScreen">
-            <AdminNavigation username="Admin" />
+            <Navigation username="Admin" />
             <Grid
             container
             direction="row"
