@@ -66,7 +66,7 @@ class AdminDashboardScreen extends React.Component {
     const { buttons } = this.state;
     return (
       <div className="AdminDashboardScreen">
-        <AdminNavigation username="Admin" />
+        <AdminNavigation username="Admin" isWithAvatar />
         <Grid
           container
           direction="row"
