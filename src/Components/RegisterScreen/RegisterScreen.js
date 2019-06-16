@@ -46,7 +46,7 @@ class RegisterScreen extends React.Component {
           spacing={0}
         >
           <Grid item xs={12}>
-            <Typography className="Header" variant="h1" component="h2">
+            <Typography className="Header" variant="h1" component="h2" align="center">
               Daftar
             </Typography>
           </Grid>
@@ -71,7 +71,7 @@ class RegisterScreen extends React.Component {
                   }
                 </TabContainer>
               </Paper>
-              <Typography variant="subtitle1">
+              <Typography variant="subtitle1" align="center">
                 <br />
                 Promosi? Viralin ajaaa..
               </Typography>
