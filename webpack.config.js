@@ -61,6 +61,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './build',
+    hot: true,
   },
   stats: { children: false },
 };
