@@ -9,6 +9,8 @@ import PromotorDatabaseScreen from 'Components/PromotorDatabaseScreen/PromotorDa
 import SellerDatabaseScreen from 'Components/SellerDatabaseScreen/SellerDatabaseScreen';
 import AdminKelolaKontenViralScreen from 'Components/AdminKelolaKontenViralScreen/AdminKelolaKontenViralScreen';
 import AdminKontenDetailScreen from 'Components/AdminKontenDetailScreen/AdminKontenDetailScreen';
+import ProfileScreen from 'Components/ProfileScreen/ProfileScreen';
+
 import SellerDashboard from './Components/SellerDashboard/SellerDashboard';
 
 import './App.css';
@@ -33,6 +35,7 @@ class App extends Component {
           <Route path="/admin-konten-detail/:id" exact component={AdminKontenDetailScreen} />
           <Route path="/seller-database" exact component={SellerDatabaseScreen} />
           <Route path="/promotor-database" exact component={PromotorDatabaseScreen} />
+          <Route path="/profile" exact component={ProfileScreen} />
         </div>
       </Router>
     );
