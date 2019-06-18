@@ -15,6 +15,7 @@ import PromotorMyProgressScreen from 'Components/PromotorMyProgressScreen/Promot
 import SellerDashboardScreen from './Components/SellerDashboardScreen/SellerDashboardScreen';
 import SellerKontenDetailScreen from './Components/SellerKontenDetailScreen/SellerKontenDetailScreen';
 import SellerCreateKontenScreen from './Components/SellerCreateKontenScreen/SellerCreateKontenScreen';
+import SellerMyPromotorScreen from './Components/SellerMyPromotorScreen/SellerMyPromotorScreen';
 
 import './App.css';
 
@@ -43,6 +44,7 @@ class App extends Component {
           <Route path="/promotor-my-progress" exact component={PromotorMyProgressScreen} />
           <Route path="/seller-konten-detail/:id" exact component={SellerKontenDetailScreen} />
           <Route path="/seller-add-konten/" exact component={SellerCreateKontenScreen} />
+          <Route path="/seller-my-promotor/" exact component={SellerMyPromotorScreen} />
         </div>
       </Router>
     );
