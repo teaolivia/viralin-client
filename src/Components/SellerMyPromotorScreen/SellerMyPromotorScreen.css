@@ -1,0 +1,13 @@
+.SellerMyPromotorScreen {
+  width:100%;
+  min-height: 100vh;
+  background-color:grey;
+}
+
+.SellerMyPromotorScreen .TopContainer{
+  padding: 20px 40px;
+}
+
+.SellerMyPromotorScreen .Top{
+  padding: 20px 0;
+}
