@@ -1,51 +1,51 @@
 {
     "admin": [
         {
-            "admin_id (S)": "admin1",
-            "password (S)": "viralin1"
+            "admin_id": "admin1",
+            "password": "viralin1"
         },
         {
-            "admin_id (S)": "admin2",
-            "password (S)": "viralin2"
+            "admin_id": "admin2",
+            "password": "viralin2"
         },
         {
-            "admin_id (S)": "admin3",
-            "password (S)": "viralin3"
+            "admin_id": "admin3",
+            "password": "viralin3"
         }
     ],
     "sellers": [
         {
-            "id (S)": "seller1",
-            "business_name (S)": "Krusty Krabs",
-            "business_type (S)": "Makanan",
-            "email (S)": "krusty_krabs@mail.com",
-            "name (S)": "Eugene Krabs",
-            "password (S)": "b'$2b$12$dpNrEp7X2Ci1LznrGGZuw.paBMsskHFniJW/jBll8Vj26trYwizPu'",
-            "phone (S)": "+6281234567890",
-            "province (S)": "Jawa Barat",
-            "username (S)": "co-ching",
-            "birthplace (S)": "Bandung",
-            "city (S)": ""
+            "id": "seller1",
+            "business_name": "Krusty Krabs",
+            "business_type": "Makanan",
+            "email": "krusty_krabs@mail.com",
+            "name": "Eugene Krabs",
+            "password": "moneymoneymoney",
+            "phone": "+6281234567890",
+            "province": "Jawa Barat",
+            "username": "co-ching",
+            "birthplace": "Bandung",
+            "city": ""
           },
           {
             "id (S)": "seller2",
-            "business_name (S)": "Chum Bucket",
-            "business_type (S)": "Barang",
-            "email (S)": "chum_bucket@mail.com",
-            "name (S)": "Plankton",
-            "password (S)": "b'$2b$12$X5yVhtnNFZp.e9GGxd.lvOKDiZOS//iS8kaeE/NJD1H1u9jsfu6tW'",
-            "phone (S)": "+6281234567891",
-            "province (S)": "Jawa Tengah",
-            "username (S)": "karen",
-            "birthplace (S)": "",
-            "city (S)": "Semarang"
+            "business_name": "Chum Bucket",
+            "business_type": "Barang",
+            "email": "chum_bucket@mail.com",
+            "name": "Plankton",
+            "password": "krabbypattyisshit",
+            "phone": "+6281234567891",
+            "province": "Jawa Tengah",
+            "username": "karen",
+            "birthplace": "",
+            "city": "Semarang"
           }
     ],
     "promotors": [
         {
             "day_of_birth": "1967-09-27",
             "city": "Bandung",
-            "password": "b'$2b$12$u7ZY30DoTB3R6cr5fyw9EOhQYLa7deOU4I8/j8neG9NX03MhTSTmu'",
+            "password": "iamsandycheeks",
             "level": "S",
              "id": "promotor3",
             "province": "Jawa Barat",
@@ -59,7 +59,7 @@
           {
             "day_of_birth": "1989-12-24",
             "city": "Surabaya",
-            "password": "b'$2b$12$EdEUFw4Abs.PFB7t1DTapuws7qmYzYR26qtJ9FXUP9vkIG0kuKzAa'",
+            "password": "iamflyingdutchman",
             "level": "A",
              "id": "promotor2",
             "province": "Jawa Timur",
@@ -73,7 +73,7 @@
           {
             "day_of_birth": "1995-05-23",
             "city": "Jakarta Pusat",
-            "password": "b'$2b$12$pJFlhFrIXEg2jkpQVTVCD.Ns1d1t3qgCe6hYBLbo24WhmI5PUfQfu'",
+            "password": "iamready",
             "level": "B",
              "id": "promotor1",
             "province": "DKI Jakarta",
