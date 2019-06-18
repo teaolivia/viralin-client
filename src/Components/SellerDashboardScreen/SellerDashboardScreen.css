@@ -17,10 +17,20 @@
 }
 
 .SellerDashboardScreen .ButtonsContainer .Button {
-  background-color: white;
-  padding: 40px 30px;
+  padding: 30px 30px;
   border: solid black;
   border-radius: 10%;
+}
+
+.SellerDashboardScreen .ButtonsContainer .ButtonIcon {
+  border-radius: 100%;
+  padding-top:10px;
+  padding-left: 10px;
+  padding-right: 10px;  
+}
+
+.SellerDashboardScreen .Tabel {
+  padding: 0px 30px;
 }
 
 @media only screen and (max-width: 768px) {
