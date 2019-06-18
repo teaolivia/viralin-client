@@ -13,7 +13,7 @@ import ProfileScreen from 'Components/ProfileScreen/ProfileScreen';
 import PromotorDashboardScreen from 'Components/PromotorDashboardScreen/PromotorDashboardScreen';
 import PromotorMyProgressScreen from 'Components/PromotorMyProgressScreen/PromotorMyProgressScreen';
 
-import SellerDashboard from './Components/SellerDashboard/SellerDashboard';
+import SellerDashboardScreen from './Components/SellerDashboardScreen/SellerDashboardScreen';
 
 import './App.css';
 
@@ -31,7 +31,7 @@ class App extends Component {
           <Route path="/" exact component={LoginScreen} />
           <Route path="/login" exact component={LoginScreen} />
           <Route path="/register" exact component={RegisterScreen} />
-          <Route path="/seller-dashboard" exact component={SellerDashboard} />
+          <Route path="/seller-dashboard" exact component={SellerDashboardScreen} />
           <Route path="/admin-dashboard" exact component={AdminDashboardScreen} />
           <Route path="/admin-kelola-konten-viral" exact component={AdminKelolaKontenViralScreen} />
           <Route path="/admin-konten-detail/:id" exact component={AdminKontenDetailScreen} />
