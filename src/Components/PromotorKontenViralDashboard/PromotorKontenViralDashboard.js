@@ -36,15 +36,6 @@ class PromotorKontenViralDashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.handleClickMore = this.handleClickMore.bind(this);
-  }
-
-
-  handleClickMore(index) {
-    this.setState();
-    const baseUrl = './admin-konten-detail/';
-    const direct = baseUrl + index;
-    window.location.href = direct;
   }
 
   render() {
