@@ -1,69 +1,16 @@
 {
     "admin": [
         {
-            "isReferral": false,
-            "seller_id": "seller2",
-            "content_type": "barang",
-            "status": false,
-            "games_rule": "Personal Information posting is a crime",
-            "duration_end": "2019-01-01",
-            "duration_start": "2019-02-01",
-            "content_id": "content3",
-            "asset": 6666,
-            "title": "Buy 1 Get 1",
-            "type": "fisik"
+            "admin_id (S)": "admin1",
+            "password (S)": "viralin1"
         },
         {
-            "isReferral": false,
-            "seller_id": "seller2",
-            "content_type": "barang",
-            "status": false,
-            "games_rule": "makin lama makin asyik!!!",
-            "duration_end": "2019-04-01",
-            "duration_start": "2019-08-01",
-            "content_id": "content4",
-            "asset": 88888,
-            "title": "Diskon 50%",
-            "type": "fisik"
+            "admin_id (S)": "admin2",
+            "password (S)": "viralin2"
         },
         {
-            "isReferral": true,
-            "seller_id": "seller1",
-            "content_type": "kuota",
-            "status": true,
-            "games_rule": "Spotlight uh, Moonlight uh, X got shot at a stoplight uh",
-            "duration_end": "2019-02-01",
-            "duration_start": "2019-01-01",
-            "content_id": "content1",
-            "asset": 999999,
-            "title": "Indihome Paket Gamer",
-            "type": "digital"
-        },
-        {
-            "isReferral": true,
-            "seller_id": "seller1",
-            "content_type": "makanan",
-            "status": true,
-            "games_rule": "Ayam Geprek super pedas enak mantap gurih!!!",
-            "duration_end": "2019-03-20",
-            "duration_start": "2019-03-02",
-            "content_id": "content2",
-            "asset": 55555,
-            "title": "Ayam Geprek Hot",
-            "type": "fisik"
-        },
-        {
-            "isReferral": true,
-            "seller_id": "seller1",
-            "content_type": "barang",
-            "status": true,
-            "games_rule": "Transfer pulsa bawa berkah <3",
-            "duration_end": "2019-06-05",
-            "duration_start": "2019-07-05",
-            "content_id": "content5",
-            "asset": 88888,
-            "title": "Pu(l)asa",
-            "type": "digital"
+            "admin_id (S)": "admin3",
+            "password (S)": "viralin3"
         }
     ],
     "sellers": [
