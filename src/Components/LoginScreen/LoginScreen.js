@@ -20,7 +20,7 @@ const ADMIN_PASSWORD = 'asdf';
 
 const loginAdmin = (password) => {
   if (password === ADMIN_PASSWORD) {
-    window.location.href = '/admin-dashboard';
+    <Link to='/admin-dashboard'></Link>
   } else {
     alert('Password salah');
   }
