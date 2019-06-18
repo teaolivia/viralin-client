@@ -40,6 +40,7 @@ class App extends Component {
           <Route path="/profile" exact component={ProfileScreen} />
           <Route path="/promotor-dashboard" exact component={PromotorDashboardScreen} />
           <Route path="/promotor-my-progress" exact component={PromotorMyProgressScreen} />
+          <Route path="/seller-konten-detail/:id" exact component={AdminKontenDetailScreen} />
         </div>
       </Router>
     );
