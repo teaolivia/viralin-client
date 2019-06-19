@@ -15,9 +15,9 @@ function deleteItem(idx) {
 }
 
 function updateItem() {
-
+    
 }
 
 function getItem() {
-
+    return db['Items']
 }
