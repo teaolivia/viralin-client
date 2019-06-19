@@ -28,7 +28,7 @@
             "city": ""
           },
           {
-            "id (S)": "seller2",
+            "id": "seller2",
             "business_name": "Chum Bucket",
             "business_type": "Barang",
             "email": "chum_bucket@mail.com",

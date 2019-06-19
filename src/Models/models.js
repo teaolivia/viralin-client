@@ -2,7 +2,7 @@
 // ========================================================
 // 
 // https://my-json-server.typicode.com/teaolivia/viralin-db
-import './db'
+import * as db from './db.json';
 
 function addItem(db, item) {
     var res = JSON.parse(db);
@@ -15,9 +15,22 @@ function deleteItem(idx) {
 }
 
 function updateItem() {
-    
+    for (var i = 0; i < jsonObj.length; i++) {
+        if (db[i].id === id) {
+            db[i].username = newusername;
+            return;
+        }
+    }
 }
 
-function getItem() {
-    return db['Items']
+function getItem(item) {
+    var obj = JSON.parse(db)
+    var init = obj[0]
+    var id = init.seller_id;
 }
+
+function objToString(obj) {
+    return JSON.parse(fs.readFileSync('./content.json').toString())
+}
+
+export default Models;
