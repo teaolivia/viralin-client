@@ -23,7 +23,7 @@ import TabContainer from 'Components/TabContainer/TabContainer';
 
 const loginAdmin = (adminValue, password) => {
   console.log(adminValue);
-  if (password ==  ADMIN_PASSWORD) {
+  if (password ==  'asdf') {
     <Link to='/admin-dashboard'></Link>
   } else {
     alert('Password salah');
