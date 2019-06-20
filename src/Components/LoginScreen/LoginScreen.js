@@ -14,33 +14,16 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { Link } from 'react-router-dom';
 
-import Models from 'Models/models.js';
-
 import 'Components/LoginScreen/LoginScreen.css';
 
 import TabContainer from 'Components/TabContainer/TabContainer';
 
+const ADMIN_PASSWORD = 'asdf';
 
 const loginAdmin = (adminValue, password) => {
   console.log(adminValue);
-  if (password ==  'asdf') {
+  if (password === ADMIN_PASSWORD) {
     <Link to='/admin-dashboard'></Link>
-  } else {
-    alert('Password salah');
-  }
-};
-
-const loginPromotor = (username, password) => {
-  if ((username == ['promotors'][1]['username'])&&(password === ['promotors']['password'])) {
-    <Link to='/promotor-dashboard'></Link>
-  } else {
-    alert('Password salah');
-  }
-};
-
-const loginSeller = (username, password) => {
-  if ((username == ['sellers']['username'])&&(password === ['sellers']['password'])) {
-    <Link to='/seller-dashboard'></Link>
   } else {
     alert('Password salah');
   }
@@ -88,11 +71,11 @@ class LoginScreen extends React.Component {
     switch (tabValue) {
       case 0:
         // Login pebisnis
-        loginSeller(sellerValue, password);
+        console.log(username);
         break;
       case 1:
         // Login promotor
-        loginPromotor(promotorValue, password);
+        console.log(username);
         break;
       case 2:
         // Login admin
