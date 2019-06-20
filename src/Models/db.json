@@ -1,187 +1,190 @@
 {
-    "admin": [
-        {
-            "admin_id": "admin1",
-            "password": "viralin1"
-        },
-        {
-            "admin_id": "admin2",
-            "password": "viralin2"
-        },
-        {
-            "admin_id": "admin3",
-            "password": "viralin3"
-        }
-    ],
-    "sellers": [
-        {
-            "id": "seller1",
-            "business_name": "Krusty Krabs",
-            "business_type": "Makanan",
-            "email": "krusty_krabs@mail.com",
-            "name": "Eugene Krabs",
-            "password": "moneymoneymoney",
-            "phone": "+6281234567890",
-            "province": "Jawa Barat",
-            "username": "co-ching",
-            "birthplace": "Bandung",
-            "city": ""
-          },
-          {
-            "id (S)": "seller2",
-            "business_name": "Chum Bucket",
-            "business_type": "Barang",
-            "email": "chum_bucket@mail.com",
-            "name": "Plankton",
-            "password": "krabbypattyisshit",
-            "phone": "+6281234567891",
-            "province": "Jawa Tengah",
-            "username": "karen",
-            "birthplace": "",
-            "city": "Semarang"
-          }
-    ],
-    "promotors": [
-        {
-            "day_of_birth": "1967-09-27",
-            "city": "Bandung",
-            "password": "iamsandycheeks",
-            "level": "S",
-             "id": "promotor3",
-            "province": "Jawa Barat",
-            "place_of_birth": "Vancouver",
-            "username": "sandycheeks",
-            "address": "Ir. H. Djuanda No. 48",
-            "email": "sandy_cheeks@gmail.com",
-            "phone": "+6281111111113",
-            "name": "Sandy Cheeks"
-          },
-          {
-            "day_of_birth": "1989-12-24",
-            "city": "Surabaya",
-            "password": "iamflyingdutchman",
-            "level": "A",
-             "id": "promotor2",
-            "province": "Jawa Timur",
-            "place_of_birth": "Kuala Lumpur",
-            "username": "flyingdutchman",
-            "address": "VOC 2 No. 67",
-            "email": "flying_dutchman@gmail.com",
-            "phone": "+6281111111112",
-            "name": "Flying Dutchman"
-          },
-          {
-            "day_of_birth": "1995-05-23",
-            "city": "Jakarta Pusat",
-            "password": "iamready",
-            "level": "B",
-             "id": "promotor1",
-            "province": "DKI Jakarta",
-            "place_of_birth": "Bikini Bottom",
-            "username": "spongebob",
-            "address": "Bikini Bottom 1 No. 43",
-            "email": "spongebob_squarepants@gmail.com",
-            "phone": "+6281111111111",
-            "name": "SpongeBob SquarePants"
-          }
-    ],
-    "contents": [
-        {
-            "isReferral": false,
-             "id": "seller2",
-            "content_type": "barang",
-            "status": false,
-            "games_rule": "Personal Information posting is a crime",
-            "duration_end": "2019-01-01",
-            "duration_start": "2019-02-01",
-            "content_id": "content3",
-            "asset": 6666,
-            "title": "Buy 1 Get 1",
-            "type": "fisik"
-          },
-          {
-            "isReferral": false,
-            "seller_id": "seller2",
-            "content_type": "barang",
-            "status": false,
-            "games_rule": "makin lama makin asyik!!!",
-            "duration_end": "2019-04-01",
-            "duration_start": "2019-08-01",
-            "content_id": "content4",
-            "asset": 88888,
-            "title": "Diskon 50%",
-            "type": "fisik"
-          },
-          {
-            "isReferral": true,
-            "seller_id": "seller1",
-            "content_type": "kuota",
-            "status": true,
-            "games_rule": "Spotlight uh, Moonlight uh, X got shot at a stoplight uh",
-            "duration_end": "2019-02-01",
-            "duration_start": "2019-01-01",
-            "content_id": "content1",
-            "asset": 999999,
-            "title": "Indihome Paket Gamer",
-            "type": "digital"
-          },
-          {
-            "isReferral": true,
-            "seller_id": "seller1",
-            "content_type": "makanan",
-            "status": true,
-            "games_rule": "Ayam Geprek super pedas enak mantap gurih!!!",
-            "duration_end": "2019-03-20",
-            "duration_start": "2019-03-02",
-            "content_id": "content2",
-            "asset": 55555,
-            "title": "Ayam Geprek Hot",
-            "type": "fisik"
-          },
-          {
-            "isReferral": true,
-            "seller_id": "seller1",
-            "content_type": "barang",
-            "status": true,
-            "games_rule": "Transfer pulsa bawa berkah <3",
-            "duration_end": "2019-06-05",
-            "duration_start": "2019-07-05",
-            "content_id": "content5",
-            "asset": 88888,
-            "title": "Pu(l)asa",
-            "type": "digital"
-          }
-    ],
-    "relations": [
-        {
-        "_id": 2,
-        "content_id": "content4",
-        "seller_id": "seller2",
-        "id": "promotor3"
-        },
-        {
-        "_id": 1,
-        "content_id": "content1",
-        "seller_id": "seller1",
-        "id": "promotor1"
-        },
-        {
-        "_id": 5,
-        "content_id": "content3",
-        "seller_id": "seller2",
-         "id": "promotor2"
-        },
-        {
-        "_id": 4,
-        "content_id": "content2",
-        "seller_id": "seller1",
-         "id": "promotor1"
-        },
-        {
-        "_id": 3,
-        "content_id": "content5",
-        "seller_id": "seller1",
-         "id": "promotor2"
-        }
-    ]
+  "admin": [
+    {
+      "id": "admin1",
+      "username": "admin1",
+      "password": "viralin1"
+    },
+    {
+      "id": "admin2",
+      "username": "admin2",
+      "password": "viralin2"
+    },
+    {
+      "id": "admin3",
+      "username": "admin3",
+      "password": "viralin3"
+    }
+  ],
+  "sellers": [
+    {
+      "id": "seller1",
+      "business_name": "Krusty Krabs",
+      "business_type": "Makanan",
+      "email": "krusty_krabs@mail.com",
+      "name": "Eugene Krabs",
+      "password": "moneymoneymoney",
+      "phone": "+6281234567890",
+      "province": "Jawa Barat",
+      "username": "co-ching",
+      "birthplace": "Bandung",
+      "city": ""
+    },
+    {
+      "id (S)": "seller2",
+      "business_name": "Chum Bucket",
+      "business_type": "Barang",
+      "email": "chum_bucket@mail.com",
+      "name": "Plankton",
+      "password": "krabbypattyisshit",
+      "phone": "+6281234567891",
+      "province": "Jawa Tengah",
+      "username": "karen",
+      "birthplace": "",
+      "city": "Semarang"
+    }
+  ],
+  "promotors": [
+    {
+      "day_of_birth": "1967-09-27",
+      "city": "Bandung",
+      "password": "iamsandycheeks",
+      "level": "S",
+      "id": "promotor3",
+      "province": "Jawa Barat",
+      "place_of_birth": "Vancouver",
+      "username": "sandycheeks",
+      "address": "Ir. H. Djuanda No. 48",
+      "email": "sandy_cheeks@gmail.com",
+      "phone": "+6281111111113",
+      "name": "Sandy Cheeks"
+    },
+    {
+      "day_of_birth": "1989-12-24",
+      "city": "Surabaya",
+      "password": "iamflyingdutchman",
+      "level": "A",
+      "id": "promotor2",
+      "province": "Jawa Timur",
+      "place_of_birth": "Kuala Lumpur",
+      "username": "flyingdutchman",
+      "address": "VOC 2 No. 67",
+      "email": "flying_dutchman@gmail.com",
+      "phone": "+6281111111112",
+      "name": "Flying Dutchman"
+    },
+    {
+      "day_of_birth": "1995-05-23",
+      "city": "Jakarta Pusat",
+      "password": "iamready",
+      "level": "B",
+      "id": "promotor1",
+      "province": "DKI Jakarta",
+      "place_of_birth": "Bikini Bottom",
+      "username": "spongebob",
+      "address": "Bikini Bottom 1 No. 43",
+      "email": "spongebob_squarepants@gmail.com",
+      "phone": "+6281111111111",
+      "name": "SpongeBob SquarePants"
+    }
+  ],
+  "contents": [
+    {
+      "isReferral": false,
+      "id": "seller2",
+      "content_type": "barang",
+      "status": false,
+      "games_rule": "Personal Information posting is a crime",
+      "duration_end": "2019-01-01",
+      "duration_start": "2019-02-01",
+      "content_id": "content3",
+      "asset": 6666,
+      "title": "Buy 1 Get 1",
+      "type": "fisik"
+    },
+    {
+      "isReferral": false,
+      "seller_id": "seller2",
+      "content_type": "barang",
+      "status": false,
+      "games_rule": "makin lama makin asyik!!!",
+      "duration_end": "2019-04-01",
+      "duration_start": "2019-08-01",
+      "content_id": "content4",
+      "asset": 88888,
+      "title": "Diskon 50%",
+      "type": "fisik"
+    },
+    {
+      "isReferral": true,
+      "seller_id": "seller1",
+      "content_type": "kuota",
+      "status": true,
+      "games_rule": "Spotlight uh, Moonlight uh, X got shot at a stoplight uh",
+      "duration_end": "2019-02-01",
+      "duration_start": "2019-01-01",
+      "content_id": "content1",
+      "asset": 999999,
+      "title": "Indihome Paket Gamer",
+      "type": "digital"
+    },
+    {
+      "isReferral": true,
+      "seller_id": "seller1",
+      "content_type": "makanan",
+      "status": true,
+      "games_rule": "Ayam Geprek super pedas enak mantap gurih!!!",
+      "duration_end": "2019-03-20",
+      "duration_start": "2019-03-02",
+      "content_id": "content2",
+      "asset": 55555,
+      "title": "Ayam Geprek Hot",
+      "type": "fisik"
+    },
+    {
+      "isReferral": true,
+      "seller_id": "seller1",
+      "content_type": "barang",
+      "status": true,
+      "games_rule": "Transfer pulsa bawa berkah <3",
+      "duration_end": "2019-06-05",
+      "duration_start": "2019-07-05",
+      "content_id": "content5",
+      "asset": 88888,
+      "title": "Pu(l)asa",
+      "type": "digital"
+    }
+  ],
+  "relations": [
+    {
+      "id": 2,
+      "content_id": "content4",
+      "seller_id": "seller2",
+      "promotor_id": "promotor3"
+    },
+    {
+      "id": 1,
+      "content_id": "content1",
+      "seller_id": "seller1",
+      "promotor_id": "promotor1"
+    },
+    {
+      "id": 5,
+      "content_id": "content3",
+      "seller_id": "seller2",
+      "promotor_id": "promotor2"
+    },
+    {
+      "id": 4,
+      "content_id": "content2",
+      "seller_id": "seller1",
+      "promotor_id": "promotor1"
+    },
+    {
+      "id": 3,
+      "content_id": "content5",
+      "seller_id": "seller1",
+      "promotor_id": "promotor2"
+    }
+  ]
 }

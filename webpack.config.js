@@ -64,4 +64,7 @@ module.exports = {
     hot: true,
   },
   stats: { children: false },
+  externals: {
+    'Config': JSON.stringify(process.env.NODE_ENV === 'production' ? require('./config.prod.json') : require('./config.dev.json'))
+  },
 };
