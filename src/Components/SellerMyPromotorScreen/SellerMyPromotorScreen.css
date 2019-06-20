@@ -4,10 +4,22 @@
   background-color:grey;
 }
 
-.SellerMyPromotorScreen .TopContainer{
+.SellerMyPromotorScreen .TopContainer {
   padding: 20px 40px;
 }
 
 .SellerMyPromotorScreen .Top{
   padding: 20px 0;
+}
+
+.SellerMyPromotorScreen .Top .DiscoverPromotorButton {
+  padding: 0 10px;
+}
+
+.SellerMyPromotorScreen .PromotorsContainer {
+  padding: 20px 80px;
+}
+
+.SellerMyPromotorScreen .PromotorsContainer .PromotorContainer{
+  padding-bottom: 40px;
 }

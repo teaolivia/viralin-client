@@ -12,8 +12,39 @@ import FilterList from '@material-ui/icons/FilterList';
 import Language from '@material-ui/icons/Language';
 
 import Navigation from 'Components/Navigation/Navigation';
+import PromotorList from 'Components/PromotorList/PromotorList';
 
 import 'Components/SellerMyPromotorScreen/SellerMyPromotorScreen.css';
+
+const promotorData = {
+  id: 0,
+  username: 'Joko',
+  level: 'S',
+  clicks: 0,
+  likes: 0,
+  transactions: 0,
+  contents: [
+    'Ayam bakar mas stereo',
+    'Asoy geboy',
+  ],
+};
+
+const promotor2Data = {
+  id: 1,
+  username: 'Joko',
+  level: 'A',
+  clicks: 0,
+  likes: 0,
+  transactions: 0,
+  contents: [
+    'Asoy geboy',
+  ],
+};
+
+const promotors = [
+  promotorData,
+  promotor2Data,
+];
 
 class SellerMyPromotorScreen extends React.Component {
   constructor(props) {
@@ -71,8 +102,14 @@ class SellerMyPromotorScreen extends React.Component {
               <Grid item xs={4}>
                 <Grid container justify="flex-end">
                   <ButtonBase>
-                    <Paper>
-                      <Grid container spacing={2}>
+                    <Paper
+                      className="DiscoverPromotorButton"
+                    >
+                      <Grid
+                        container
+                        spacing={2}
+                        alignItems="center"
+                      >
                         <Grid item>
                           <Language />
                         </Grid>
@@ -89,6 +126,7 @@ class SellerMyPromotorScreen extends React.Component {
             </Grid>
           </Paper>
         </div>
+        <PromotorList promotors={promotors} />
       </div>
     );
   }
