@@ -13,38 +13,58 @@ import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import 'Components/LoginScreen/LoginScreen.css';
 
 import TabContainer from 'Components/TabContainer/TabContainer';
 
 const ADMIN_PASSWORD = 'asdf';
+const SELLER_TAB = 0;
+const PROMOTOR_TAB = 1;
+const ADMIN_TAB = 2;
 
+const DB_URL = require('Config').db_url;
+const BASE_URL = require('Config').base_url;
 
-
-const loginAdmin = (adminValue, password) => {
-  console.log(adminValue);
-  if (password === ADMIN_PASSWORD) {
-    <Link to='/admin-dashboard'></Link>
-  } else {
-    alert('Password salah');
+const login = (url, username, password, urlNext) => {
+  if (username == '' || password == '') {
+    alert('Isi username dan password');
   }
+  else {
+    axios.get(url+'?username='+username)
+        .then(response => {
+          console.log(response.data)
+          if (response.data.length == 1) {
+            if (response.data[0].username == username && response.data[0].password == password) {
+              // DO SOMETHING HERE
+              window.location.href = urlNext;
+            }
+            else {
+              alert('Username atau password salah');
+            }
+          }
+          else {
+            alert('Username atau password salah');
+          }
+        })
+        .catch(error => {
+          console.log(error);
+          alert('Terjadi kesalahan');
+        });
+  }
+};
+
+const loginAdmin = (username, password) => {
+  login(DB_URL+"/admin", username, password, BASE_URL+"/admin-dashboard");
 };
 
 const loginSeller = (username, password) => {
-  if (username === (password === ADMIN_PASSWORD)) {
-    <Link to='/seller-dashboard'></Link>
-  } else {
-    alert('Password salah');
-  }
+  login(DB_URL+"/sellers", username, password, BASE_URL+"/seller-dashboard");
 };
 
 const loginPromotor = (username, password) => {
-  if (password === ADMIN_PASSWORD) {
-    <Link to='/promotor-dashboard'></Link>
-  } else {
-    alert('Password salah');
-  }
+  login(DB_URL+"/promotors", username, password, BASE_URL+"/promotor-dashboard");
 };
 
 class LoginScreen extends React.Component {
@@ -54,13 +74,13 @@ class LoginScreen extends React.Component {
       tabValue: 0,
       username: '',
       password: '',
-      adminValue: '',
     };
     this.changeTabValue = this.changeTabValue.bind(this);
     this.changeUsernameValue = this.changeUsernameValue.bind(this);
     this.changePasswordValue = this.changePasswordValue.bind(this);
     this.loginButtonClickHandler = this.loginButtonClickHandler.bind(this);
     this.changeAdminValue = this.changeAdminValue.bind(this);
+    this.changeTabValue(null, 0);
   }
 
   changeTabValue(event, newValue) {
@@ -89,15 +109,15 @@ class LoginScreen extends React.Component {
     switch (tabValue) {
       case 0:
         // Login pebisnis
-        loginSeller(username,password);
+        loginSeller(username, password);
         break;
       case 1:
         // Login promotor
-        loginPromotor(username,password);
+        loginPromotor(username, password);
         break;
       case 2:
         // Login admin
-        loginAdmin(adminValue, password);
+        loginAdmin(username, password);
         break;
       default:
         break;
@@ -109,7 +129,6 @@ class LoginScreen extends React.Component {
       tabValue,
       username,
       password,
-      adminValue,
     } = this.state;
     return (
       <div className="LoginScreen">
@@ -139,33 +158,16 @@ class LoginScreen extends React.Component {
                   <Tab label="Akun Admin" />
                 </Tabs>
                 <TabContainer>
-                  {
-                    (tabValue === 0 || tabValue === 1)
-                      && (
-                      <TextField
-                        id="filled-username"
-                        label="Username"
-                        className="TextField"
-                        margin="normal"
-                        variant="filled"
-                        fullWidth
-                        value={username}
-                        onChange={this.changeUsernameValue}
-                      />
-                      )}
-                  { tabValue === 2 && (
-                    <FormControl className="FormControl" variant="filled" fullWidth>
-                      <Select
-                        native
-                        value={adminValue}
-                        onChange={this.changeAdminValue}
-                      >
-                        <option value={0}>admin1</option>
-                        <option value={1}>admin2</option>
-                        <option value={2}>admin3</option>
-                      </Select>
-                    </FormControl>
-                  )}
+                  <TextField
+                    id="filled-username"
+                    label="Username"
+                    className="TextField"
+                    margin="normal"
+                    variant="filled"
+                    fullWidth
+                    value={username}
+                    onChange={this.changeUsernameValue}
+                  />
                   <TextField
                     id="filled-password"
                     label="Password"
