@@ -1,5 +1,4 @@
 {
-	// Temp value, change in production
 	"db_url": "http://localhost",
 	"base_url": "http://localhost"
 }
