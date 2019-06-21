@@ -3,7 +3,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import React from 'react';
 import Button from '@material-ui/core/Button';
 
-const theme = createMuiTheme({
+export const theme = createMuiTheme({
   typography: {
     useNextVariants: true,
   },
@@ -23,13 +23,11 @@ const theme = createMuiTheme({
   },
 });
 
-function Theme() {
-  return (
-    <ThemeProvider theme={theme}>
-      <Button color="primary">Primary</Button>
-      <Button color="secondary">Secondary</Button>
-    </ThemeProvider>
-  );
-}
-
-export default Theme;
+// function Theme() {
+//   return (
+//     <ThemeProvider theme={theme}>
+//       <Button color="primary">Primary</Button>
+//       <Button color="secondary">Secondary</Button>
+//     </ThemeProvider>
+//   );
+// }

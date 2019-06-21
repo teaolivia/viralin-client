@@ -15,9 +15,11 @@ import Select from '@material-ui/core/Select';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+
 import 'Components/LoginScreen/LoginScreen.css';
 
 import TabContainer from 'Components/TabContainer/TabContainer';
+import Logo from 'Image/Logo'
 
 const ADMIN_PASSWORD = 'asdf';
 
@@ -137,9 +139,7 @@ class LoginScreen extends React.Component {
           spacing={0}
         >
           <Grid item xs={12}>
-            <Typography className="Header" variant="h1" component="h2" align="center">
-                VIRALIN
-            </Typography>
+            <Logo />
           </Grid>
           <Grid item xs={12}><br /></Grid>
           <Grid item xs={3} />

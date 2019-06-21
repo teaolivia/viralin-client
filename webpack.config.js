@@ -17,6 +17,16 @@ module.exports = {
         // },
       },
       {
+        test: /\.(png|jp(e*)g|svg)$/,  
+        use: [{
+            loader: 'url-loader',
+            options: { 
+                limit: 250000, // Convert images < 8kb to base64 strings
+                name: 'Image/[hash]-[name].[ext]'
+            } 
+        }]
+      },
+      {
         test: /\.html$/,
         use: [
           {

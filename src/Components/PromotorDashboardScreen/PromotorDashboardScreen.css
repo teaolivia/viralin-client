@@ -1,7 +1,7 @@
 .PromotorDashboardScreen {
   width:100%;
   min-height: 100vh;
-  background-color:grey;
+  background-color:#fff3e0;
 }
 
 .PromotorDashboardScreen .Tabel, .PromotorDashboardScreen .SearchContainer{
