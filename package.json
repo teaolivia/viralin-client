@@ -14,7 +14,7 @@
     "build": "webpack --mode production",
     "format": "prettier --write \"src/**/*.js\""
   },
-  "author": "@mahdiarn, @teaolivia",
+  "author": "@mahdiarn, @teaolivia, @SpiderCK",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.4.5",

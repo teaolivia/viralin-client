@@ -15,7 +15,7 @@
     ],
     "sellers": [
         {
-            "id": "seller1",
+            "seller_id": "seller1",
             "business_name": "Krusty Krabs",
             "business_type": "Makanan",
             "email": "krusty_krabs@mail.com",
@@ -28,7 +28,7 @@
             "city": ""
           },
           {
-            "id (S)": "seller2",
+            "seller_id": "seller2",
             "business_name": "Chum Bucket",
             "business_type": "Barang",
             "email": "chum_bucket@mail.com",
@@ -47,7 +47,7 @@
             "city": "Bandung",
             "password": "iamsandycheeks",
             "level": "S",
-             "id": "promotor3",
+            "promotor_id": "promotor3",
             "province": "Jawa Barat",
             "place_of_birth": "Vancouver",
             "username": "sandycheeks",
@@ -61,7 +61,7 @@
             "city": "Surabaya",
             "password": "iamflyingdutchman",
             "level": "A",
-             "id": "promotor2",
+            "promotor-id": "promotor2",
             "province": "Jawa Timur",
             "place_of_birth": "Kuala Lumpur",
             "username": "flyingdutchman",
@@ -75,7 +75,7 @@
             "city": "Jakarta Pusat",
             "password": "iamready",
             "level": "B",
-             "id": "promotor1",
+            "promotor_id": "promotor1",
             "province": "DKI Jakarta",
             "place_of_birth": "Bikini Bottom",
             "username": "spongebob",
@@ -88,7 +88,7 @@
     "contents": [
         {
             "isReferral": false,
-             "id": "seller2",
+            "seller_id": "seller2",
             "content_type": "barang",
             "status": false,
             "games_rule": "Personal Information posting is a crime",
@@ -157,31 +157,31 @@
         "_id": 2,
         "content_id": "content4",
         "seller_id": "seller2",
-        "id": "promotor3"
+        "promotor_id": "promotor3"
         },
         {
         "_id": 1,
         "content_id": "content1",
         "seller_id": "seller1",
-        "id": "promotor1"
+        "promotor_id": "promotor1"
         },
         {
         "_id": 5,
         "content_id": "content3",
         "seller_id": "seller2",
-         "id": "promotor2"
+        "promotor_id": "promotor2"
         },
         {
         "_id": 4,
         "content_id": "content2",
         "seller_id": "seller1",
-         "id": "promotor1"
+        "promotor_id": "promotor1"
         },
         {
         "_id": 3,
         "content_id": "content5",
         "seller_id": "seller1",
-         "id": "promotor2"
+        "promotor_id": "promotor2"
         }
     ]
 }

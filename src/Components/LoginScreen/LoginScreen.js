@@ -20,10 +20,28 @@ import TabContainer from 'Components/TabContainer/TabContainer';
 
 const ADMIN_PASSWORD = 'asdf';
 
+
+
 const loginAdmin = (adminValue, password) => {
   console.log(adminValue);
   if (password === ADMIN_PASSWORD) {
     <Link to='/admin-dashboard'></Link>
+  } else {
+    alert('Password salah');
+  }
+};
+
+const loginSeller = (username, password) => {
+  if (username === (password === ADMIN_PASSWORD)) {
+    <Link to='/seller-dashboard'></Link>
+  } else {
+    alert('Password salah');
+  }
+};
+
+const loginPromotor = (username, password) => {
+  if (password === ADMIN_PASSWORD) {
+    <Link to='/promotor-dashboard'></Link>
   } else {
     alert('Password salah');
   }
@@ -71,11 +89,11 @@ class LoginScreen extends React.Component {
     switch (tabValue) {
       case 0:
         // Login pebisnis
-        console.log(username);
+        loginSeller(username,password);
         break;
       case 1:
         // Login promotor
-        console.log(username);
+        loginPromotor(username,password);
         break;
       case 2:
         // Login admin
