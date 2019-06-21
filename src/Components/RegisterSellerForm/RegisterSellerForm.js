@@ -11,9 +11,13 @@ import Select from '@material-ui/core/Select';
 import FilledInput from '@material-ui/core/FilledInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import axios from 'axios';
 
 import fetchProvinsiApi from 'Api/fetchProvinsiApi';
 import fetchKabupatenKotaApi from 'Api/fetchKabupatenKotaApi';
+
+const DB_URL = require('Config').db_url;
+const BASE_URL = require('Config').base_url;
 
 class RegisterSellerForm extends React.Component {
   constructor(props) {
@@ -111,25 +115,105 @@ class RegisterSellerForm extends React.Component {
           submittedPassword,
         } = this.state;
         const submitted = {
-          namaUsaha: submittedNamaUsaha,
-          jenisUsaha: submittedJenisUsaha,
-          namaPebisnis: submittedNamaPebisnis,
+          business_name: submittedNamaUsaha,
+          business_type: submittedJenisUsaha,
+          name: submittedNamaPebisnis,
           email: submittedEmail,
-          nomorTelepon: submittedNomorTelepon,
-          alamat: submittedAlamat,
-          provinsi: submittedProvinsi,
-          kabupatenKota: submittedKabupatenKota,
-          tempatLahir: submittedTempatLahir,
-          tanggalLahir: submittedTanggalLahir,
+          phone: submittedNomorTelepon,
+          address: submittedAlamat,
+          province: submittedProvinsi,
+          city: submittedKabupatenKota,
+          birthplace: submittedTempatLahir,
+          birthdate: submittedTanggalLahir,
           username: submittedUsername,
           password: submittedPassword,
         };
         console.table(submitted);
+        if (this.validateSubmit(submitted)) {
+          axios.get(DB_URL+'/sellers?username='+submitted.username)
+              .then(response => {
+                console.log(response.data)
+                if (response.data.length > 0) {
+                  if (response.data[0].username == submitted.username) {
+                    alert('Username sudah ada');
+                    return;
+                  }
+                }
+                this.registerSeller(submitted);
+              })
+              .catch(error => {
+                console.log(error);
+                alert('Terjadi kesalahan');
+              });
+        }
       });
     } else {
       console.log('password not match');
     }
   }
+
+  registerSeller(submitted) {
+    axios.post(DB_URL+'/sellers', submitted)
+        .then(response => {
+          alert('Registrasi berhasil');
+          this.goToDashboard();
+        })
+        .catch(error => {
+          alert('Terjadi kesalahan');
+        });
+  }
+
+  validateSubmit(submitted) {
+    if (submitted.business_name == '') {
+      alert('Isi Nama Usaha');
+      return false;
+    }
+    else if (submitted.business_type == '') {
+      alert('Isi Jenis Usaha');
+      return false;
+    }
+    else if (submitted.name == '') {
+      alert('Isi Nama Pebisnis');
+      return false;
+    }
+    else if (submitted.email == '') {
+      alert('Isi Email');
+      return false;
+    }
+    else if (submitted.phone == '') {
+      alert('Isi Nomor Telepon');
+      return false;
+    }
+    else if (submitted.address == '') {
+      alert('Isi Alamat');
+      return false;
+    }
+    else if (submitted.province == '') {
+      alert('Isi provinsis');
+      return false;
+    }
+    else if (submitted.city == '') {
+      alert('Isi Kabupaten/Kota');
+      return false;
+    }
+    else if (submitted.birthplace == '') {
+      alert('Isi Tempat Lahir');
+      return false;
+    }
+    else if (submitted.birthdate == '') {
+      alert('Isi Tanggal Lahir ');
+      return false;
+    }
+    else if (submitted.username == '') {
+      alert('Isi Username');
+      return false;
+    }
+    else if (submitted.password == '') {
+      alert('Isi Password');
+      return false;
+    }
+    return true;
+  } 
 
   handleInputChange(event) {
     const { value, name } = event.target;
@@ -195,7 +279,7 @@ class RegisterSellerForm extends React.Component {
 
   goToDashboard() {
     this.setState();
-    window.location.hash = '/seller-dashboard';
+    window.location.href = '/seller-dashboard';
   }
 
   render() {
@@ -419,7 +503,6 @@ class RegisterSellerForm extends React.Component {
             color="primary"
             className="Button"
             type="submit"
-            onClick={this.goToDashboard}
           >
             <Typography variant="subtitle1">Register</Typography>
           </Button>
