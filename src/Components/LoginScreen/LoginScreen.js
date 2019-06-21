@@ -20,9 +20,6 @@ import 'Components/LoginScreen/LoginScreen.css';
 import TabContainer from 'Components/TabContainer/TabContainer';
 
 const ADMIN_PASSWORD = 'asdf';
-const SELLER_TAB = 0;
-const PROMOTOR_TAB = 1;
-const ADMIN_TAB = 2;
 
 const DB_URL = require('Config').db_url;
 const BASE_URL = require('Config').base_url;

@@ -16,6 +16,9 @@ import axios from 'axios';
 import fetchProvinsiApi from 'Api/fetchProvinsiApi';
 import fetchKabupatenKotaApi from 'Api/fetchKabupatenKotaApi';
 
+const DB_URL = require('Config').db_url;
+const BASE_URL = require('Config').base_url;
+
 class RegisterPromotorForm extends React.Component {
   constructor(props) {
     super(props);
@@ -116,26 +119,111 @@ class RegisterPromotorForm extends React.Component {
           submittedPassword,
         } = this.state;
         const submitted = {
-          namaPromotor: submittedNamaPromotor,
+          name: submittedNamaPromotor,
           facebook: submittedFacebook,
           twitter: submittedTwitter,
           instagram: submittedInstagram,
           email: submittedEmail,
-          nomorTelepon: submittedNomorTelepon,
-          alamat: submittedAlamat,
-          provinsi: submittedProvinsi,
-          kabupatenKota: submittedKabupatenKota,
-          tempatLahir: submittedTempatLahir,
-          tanggalLahir: submittedTanggalLahir,
+          phone: submittedNomorTelepon,
+          address: submittedAlamat,
+          province: submittedProvinsi,
+          city: submittedKabupatenKota,
+          place_of_birth: submittedTempatLahir,
+          date_of_birth: submittedTanggalLahir,
           username: submittedUsername,
           password: submittedPassword,
+          level: "A", //TODO placeholder
         };
         console.table(submitted);
+        if (this.validateSubmit(submitted)) {
+          axios.get(DB_URL+'/promotors?username='+submitted.username)
+              .then(response => {
+                console.log(response.data)
+                if (response.data.length > 0) {
+                  if (response.data[0].username == submitted.username) {
+                    alert('Username sudah ada');
+                    return;
+                  }
+                }
+                this.registerPromotor(submitted);
+              })
+              .catch(error => {
+                console.log(error);
+                alert('Terjadi kesalahan');
+              });
+        }
       });
     } else {
       console.log('password not match');
     }
   }
+
+  registerPromotor(submitted) {
+    axios.post(DB_URL+'/promotors', submitted)
+        .then(response => {
+          alert('Registrasi berhasil');
+          this.goToDashboard();
+        })
+        .catch(error => {
+          alert('Terjadi kesalahan');
+        });
+  }
+
+  validateSubmit(submitted) {
+    if (submitted.name == '') {
+      alert('Isi Nama');
+      return false;
+    }
+    else if (submitted.facebook == '') {
+      alert('Isi Facebook');
+      return false;
+    }
+    else if (submitted.twitter == '') {
+      alert('Isi Twitter');
+      return false;
+    }
+    else if (submitted.instagram == '') {
+      alert('Isi Instagram');
+      return false;
+    }
+    else if (submitted.email == '') {
+      alert('Isi Email');
+      return false;
+    }
+    else if (submitted.phone == '') {
+      alert('Isi Nomor Telepon');
+      return false;
+    }
+    else if (submitted.address == '') {
+      alert('Isi Alamat');
+      return false;
+    }
+    else if (submitted.province == '') {
+      alert('Isi Provinsi');
+      return false;
+    }
+    else if (submitted.city == '') {
+      alert('Isi Kabupaten/Kota');
+      return false;
+    }
+    else if (submitted.birthplace == '') {
+      alert('Isi Tempat Lahir');
+      return false;
+    }
+    else if (submitted.birthdate == '') {
+      alert('Isi Tanggal Lahir');
+      return false;
+    }
+    else if (submitted.username == '') {
+      alert('Isi Username');
+      return false;
+    }
+    else if (submitted.password == '') {
+      alert('Isi Password');
+      return false;
+    }
+    return true;
+  } 
 
   handleInputChange(event) {
     const { value, name } = event.target;
@@ -194,6 +282,11 @@ class RegisterPromotorForm extends React.Component {
         console.log(error);
       },
     );
+  }
+
+  goToDashboard() {
+    this.setState();
+    window.location.href = '/seller-dashboard';
   }
 
   render() {
