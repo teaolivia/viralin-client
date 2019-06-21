@@ -1,0 +1,5 @@
+{
+	// to run json-server: `json-server src/Models/db.json --port 3001`
+	"db_url": "http://localhost:3001",
+	"base_url": "http://localhost:8080"
+}
