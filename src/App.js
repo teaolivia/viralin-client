@@ -16,7 +16,7 @@ import SellerDashboardScreen from './Components/SellerDashboardScreen/SellerDash
 import SellerKontenDetailScreen from './Components/SellerKontenDetailScreen/SellerKontenDetailScreen';
 import SellerCreateKontenScreen from './Components/SellerCreateKontenScreen/SellerCreateKontenScreen';
 import SellerMyPromotorScreen from './Components/SellerMyPromotorScreen/SellerMyPromotorScreen';
-
+import Home from './Components/Home/Home'
 import './App.css';
 
 
@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route path="/" exact component={LoginScreen} />
+          <Route path="/" exact component={Home} />
           <Route path="/login" exact component={LoginScreen} />
           <Route path="/register" exact component={RegisterScreen} />
           <Route path="/seller-dashboard" exact component={SellerDashboardScreen} />
