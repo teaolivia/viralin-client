@@ -78,8 +78,7 @@ class Home extends React.Component {
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
           </div>
         </div>
-        
-        <div class="col-md-6 pr-md-5 order-md-1 order-2">
+        <div class="col-md-6 pr-md-5 order-md-1 order-2">   
           <div class="probootstrap-device">
             <img src="require('./src/Image/phone_3.png')" alt="Free Bootstrap 4 Template by uicookies.com" class="img-fluid mb-md-0 mb-5">
           </div>
