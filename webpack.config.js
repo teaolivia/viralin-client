@@ -1,9 +1,9 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-
 const MODULE_PATHS = ['./node_modules', './src'];
 const path = require('path');
+
+var webpack = require('webpack');
+
 
 module.exports = {
   module: {
@@ -22,7 +22,7 @@ module.exports = {
             loader: 'url-loader',
             options: { 
                 limit: 250000, // Convert images < 8kb to base64 strings
-                name: 'Image/[hash]-[name].[ext]'
+                name: './src/Image/[hash]-[name].[ext]'
             } 
         }]
       },
@@ -35,30 +35,31 @@ module.exports = {
         ],
       },
       {
-        test: /\.css$/,
-        loader: 'style-loader',
-      }, {
-        test: /\.css$/,
-        loader: 'css-loader',
-        query: {
-          // modules: true,
-          // localIdentName: '[name]',
-        },
-      },
+        test: /\.(css|scss)$/,
+        loader: ['style-loader', 'css-loader', 'sass-loader'],
+      }
     ],
   },
   resolve: {
     modules: MODULE_PATHS,
     extensions: ['.js', '.jsx'],
+    alias: {
+      jquery: "jquery/src/jquery"
+    }
   },
   devtool: 'inline-source-map',
   plugins: [
-    new HtmlWebPackPlugin(
-      {
-        //   hash: true,
-        template: path.resolve('./public/index.html'),
-      },
-    ),
+    new HtmlWebPackPlugin({
+      filename: 'index.html',
+      template: path.resolve('./public/index.html')
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    }),
+    new webpack.ProvidePlugin({
+      _map: ['lodash', 'map']
+    })
   ],
   entry: [
     './src/index.js',
