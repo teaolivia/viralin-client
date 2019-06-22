@@ -1,0 +1,22 @@
+.SellerCreateKontenScreen {
+  width:100%;
+  min-height: 100vh;
+  background-color:#fff3e0;
+}
+
+.SellerCreateKontenScreen .MainContainer {
+  padding: 0px 100px;
+}
+
+.SellerCreateKontenScreen .Main {
+  padding: 20px 60px;
+}
+
+.SellerCreateKontenScreen .Main .MuiSlider-valueLabel {
+  color: rgba(0,0,0,0);
+  top: 34px;
+}
+
+.SellerCreateKontenScreen .Main .PrivateValueLabel-label-296 {
+  color:black;
+}

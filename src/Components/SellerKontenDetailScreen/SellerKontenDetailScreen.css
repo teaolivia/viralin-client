@@ -1,0 +1,17 @@
+.SellerKontenDetailScreen {
+  width:100%;
+  min-height: 100vh;
+  background-color:#fff3e0;
+}
+
+.SellerKontenDetailScreen .Main {
+  padding: 0 40px;
+}
+
+.SellerKontenDetailScreen .Main .Counter, .SellerKontenDetailScreen .Main .Top, .SellerKontenDetailScreen .Main .Review {
+  padding: 10px 20px;
+}
+
+.SellerKontenDetailScreen .Main .Top .TopButton {
+  padding: 0 40px;
+}

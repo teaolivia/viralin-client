@@ -1,0 +1,14 @@
+.PromotorDashboardScreen {
+  width:100%;
+  min-height: 100vh;
+  background-color:#fff3e0;
+}
+
+.PromotorDashboardScreen .Tabel, .PromotorDashboardScreen .SearchContainer{
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.PromotorDashboardScreen .SearchContainer{
+  margin-bottom: 20px;
+}
