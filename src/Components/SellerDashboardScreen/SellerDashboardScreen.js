@@ -79,10 +79,10 @@ class SellerDashboard extends React.Component {
     this.setState();
     switch (index) {
       case 1:
-        window.location.href = '/my-promotors';
+        window.location.href = '/seller-my-promotor';
         break;
       case 0:
-        window.location.href = '/add-new-content';
+        window.location.href = '/seller-add-konten';
         break;
       default:
         break;

@@ -10,8 +10,6 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -19,12 +17,12 @@ import axios from 'axios';
 import 'Components/LoginScreen/LoginScreen.css';
 
 import TabContainer from 'Components/TabContainer/TabContainer';
-import Logo from 'Image/Logo'
+import Logo from 'Components/Logo/Logo';
 
 const ADMIN_PASSWORD = 'asdf';
 
-const DB_URL = require('Config').db_url;
-const BASE_URL = require('Config').base_url;
+const DB_URL = require('config').db_url;
+const BASE_URL = require('config').base_url;
 
 const login = (url, username, password, urlNext) => {
   if (username == '' || password == '') {
@@ -32,25 +30,25 @@ const login = (url, username, password, urlNext) => {
   }
   else {
     axios.get(url+'?username='+username)
-        .then(response => {
-          console.log(response.data)
-          if (response.data.length == 1) {
-            if (response.data[0].username == username && response.data[0].password == password) {
-              // DO SOMETHING HERE
-              window.location.href = urlNext;
-            }
-            else {
-              alert('Username atau password salah');
-            }
-          }
-          else {
-            alert('Username atau password salah');
-          }
-        })
-        .catch(error => {
-          console.log(error);
-          alert('Terjadi kesalahan');
-        });
+    .then(response => {
+      console.log(response.data)
+      if (response.data.length == 1) {
+        if (response.data[0].username == username && response.data[0].password == password) {
+          // DO SOMETHING HERE
+          window.location.href = urlNext;
+        }
+        else {
+          alert('Username atau password salah');
+        }
+      }
+      else {
+        alert('Username atau password salah');
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      alert('Terjadi kesalahan');
+    });
   }
 };
 

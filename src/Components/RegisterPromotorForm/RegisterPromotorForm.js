@@ -16,8 +16,8 @@ import axios from 'axios';
 import fetchProvinsiApi from 'Api/fetchProvinsiApi';
 import fetchKabupatenKotaApi from 'Api/fetchKabupatenKotaApi';
 
-const DB_URL = require('Config').db_url;
-const BASE_URL = require('Config').base_url;
+const DB_URL = require('config').db_url;
+const BASE_URL = require('config').base_url;
 
 class RegisterPromotorForm extends React.Component {
   constructor(props) {
