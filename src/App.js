@@ -12,11 +12,11 @@ import AdminKontenDetailScreen from 'Components/AdminKontenDetailScreen/AdminKon
 import ProfileScreen from 'Components/ProfileScreen/ProfileScreen';
 import PromotorDashboardScreen from 'Components/PromotorDashboardScreen/PromotorDashboardScreen';
 import PromotorMyProgressScreen from 'Components/PromotorMyProgressScreen/PromotorMyProgressScreen';
-import SellerDashboardScreen from './Components/SellerDashboardScreen/SellerDashboardScreen';
-import SellerKontenDetailScreen from './Components/SellerKontenDetailScreen/SellerKontenDetailScreen';
-import SellerCreateKontenScreen from './Components/SellerCreateKontenScreen/SellerCreateKontenScreen';
-import SellerMyPromotorScreen from './Components/SellerMyPromotorScreen/SellerMyPromotorScreen';
-import Home from './Components/Home/Home'
+import SellerDashboardScreen from 'Components/SellerDashboardScreen/SellerDashboardScreen';
+import SellerKontenDetailScreen from 'Components/SellerKontenDetailScreen/SellerKontenDetailScreen';
+import SellerCreateKontenScreen from 'Components/SellerCreateKontenScreen/SellerCreateKontenScreen';
+import SellerMyPromotorScreen from 'Components/SellerMyPromotorScreen/SellerMyPromotorScreen';
+import Home from 'Components/Home/Home';
 import './App.css';
 
 
