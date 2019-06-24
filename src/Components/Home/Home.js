@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Grid from '@material-ui/core/Grid';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import Typography from '@material-ui/core/Typography';
@@ -23,6 +24,9 @@ import Person from '@material-ui/icons/Person';
 import Group from '@material-ui/icons/Group';
 import Ballot from '@material-ui/icons/Ballot';
 import NotificationsActive from '@material-ui/icons/NotificationsActive';
+import Error from '@material-ui/icons/Error';
+import CardGiftcard from '@material-ui/icons/CardGiftcard';
+import CalendarToday from '@material-ui/icons/CalendarToday';
 
 import CountUp from 'react-countup';
 import OnVisible from 'react-on-visible';
@@ -34,6 +38,9 @@ import telkom from 'images/telkom.png';
 import myindihome from 'images/myindihome.png';
 import logo1 from 'images/logo1.png';
 import logo2 from 'images/logo2.png';
+import client1 from 'images/client1.jpeg';
+import client2 from 'images/client2.jpeg';
+import client3 from 'images/client3.jpeg';
 
 import 'Components/Home/Home.css';
 
@@ -191,9 +198,9 @@ class Home extends React.Component {
               <Link to="/" className="url">
                 Tentang Kami
               </Link>
-              <Link to="/" className="url">
+              <AnchorLink href="#feedback" className="url">
                 Feedback
-              </Link>
+              </AnchorLink>
             </Grid>
           </Grid>
           <Grid
@@ -650,9 +657,194 @@ class Home extends React.Component {
               className="Clients"
               container
             >
-              s
+              <Grid item xs={12}>&nbsp;</Grid>
+              <Grid item xs={12}>&nbsp;</Grid>
+              <Grid item xs={12}>&nbsp;</Grid>
+              <Grid item xs={12}>&nbsp;</Grid>
+              <Grid
+                item
+                xs={12}
+              >
+                <Typography variant="h3" align="center">Our Clients</Typography>
+              </Grid>
+              <Grid item xs={12}>&nbsp;</Grid>
+              <Grid item xs={12}>&nbsp;</Grid>
+              <Grid
+                item
+                xs={12}
+                container
+                spacing={5}
+              >
+                <Grid item xs={4}>
+                  <img src={client1} alt="Client 1" className="clientPhotos" />
+                </Grid>
+                <Grid
+                  item
+                  container
+                  xs={8}
+                >
+                  <Grid item xs={12}>
+                    <Typography variant="h5">Paket Indihome Pekalongan</Typography>
+                  </Grid>
+                  <Grid
+                    item
+                    container
+                    xs={12}
+                    spacing={2}
+                  >
+                    <Grid item><Error /></Grid>
+                    <Grid item><Typography variant="subtitle1">2 Transaksi : 1 Point</Typography></Grid>
+                  </Grid>
+                  <Grid
+                    item
+                    container
+                    xs={12}
+                    spacing={2}
+                  >
+                    <Grid item><CardGiftcard /></Grid>
+                    <Grid item><Typography variant="subtitle1">@Point = Rp 50.000,-</Typography></Grid>
+                  </Grid>
+                  <Grid
+                    item
+                    container
+                    xs={12}
+                    spacing={2}
+                  >
+                    <Grid item><CalendarToday /></Grid>
+                    <Grid item><Typography variant="subtitle1">Massa berlaku sampai 30 September 2019</Typography></Grid>
+                  </Grid>
+                  <Grid
+                    item
+                    container
+                    xs={12}
+                    spacing={2}
+                  >
+                    <Grid item><Group /></Grid>
+                    <Grid item><Typography variant="subtitle1">Referral : 1 dari 5 orang</Typography></Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={12}>&nbsp;</Grid>
+              <Grid item xs={12}>&nbsp;</Grid>
+              <Grid
+                item
+                xs={12}
+                container
+                spacing={5}
+              >
+                <Grid item xs={4}>
+                  <img src={client2} alt="Client 2" className="clientPhotos" />
+                </Grid>
+                <Grid
+                  item
+                  container
+                  xs={8}
+                >
+                  <Grid item xs={12}>
+                    <Typography variant="h5">Lapangan Badminton Diponegoro</Typography>
+                  </Grid>
+                  <Grid
+                    item
+                    container
+                    xs={12}
+                    spacing={2}
+                  >
+                    <Grid item><Error /></Grid>
+                    <Grid item><Typography variant="subtitle1">1 Transaksi : 2 Point</Typography></Grid>
+                  </Grid>
+                  <Grid
+                    item
+                    container
+                    xs={12}
+                    spacing={2}
+                  >
+                    <Grid item><CardGiftcard /></Grid>
+                    <Grid item><Typography variant="subtitle1">@Point = Rp 15.000,-</Typography></Grid>
+                  </Grid>
+                  <Grid
+                    item
+                    container
+                    xs={12}
+                    spacing={2}
+                  >
+                    <Grid item><CalendarToday /></Grid>
+                    <Grid item><Typography variant="subtitle1">Massa berlaku sampai 22 Juli 2019</Typography></Grid>
+                  </Grid>
+                  <Grid
+                    item
+                    container
+                    xs={12}
+                    spacing={2}
+                  >
+                    <Grid item><Group /></Grid>
+                    <Grid item><Typography variant="subtitle1">Referral : 3 dari 3 orang</Typography></Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={12}>&nbsp;</Grid>
+              <Grid item xs={12}>&nbsp;</Grid>
+              <Grid
+                item
+                xs={12}
+                container
+                spacing={5}
+              >
+                <Grid item xs={4}>
+                  <img src={client3} alt="Client 3" className="clientPhotos" />
+                </Grid>
+                <Grid
+                  item
+                  container
+                  xs={8}
+                >
+                  <Grid item xs={12}>
+                    <Typography variant="h5">Bubur Malam Special Benny, Alun - Alun Pekalongan</Typography>
+                  </Grid>
+                  <Grid
+                    item
+                    container
+                    xs={12}
+                    spacing={2}
+                  >
+                    <Grid item><Error /></Grid>
+                    <Grid item><Typography variant="subtitle1">1 Transaksi : 1 Point</Typography></Grid>
+                  </Grid>
+                  <Grid
+                    item
+                    container
+                    xs={12}
+                    spacing={2}
+                  >
+                    <Grid item><CardGiftcard /></Grid>
+                    <Grid item><Typography variant="subtitle1">@Point = Rp 10.000,-</Typography></Grid>
+                  </Grid>
+                  <Grid
+                    item
+                    container
+                    xs={12}
+                    spacing={2}
+                  >
+                    <Grid item><CalendarToday /></Grid>
+                    <Grid item><Typography variant="subtitle1">Massa berlaku sampai 11 November 2019</Typography></Grid>
+                  </Grid>
+                  <Grid
+                    item
+                    container
+                    xs={12}
+                    spacing={2}
+                  >
+                    <Grid item><Group /></Grid>
+                    <Grid item><Typography variant="subtitle1">Referral : 4 dari 8 orang</Typography></Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={12}>&nbsp;</Grid>
+              <Grid item xs={12}>&nbsp;</Grid>
+              <Grid item xs={12}>&nbsp;</Grid>
+              <Grid item xs={12}>&nbsp;</Grid>
             </Grid>
             <Grid
+              id="feedback"
               className="Feedback"
               container
             >

@@ -109,6 +109,10 @@
   padding: 10px;
 }
 
+.Home .clientPhotos {
+  max-width: 100%;
+}
+
 .Home .FooterContainer {
   background-color: rgb(73, 73, 73);
   color: white;
