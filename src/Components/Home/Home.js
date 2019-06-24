@@ -35,7 +35,6 @@ import blank from 'images/blank-carousel.jpg';
 import carousel1 from 'images/carousel1.jpg';
 import carousel2 from 'images/carousel2.jpg';
 import telkom from 'images/telkom.png';
-import myindihome from 'images/myindihome.png';
 import logo1 from 'images/logo1.png';
 import logo2 from 'images/logo2.png';
 import client1 from 'images/client1.jpeg';
@@ -194,7 +193,7 @@ class Home extends React.Component {
               <Link to="/cara-kerja" className="url">
                 Cara Kerja
               </Link>
-              <Link to="/" className="url">
+              <Link to="/tentang-kami" className="url">
                 Tentang Kami
               </Link>
               <AnchorLink href="#feedback" className="url">

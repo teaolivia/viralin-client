@@ -28,10 +28,11 @@ import OnVisible from 'react-on-visible';
 import telkom from 'images/telkom.png';
 import logo1 from 'images/logo1.png';
 import logo2 from 'images/logo2.png';
+import about from 'images/about.png';
 import howitworks from 'images/howitworks.png';
 import howitworks2 from 'images/howitworks2.jpg';
 
-import 'Components/HowItWorks/HowItWorks.css';
+import 'Components/AboutUs/AboutUs.css';
 
 class Home extends React.Component {
   constructor(props) {
@@ -181,7 +182,7 @@ class Home extends React.Component {
               <Link to="/cara-kerja" className="url">
                 Cara Kerja
               </Link>
-              <Link to="/tentang-kami" className="url">
+              <Link to="/about-us" className="url">
                 Tentang Kami
               </Link>
             </Grid>
@@ -213,17 +214,30 @@ class Home extends React.Component {
           <Grid
             className="Main"
             container
+            justify="center"
+            alignItems="center"
           >
-            <Grid item xs={12} className="Head">
-              <Typography
-                variant="h2"
-                align="center"
-              >
-                Cara Kerja
-              </Typography>
+            <Grid item xs={6}>
+              <img src={about} alt="How It Works" className="clientPhotos" />
             </Grid>
-            <Grid item xs={12}>
-              <img src={howitworks} alt="How It Works" className="clientPhotos" />
+            <Grid
+              item
+              xs={2}
+              container
+              justify="center"
+            >
+              <Grid
+                item
+                xs={12}
+              >
+                <img src={logo2} className="AboutLogo" alt="logo" />
+              </Grid>
+              <Grid
+                item
+                xs={12}
+              >
+                <img src={logo1} className="AboutLogo" alt="logo" />
+              </Grid>
             </Grid>
             <Grid
               className="Clients"
@@ -239,286 +253,25 @@ class Home extends React.Component {
                 container
                 spacing={5}
               >
-                <Grid item xs={6}>
-                  <img src={howitworks2} alt="Client 1" className="clientPhotos" />
-                </Grid>
                 <Grid
                   item
                   container
-                  xs={6}
+                  xs={12}
                 >
-                  <Grid
-                    item
-                    container
-                    xs={12}
-                    spacing={2}
-                  >
-                    <Typography variant="subtitle1" paragraph>
-                      {`Konsep digital marketing viralin itu menggunakan kekuatan
-                      “word of mouth” sosial media. Sistem ini memiliki kemampuan
-                      advertising tidak terbatas pada kalangan tertentu dan dapat
-                      disesuaikan dengan kebutuhan anda. Kini mempromosikan konten
-                      di sosial media tidak hanya terbatas di konten wall tapi juga
-                      bisa masuk kedalam room chat sehingga menjadi viral.`}
-                    </Typography>
-                  </Grid>
+                  <Typography variant="h5" paragraph align="center">
+                    {`Viralin adalah sebuah platform yang mempertemukan
+                    pebisnis dengan memanfaatkan konsumen sebagai promotornya
+                    dalam mempromosikan produk mereka. Dengan Viralin, pebisnis
+                    bisa dengan mudah mencari pertolongan untuk memviralkan
+                    produknya. Sehingga proses penyebaran promosi dapat
+                    lebih masif, praktis, dan terukur.  Viralin ini akan
+                    menjadi wadah advertisement baru yang dapat menyenangkan
+                    semua pihak, dengan payment gatewaynya siapapun mampu
+                    mengubah click, like dan share menjadi uang.`}
+                  </Typography>
                 </Grid>
               </Grid>
               <Grid item xs={12}>&nbsp;</Grid>
-              <Grid
-                item
-                xs={12}
-                container
-                spacing={2}
-                justify="center"
-                alignItems="flex-start"
-              >
-                <Grid item xs={12} md={4}>
-                  <OnVisible
-                    className="card"
-                    visibleClassName="visible"
-                  >
-                    <Card>
-                      <CardHeader
-                        avatar={(
-                          <CountUp
-                            className="counter"
-                            ref={this.countUpRef}
-                            start={0}
-                            end={1}
-                            duration={3}
-                          >
-                            {({ countUpRef, start }) => (
-                              <OnVisible
-                                className="my-container"
-                                bounce
-                                onChange={start}
-                              >
-                                <div>
-                                  <Avatar aria-label="Step" ref={countUpRef} />
-                                </div>
-                              </OnVisible>
-                            )}
-                          </CountUp>
-                        )}
-                        title="Atur Konten Iklan &amp; Viralkan"
-                      />
-                      <CardMedia
-                        title="Langkah 1"
-                        image="#"
-                      >
-                        <Typography variant="h1" align="center">
-                          <Settings fontSize="inherit" />
-                        </Typography>
-                      </CardMedia>
-                      <CardContent>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                          {`Pebisnis mengatur parameter konten iklan yang
-                          akan dipromosikan berdasarkan demografi,
-                          letak geografis, gimmick untuk promotor,
-                          jumlah promotor serta budget iklan yang
-                          dapat diset mulai dari Rp. 0,- (Bebas Biaya)`}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </OnVisible>
-                </Grid>
-                <Grid item xs={12} md={4}>
-                  <OnVisible
-                    className="card"
-                    visibleClassName="visible"
-                  >
-                    <Card>
-                      <CardHeader
-                        avatar={(
-                          <CountUp
-                            className="counter"
-                            ref={this.countUpRef}
-                            start={0}
-                            end={2}
-                            duration={3}
-                          >
-                            {({ countUpRef, start }) => (
-                              <OnVisible
-                                className="my-container"
-                                bounce
-                                onChange={start}
-                              >
-                                <div>
-                                  <Avatar aria-label="Step" ref={countUpRef} />
-                                </div>
-                              </OnVisible>
-                            )}
-                          </CountUp>
-                        )}
-                        title="Pilih Konten Iklan"
-                      />
-                      <CardMedia
-                        title="Langkah 2"
-                        image="#"
-                      >
-                        <Typography variant="h1" align="center">
-                          <Check fontSize="inherit" />
-                        </Typography>
-                      </CardMedia>
-                      <CardContent>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                          {`Promotor memilih konten iklan
-                          aktif mana saja yang ingin dipromosikan`}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </OnVisible>
-                </Grid>
-                <Grid item xs={12} md={4}>
-                  <OnVisible
-                    className="card"
-                    visibleClassName="visible"
-                  >
-                    <Card>
-                      <CardHeader
-                        avatar={(
-                          <CountUp
-                            className="counter"
-                            ref={this.countUpRef}
-                            start={0}
-                            end={3}
-                            duration={3}
-                          >
-                            {({ countUpRef, start }) => (
-                              <OnVisible
-                                className="my-container"
-                                bounce
-                                onChange={start}
-                              >
-                                <div>
-                                  <Avatar aria-label="Step" ref={countUpRef} />
-                                </div>
-                              </OnVisible>
-                            )}
-                          </CountUp>
-                        )}
-                        title="Get Referral Link &amp; Mulai Viralkan"
-                      />
-                      <CardMedia
-                        title="Langkah 3"
-                        image="#"
-                      >
-                        <Typography variant="h1" align="center">
-                          <Share fontSize="inherit" />
-                        </Typography>
-                      </CardMedia>
-                      <CardContent>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                          {`Promotor memilih konten iklan dan akan
-                          mendapatkan referral link. Referral link
-                          inilah yang nantinya akan dipromosikan promotor
-                          melalui social media.`}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </OnVisible>
-                </Grid>
-                <Grid item xs={12} md={4}>
-                  <OnVisible
-                    className="card"
-                    visibleClassName="visible"
-                  >
-                    <Card>
-                      <CardHeader
-                        avatar={(
-                          <CountUp
-                            className="counter"
-                            ref={this.countUpRef}
-                            start={0}
-                            end={4}
-                            duration={3}
-                          >
-                            {({ countUpRef, start }) => (
-                              <OnVisible
-                                className="my-container"
-                                bounce
-                                onChange={start}
-                              >
-                                <div>
-                                  <Avatar aria-label="Step" ref={countUpRef} />
-                                </div>
-                              </OnVisible>
-                            )}
-                          </CountUp>
-                        )}
-                        title="Viralin mengubah click, like and share menjadi Uang"
-                      />
-                      <CardMedia
-                        title="Langkah 4"
-                        image="#"
-                      >
-                        <Typography variant="h1" align="center">
-                          <AttachMoney fontSize="inherit" />
-                        </Typography>
-                      </CardMedia>
-                      <CardContent>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                          {`Setiap orang yang melakukan click, like
-                          dan share suatu konten yang promotor bagikan
-                          maka akan menjadi uang bagi promotor dimana
-                          masing-masing action mempunyai jumlah point
-                          yang berbeda.`}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </OnVisible>
-                </Grid>
-                <Grid item xs={12} md={4}>
-                  <OnVisible
-                    className="card"
-                    visibleClassName="visible"
-                  >
-                    <Card>
-                      <CardHeader
-                        avatar={(
-                          <CountUp
-                            className="counter"
-                            ref={this.countUpRef}
-                            start={0}
-                            end={5}
-                            duration={3}
-                          >
-                            {({ countUpRef, start }) => (
-                              <OnVisible
-                                className="my-container"
-                                visibleClassName="asdf"
-                                bounce
-                                onChange={start}
-                              >
-                                <div>
-                                  <Avatar aria-label="Step" ref={countUpRef} />
-                                </div>
-                              </OnVisible>
-                            )}
-                          </CountUp>
-                        )}
-                        title="Get Customer &amp; Rewards"
-                      />
-                      <CardMedia
-                        title="Langkah 5"
-                        image="#"
-                      >
-                        <Typography variant="h1" align="center">
-                          <CardGiftcard fontSize="inherit" />
-                        </Typography>
-                      </CardMedia>
-                      <CardContent>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                          {`Saat promotor mendapatkan pelanggan dari referral link
-                          yang dibagikan maka promotor memperoleh rewards sesuai
-                          dengan gimmick yang diberikan oleh pebisnis.`}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </OnVisible>
-                </Grid>
-              </Grid>
             </Grid>
           </Grid>
           <div
