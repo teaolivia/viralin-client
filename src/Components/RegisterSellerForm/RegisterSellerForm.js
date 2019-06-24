@@ -130,21 +130,7 @@ class RegisterSellerForm extends React.Component {
         };
         console.table(submitted);
         if (this.validateSubmit(submitted)) {
-          axios.get(DB_URL+'/sellers?username='+submitted.username)
-              .then(response => {
-                console.log(response.data)
-                if (response.data.length > 0) {
-                  if (response.data[0].username == submitted.username) {
-                    alert('Username sudah ada');
-                    return;
-                  }
-                }
-                this.registerSeller(submitted);
-              })
-              .catch(error => {
-                console.log(error);
-                alert('Terjadi kesalahan');
-              });
+          this.registerSeller(submitted);
         }
       });
     } else {
@@ -153,14 +139,43 @@ class RegisterSellerForm extends React.Component {
   }
 
   registerSeller(submitted) {
-    axios.post(DB_URL+'/sellers', submitted)
-        .then(response => {
+    AWS.config.update({
+      region: 'ap-southeast-1',
+      credentials: new AWS.Credentials({
+        accessKeyId: "AKIA6AOWNMA4JZGARCNX",
+        secretAccessKey: "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"
+      })
+    });
+    var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
+    // create JSON object for parameters for invoking Lambda function
+    var pullParams = {
+      FunctionName : 'register-seller',
+      InvocationType : 'RequestResponse',
+      LogType : 'None',
+      Payload : JSON.stringify(submitted)
+    };
+    // create variable to hold data returned by the Lambda function
+    var pullResults;
+
+    lambda.invoke(pullParams, function(error, data) {
+      if (error) {
+        console.log(error);
+        alert("error");
+      } else {
+        pullResults = JSON.parse(data.Payload);
+        console.log(pullResults);
+        if (pullResults.statusCode == 200) {
           alert('Registrasi berhasil');
-          this.goToDashboard();
-        })
-        .catch(error => {
-          alert('Terjadi kesalahan');
-        });
+          window.location.href = '/seller-dashboard';
+        }
+        else if (pullResults.body.message != null || pullResults.body.message != "") {
+          alert(pullResults.body.message);
+        }
+        else {
+          alert("Terjadi kesalahan");
+        }
+      }
+    });
   }
 
   validateSubmit(submitted) {
@@ -275,11 +290,6 @@ class RegisterSellerForm extends React.Component {
         console.log(error);
       },
     );
-  }
-
-  goToDashboard() {
-    this.setState();
-    window.location.href = '/seller-dashboard';
   }
 
   render() {
