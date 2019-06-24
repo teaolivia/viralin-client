@@ -3,66 +3,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Grid from '@material-ui/core/Grid';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Grow from '@material-ui/core/Grow';
 
 import Email from '@material-ui/icons/Email';
 import Phone from '@material-ui/icons/Phone';
 import Domain from '@material-ui/icons/Domain';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import ShareIcon from '@material-ui/icons/Share';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 
-// import FastForward from '@material-ui/icons/FastForward';
-// import Games from '@material-ui/icons/Games';
-// import Dvr from '@material-ui/icons/Dvr';
-// import MonetizationOn from '@material-ui/icons/MonetizationOn';
-// import Money from '@material-ui/icons/Money';
-// import Share from '@material-ui/icons/Share';
-// import Person from '@material-ui/icons/Person';
-// import Group from '@material-ui/icons/Group';
-// import Ballot from '@material-ui/icons/Ballot';
-// import NotificationsActive from '@material-ui/icons/NotificationsActive';
-// import Error from '@material-ui/icons/Error';
-// import CardGiftcard from '@material-ui/icons/CardGiftcard';
-// import CalendarToday from '@material-ui/icons/CalendarToday';
+import Settings from '@material-ui/icons/Settings';
+import Check from '@material-ui/icons/Check';
+import AttachMoney from '@material-ui/icons/AttachMoney';
+import Share from '@material-ui/icons/Share';
+import CardGiftcard from '@material-ui/icons/CardGiftcard';
 
 import CountUp from 'react-countup';
 import OnVisible from 'react-on-visible';
 
 import telkom from 'images/telkom.png';
-import myindihome from 'images/myindihome.png';
 import logo1 from 'images/logo1.png';
 import logo2 from 'images/logo2.png';
 import howitworks from 'images/howitworks.png';
 import howitworks2 from 'images/howitworks2.jpg';
-import client1 from 'images/client1.jpeg';
 
 import 'Components/HowItWorks/HowItWorks.css';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      step1view: false,
-      step2view: false,
-      step3view: false,
-      step4view: false,
-      step5view: true,
-    };
+    this.state = {};
     this.countUpRef = React.createRef();
   }
 
@@ -330,10 +304,12 @@ class Home extends React.Component {
                         title="Atur Konten Iklan &amp; Viralkan"
                       />
                       <CardMedia
-                        image={client1}
                         title="Langkah 1"
+                        image="#"
                       >
-                        <img src={client1} alt="Langkah 1" className="cardImage" />
+                        <Typography variant="h1" align="center">
+                          <Settings fontSize="inherit" />
+                        </Typography>
                       </CardMedia>
                       <CardContent>
                         <Typography variant="body2" color="textSecondary" component="p">
@@ -378,10 +354,12 @@ class Home extends React.Component {
                         title="Pilih Konten Iklan"
                       />
                       <CardMedia
-                        image={client1}
                         title="Langkah 2"
+                        image="#"
                       >
-                        <img src={client1} alt="Langkah 2" className="cardImage" />
+                        <Typography variant="h1" align="center">
+                          <Check fontSize="inherit" />
+                        </Typography>
                       </CardMedia>
                       <CardContent>
                         <Typography variant="body2" color="textSecondary" component="p">
@@ -423,10 +401,12 @@ class Home extends React.Component {
                         title="Get Referral Link &amp; Mulai Viralkan"
                       />
                       <CardMedia
-                        image={client1}
                         title="Langkah 3"
+                        image="#"
                       >
-                        <img src={client1} alt="Langkah 3" className="cardImage" />
+                        <Typography variant="h1" align="center">
+                          <Share fontSize="inherit" />
+                        </Typography>
                       </CardMedia>
                       <CardContent>
                         <Typography variant="body2" color="textSecondary" component="p">
@@ -470,10 +450,12 @@ class Home extends React.Component {
                         title="Viralin mengubah click, like and share menjadi Uang"
                       />
                       <CardMedia
-                        image={client1}
                         title="Langkah 4"
+                        image="#"
                       >
-                        <img src={client1} alt="Langkah 4" className="cardImage" />
+                        <Typography variant="h1" align="center">
+                          <AttachMoney fontSize="inherit" />
+                        </Typography>
                       </CardMedia>
                       <CardContent>
                         <Typography variant="body2" color="textSecondary" component="p">
@@ -519,10 +501,12 @@ class Home extends React.Component {
                         title="Get Customer &amp; Rewards"
                       />
                       <CardMedia
-                        image={client1}
                         title="Langkah 5"
+                        image="#"
                       >
-                        <img src={client1} alt="Langkah 5" className="cardImage" />
+                        <Typography variant="h1" align="center">
+                          <CardGiftcard fontSize="inherit" />
+                        </Typography>
                       </CardMedia>
                       <CardContent>
                         <Typography variant="body2" color="textSecondary" component="p">
@@ -699,7 +683,8 @@ class Home extends React.Component {
                 container
               >
                 <Grid item md={12}>
-                  <img src={myindihome} alt="My Indihome" />
+                  <img src={logo2} className="FooterLogo" alt="logo" />
+                  <img src={logo1} className="FooterLogo" alt="logo" />
                 </Grid>
                 <Grid item md={12}>
                   <img src={telkom} alt="Telkom" />
