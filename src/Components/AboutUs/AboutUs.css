@@ -107,6 +107,10 @@
   text-decoration: white;
 }
 
+.AboutUs .FooterLogo {
+  max-width: 25%;
+}
+
 .cardImage {
   width: 100%;
 }
