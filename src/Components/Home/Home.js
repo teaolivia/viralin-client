@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
-import AnchorLink from 'react-anchor-link-smooth-scroll'
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Grid from '@material-ui/core/Grid';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import Typography from '@material-ui/core/Typography';
@@ -93,7 +93,6 @@ class Home extends React.Component {
             >
               <Link className="url" to="/">
                 <SvgIcon
-                  color="white"
                   viewBox="0 0 24 24"
                 >
                   <svg>
@@ -107,7 +106,6 @@ class Home extends React.Component {
             >
               <Link className="url" to="/">
                 <SvgIcon
-                  color="white"
                   viewBox="0 0 24 24"
                 >
                   <svg>
@@ -121,7 +119,6 @@ class Home extends React.Component {
             >
               <Link className="url" to="/">
                 <SvgIcon
-                  color="white"
                   viewBox="0 0 24 24"
                 >
                   <svg>
@@ -138,7 +135,8 @@ class Home extends React.Component {
         >
           <Grid
             item
-            xs={6}
+            xs={12}
+            md={6}
             container
             direction="row"
           >
@@ -149,31 +147,32 @@ class Home extends React.Component {
           </Grid>
           <Grid
             item
-            xs={6}
+            xs={12}
+            md={6}
             container
             direction="row-reverse"
             spacing={2}
           >
-            <Grid item>
+            <Grid item md={4}>
               <Typography variant="h5">
                 <Domain />
                 &nbsp;Address
               </Typography>
-              <Typography variant="subtitle1" align="center">Jalan jalan</Typography>
+              <Typography variant="subtitle1" align="center" paragraph>Jl. Pemuda No.45, RW.6, Kergon, Kec. Pekalongan Bar., Kota Pekalongan, Jawa Tengah 51119</Typography>
             </Grid>
-            <Grid item>
-              <Typography variant="h5">
+            <Grid item md={4}>
+              <Typography variant="subtitle1">
                 <Phone />
-                &nbsp;(123)45678
+                &nbsp;0823 2393 6436
               </Typography>
               <Typography variant="subtitle1" align="center">Call us for more details!</Typography>
             </Grid>
-            <Grid item>
+            <Grid item md={4}>
               <Typography variant="h5">
                 <Email />
                 &nbsp;Mail Us Today
               </Typography>
-              <Typography variant="subtitle1" align="center">email@email.com</Typography>
+              <Typography variant="subtitle1" align="center">kuyviralin@gmail.com</Typography>
             </Grid>
           </Grid>
         </Grid>
@@ -192,7 +191,7 @@ class Home extends React.Component {
               <Link to="/" className="url">
                 Beranda
               </Link>
-              <Link to="/" className="url">
+              <Link to="/cara-kerja" className="url">
                 Cara Kerja
               </Link>
               <Link to="/" className="url">
@@ -944,7 +943,6 @@ class Home extends React.Component {
                   <Link to="/twitter" className="footerLinks">
                     <Typography variant="subtitle1">
                       <SvgIcon
-                        color="white"
                         viewBox="0 0 24 24"
                       >
                         <svg>
@@ -959,7 +957,6 @@ class Home extends React.Component {
                   <Link to="/twitter" className="footerLinks">
                     <Typography variant="subtitle1">
                       <SvgIcon
-                        color="white"
                         viewBox="0 0 24 24"
                       >
                         <svg>
@@ -980,7 +977,6 @@ class Home extends React.Component {
                   <Link to="/twitter" className="footerLinks">
                     <Typography variant="subtitle1">
                       <SvgIcon
-                        color="white"
                         viewBox="0 0 24 24"
                       >
                         <svg>
@@ -995,7 +991,6 @@ class Home extends React.Component {
                   <Link to="/twitter" className="footerLinks">
                     <Typography variant="subtitle1">
                       <SvgIcon
-                        color="white"
                         viewBox="0 0 24 24"
                       >
                         <svg>
@@ -1010,7 +1005,6 @@ class Home extends React.Component {
                   <Link to="/twitter" className="footerLinks">
                     <Typography variant="subtitle1">
                       <SvgIcon
-                        color="white"
                         viewBox="0 0 24 24"
                       >
                         <svg>
@@ -1025,7 +1019,6 @@ class Home extends React.Component {
                   <Link to="/twitter" className="footerLinks">
                     <Typography variant="subtitle1">
                       <SvgIcon
-                        color="white"
                         viewBox="0 0 24 24"
                       >
                         <svg>

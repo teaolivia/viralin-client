@@ -17,6 +17,7 @@ import SellerKontenDetailScreen from 'Components/SellerKontenDetailScreen/Seller
 import SellerCreateKontenScreen from 'Components/SellerCreateKontenScreen/SellerCreateKontenScreen';
 import SellerMyPromotorScreen from 'Components/SellerMyPromotorScreen/SellerMyPromotorScreen';
 import Home from 'Components/Home/Home';
+import HowItWorks from 'Components/HowItWorks/HowItWorks';
 import './App.css';
 
 
@@ -31,6 +32,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route path="/" exact component={Home} />
+          <Route path="/cara-kerja" exact component={HowItWorks} />
           <Route path="/login" exact component={LoginScreen} />
           <Route path="/register" exact component={RegisterScreen} />
           <Route path="/seller-dashboard" exact component={SellerDashboardScreen} />

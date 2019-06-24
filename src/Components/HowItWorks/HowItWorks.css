@@ -1,0 +1,120 @@
+.Home {
+  width:100%;
+  min-height: 100vh;
+  background-color: lightgray;
+}
+
+.Home .FirstTopBar {
+  background-color: #ffa000;
+  padding: 10px 80px;
+}
+
+.Home .FirstTopBar .url, .Home .FirstTopBar h6{
+  color:white;
+  text-decoration: #fff;
+}
+
+.Home .SecondTopBar {
+  padding: 10px 80px;
+  background-color: #fff;
+}
+
+.Home .SecondTopBar .Logo {
+  max-width: 75px;
+}
+
+.Home .ThirdTopBar {
+  background-color: gray;
+  padding: 20px 80px;
+}
+
+.Home .ThirdTopBar .url {
+  padding: 5px 5px;
+  color:black;
+  text-decoration: black;
+  transition: 0.5s;
+  font-weight: 100;
+}
+
+.Home .ThirdTopBar .url:hover {
+  background-color: rgba(0,0,0,0.3);
+  color:white;
+  text-decoration: white;
+}
+
+.Home .ThirdTopBar .url.bgMain, .Home .ThirdTopBar .url.bgMain:hover {
+  background-color: #ffa000;
+  padding: 5px 20px;
+}
+
+.Home .ThirdTopBar .url.bgMain:hover {
+  color:white;
+  text-decoration: white;
+}
+
+.Home .MainContainer {
+  padding: 0 80px;
+}
+
+.Home .Main{
+  padding: 80px 80px;
+  background-color: white;
+  flex-wrap: wrap;
+}
+
+.Home .Main .Head {
+  margin-bottom: 4em;
+}
+
+.Home .Main .whyIcons {
+  font-size: 4em;
+}
+
+.borderRight {
+  border-right: 0.1em solid black;
+  padding: 2em;
+}
+
+.borderLeft {
+  padding: 2em;
+}
+
+.withBorder {
+  background: linear-gradient(to right, #ef5d36, #facf5c);
+  color: white;
+  padding: 10px;
+}
+
+.Home .clientPhotos {
+  max-width: 100%;
+}
+
+.Home .FooterContainer {
+  background-color: rgb(73, 73, 73);
+  color: white;
+  padding: 20px 80px;
+}
+
+.Home .FooterBottomContainer {
+  background-color: rgb(41, 41, 41);
+  color: white;
+}
+
+.Home .footerLinks {
+  color:white;
+  text-decoration: white;
+}
+
+.cardImage {
+  width: 100%;
+}
+
+.card{
+  max-width: 400px;
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
+  transition: 3s;
+}
