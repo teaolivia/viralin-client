@@ -1036,7 +1036,8 @@ class Home extends React.Component {
                 container
               >
                 <Grid item md={12}>
-                  <img src={myindihome} alt="My Indihome" />
+                  <img src={logo2} className="FooterLogo" alt="logo" />
+                  <img src={logo1} className="FooterLogo" alt="logo" />
                 </Grid>
                 <Grid item md={12}>
                   <img src={telkom} alt="Telkom" />

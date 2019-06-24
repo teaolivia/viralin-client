@@ -128,3 +128,7 @@
   color:white;
   text-decoration: white;
 }
+
+.Home .FooterLogo {
+  max-width: 25%;
+}
