@@ -48,6 +48,7 @@ import myindihome from 'images/myindihome.png';
 import logo1 from 'images/logo1.png';
 import logo2 from 'images/logo2.png';
 import howitworks from 'images/howitworks.png';
+import howitworks2 from 'images/howitworks2.jpg';
 import client1 from 'images/client1.jpeg';
 
 import 'Components/HowItWorks/HowItWorks.css';
@@ -247,6 +248,9 @@ class Home extends React.Component {
                 Cara Kerja
               </Typography>
             </Grid>
+            <Grid item xs={12}>
+              <img src={howitworks} alt="How It Works" className="clientPhotos" />
+            </Grid>
             <Grid
               className="Clients"
               container
@@ -262,7 +266,7 @@ class Home extends React.Component {
                 spacing={5}
               >
                 <Grid item xs={6}>
-                  <img src={howitworks} alt="Client 1" className="clientPhotos" />
+                  <img src={howitworks2} alt="Client 1" className="clientPhotos" />
                 </Grid>
                 <Grid
                   item
