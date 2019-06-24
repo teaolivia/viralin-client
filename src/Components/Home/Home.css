@@ -29,17 +29,19 @@
 }
 
 .Home .ThirdTopBar .url {
+  font-weight: 700 !important;
+  text-transform: uppercase;
   padding: 5px 5px;
-  color:black;
-  text-decoration: black;
+  color:white;
+  text-decoration: white;
   transition: 0.5s;
   font-weight: 100;
 }
 
 .Home .ThirdTopBar .url:hover {
-  background-color: rgba(0,0,0,0.3);
-  color:white;
-  text-decoration: white;
+  background-color: rgba(255,255,255,0.3);
+  color:black;
+  text-decoration: black;
 }
 
 .Home .ThirdTopBar .url.bgMain, .Home .ThirdTopBar .url.bgMain:hover {

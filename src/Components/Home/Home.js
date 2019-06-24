@@ -116,7 +116,7 @@ class Home extends React.Component {
             <Grid
               item
             >
-              <a className="url" href="https://www.instagram.com/goviralin">
+              <a className="url" href="#">
                 <SvgIcon
                   viewBox="0 0 24 24"
                 >
@@ -153,11 +153,11 @@ class Home extends React.Component {
             spacing={2}
           >
             <Grid item md={4}>
-              <Typography variant="h5">
+              <Typography variant="subtitle1">
                 <Domain />
                 &nbsp;Address
               </Typography>
-              <Typography variant="subtitle1" align="center" paragraph>Jl. Pemuda No.45, RW.6, Kergon, Kec. Pekalongan Bar., Kota Pekalongan, Jawa Tengah 51119</Typography>
+              <Typography variant="subtitle1" align="center" paragraph>Jl. Pemuda No.45, Kergon, Pekalongan</Typography>
             </Grid>
             <Grid item md={4}>
               <Typography variant="subtitle1">
@@ -167,7 +167,7 @@ class Home extends React.Component {
               <Typography variant="subtitle1" align="center">Call us for more details!</Typography>
             </Grid>
             <Grid item md={4}>
-              <Typography variant="h5">
+              <Typography variant="subtitle1">
                 <Email />
                 &nbsp;Mail Us Today
               </Typography>
@@ -939,7 +939,7 @@ class Home extends React.Component {
                   </Typography>
                 </Grid>
                 <Grid item md={12}>
-                  <Link to="/facebook" className="footerLinks">
+                  <Link to="/" className="footerLinks">
                     <Typography variant="subtitle1">
                       <SvgIcon
                         viewBox="0 0 24 24"
