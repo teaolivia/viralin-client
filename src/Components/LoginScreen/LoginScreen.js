@@ -12,6 +12,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+// import {CognitoAuth} from 'amazon-cognito-auth-js';
 
 
 import 'Components/LoginScreen/LoginScreen.css';
@@ -23,6 +24,17 @@ const ADMIN_PASSWORD = 'asdf';
 
 const DB_URL = require('config').db_url;
 const BASE_URL = require('config').base_url;
+
+
+// var authData = {
+//   ClientId: 'ap-southeast-1_ZxjB83Bfy',
+//   UserPoolId: '256a3d3ett1nsfrasp0r4vrsk8',
+//   TokenScopesArray: ['profile', 'email', 'openid', 'aws.cognito.signin.user.admin', 'phone'],
+//   RedirectUriSignIn: '/',
+//   RedirectUriSignOut: '/'
+// }
+
+// var auth = AmazonCognitoIdentity.CognitoAuth(authData);
 
 const login = (url, username, password, urlNext) => {
   if (username == '' || password == '') {
@@ -136,9 +148,7 @@ class LoginScreen extends React.Component {
           alignItems="center"
           spacing={0}
         >
-          <Grid item xs={12}>
-            <Logo />
-          </Grid>
+
           <Grid item xs={12}><br /></Grid>
           <Grid item xs={3} />
           <Grid item xs={12} sm={6}>

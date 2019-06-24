@@ -8,11 +8,45 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Grid from '@material-ui/core/Grid';
 import Add from '@material-ui/icons/Add';
 import Group from '@material-ui/icons/Group';
-
+import AWS from 'aws-sdk';
 import 'Components/SellerDashboardScreen/SellerDashboardScreen.css';
 
 import Navigation from 'Components/Navigation/Navigation';
 import SellerKontenViralTable from 'Components/SellerKontenViralTable/SellerKontenViralTable';
+
+function sellerData(type, seller_id) {
+  AWS.config.update({
+    accessKeyId: 'AKIA6AOWNMA4PI2CP33G', 
+    secretAccessKey: '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'
+  });
+  var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
+  var params = {
+    FunctionName: type,
+    InvocationType: 'RequestResponse',
+    LogType: 'None',
+    Payload: {
+      "seller_id" : "'+seller_id+'",
+      "business_name": "'+business_name+'",
+      "business_type": "'+business_type+'",
+      "email": "'+email+'",
+      "name": "'+name+'",
+      "password": "'+password+'",
+      "phone": "'+phone+'",
+      "province": "'+province+'",
+      "username": "'+username+'",
+      "birthplace": "'+birthplace+'",
+      "city": "'+city+'"
+    } /* required */
+  //  Payload: PAYLOAD_AS_A_STRING
+  };
+  var result;
+  lambda.invoke(params, function(err, data) {
+    if (err) console.log(err, err.stack); // an error occurred
+    else
+      result = JSON.parse(data.Payload);           // successful response
+  });
+    console.log(data)
+}
 
 const dummyData = {
   id: '1',
