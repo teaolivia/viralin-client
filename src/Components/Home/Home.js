@@ -249,9 +249,9 @@ class Home extends React.Component {
                 </Typography>
                 <br />
                 <br />
-                <Link to="/" className="link">
+                <AnchorLink href="#footer" className="link">
                   Info Lebih Lanjut
-                </Link>
+                </AnchorLink>
               </div>
             </div>
             <div>
@@ -874,6 +874,7 @@ class Home extends React.Component {
             </Grid>
           </Grid>
           <div
+            id="footer"
             className="FooterContainer"
           >
             <Grid
