@@ -11,12 +11,11 @@ import Select from '@material-ui/core/Select';
 import FilledInput from '@material-ui/core/FilledInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import axios from 'axios';
+import AWS from 'aws-sdk';
 
 import fetchProvinsiApi from 'Api/fetchProvinsiApi';
 import fetchKabupatenKotaApi from 'Api/fetchKabupatenKotaApi';
 
-const DB_URL = require('config').db_url;
 const BASE_URL = require('config').base_url;
 
 class RegisterPromotorForm extends React.Component {
@@ -129,28 +128,14 @@ class RegisterPromotorForm extends React.Component {
           province: submittedProvinsi,
           city: submittedKabupatenKota,
           place_of_birth: submittedTempatLahir,
-          date_of_birth: submittedTanggalLahir,
+          day_of_birth: submittedTanggalLahir,
           username: submittedUsername,
           password: submittedPassword,
           level: "A", //TODO placeholder
         };
         console.table(submitted);
         if (this.validateSubmit(submitted)) {
-          axios.get(DB_URL+'/promotors?username='+submitted.username)
-              .then(response => {
-                console.log(response.data)
-                if (response.data.length > 0) {
-                  if (response.data[0].username == submitted.username) {
-                    alert('Username sudah ada');
-                    return;
-                  }
-                }
-                this.registerPromotor(submitted);
-              })
-              .catch(error => {
-                console.log(error);
-                alert('Terjadi kesalahan');
-              });
+          this.registerPromotor(submitted);
         }
       });
     } else {
@@ -159,14 +144,43 @@ class RegisterPromotorForm extends React.Component {
   }
 
   registerPromotor(submitted) {
-    axios.post(DB_URL+'/promotors', submitted)
-        .then(response => {
+    AWS.config.update({
+      region: 'ap-southeast-1',
+      credentials: new AWS.Credentials({
+        accessKeyId: "AKIA6AOWNMA4JZGARCNX",
+        secretAccessKey: "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"
+      })
+    });
+    var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
+    // create JSON object for parameters for invoking Lambda function
+    var pullParams = {
+      FunctionName : 'register-promotor',
+      InvocationType : 'RequestResponse',
+      LogType : 'None',
+      Payload : JSON.stringify(submitted)
+    };
+    // create variable to hold data returned by the Lambda function
+    var pullResults;
+
+    lambda.invoke(pullParams, function(error, data) {
+      if (error) {
+        console.log(error);
+        alert("error");
+      } else {
+        pullResults = JSON.parse(data.Payload);
+        console.log(pullResults);
+        if (pullResults.statusCode == 200) {
           alert('Registrasi berhasil');
-          this.goToDashboard();
-        })
-        .catch(error => {
-          alert('Terjadi kesalahan');
-        });
+          window.location.href = '/promotor-dashboard';
+        }
+        else if (pullResults.body.message != null || pullResults.body.message != "") {
+          alert(pullResults.body.message);
+        }
+        else {
+          alert("Terjadi kesalahan");
+        }
+      }
+    });
   }
 
   validateSubmit(submitted) {
@@ -282,11 +296,6 @@ class RegisterPromotorForm extends React.Component {
         console.log(error);
       },
     );
-  }
-
-  goToDashboard() {
-    this.setState();
-    window.location.href = '/seller-dashboard';
   }
 
   render() {

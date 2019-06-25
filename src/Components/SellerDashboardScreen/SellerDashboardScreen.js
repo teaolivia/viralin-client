@@ -14,12 +14,13 @@ import 'Components/SellerDashboardScreen/SellerDashboardScreen.css';
 import Navigation from 'Components/Navigation/Navigation';
 import SellerKontenViralTable from 'Components/SellerKontenViralTable/SellerKontenViralTable';
 
-function sellerData(type, seller_id) {
-  AWS.config.update({
-    accessKeyId: 'AKIA6AOWNMA4PI2CP33G', 
-    secretAccessKey: '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'
-  });
-  var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
+AWS.config.update({
+  accessKeyId: 'AKIA6AOWNMA4PI2CP33G', 
+  secretAccessKey: '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'
+});
+var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
+
+const sellerData = (type, seller_id) => {  
   var params = {
     FunctionName: type,
     InvocationType: 'RequestResponse',
@@ -46,6 +47,38 @@ function sellerData(type, seller_id) {
       result = JSON.parse(data.Payload);           // successful response
   });
     console.log(data)
+}
+
+const NumberOfTotalPromotors = () => {
+  var params = {
+    FunctionName: 'seller-n-promotors',
+    InvocationType: 'RequestResponse',
+    LogType: 'None',
+    Payload: {
+      "seller_id": "+seller_id+"
+    }
+  };
+
+  lambda.invoke(params, function(err, data){
+
+  });
+}
+
+const AddPosting = (submitted) => {
+  var paramContent = {
+    FunctionName: 'post-content',
+    InvocationType: 'RequestResponse',
+    LogType: 'None',
+    Payload: JSON.stringify(submitted)
+  };
+  var paramContent = {
+    FunctionName: 'create-relations',
+    InvocationType: 'RequestResponse',
+    LogType: 'None',
+    Payload: {
+      "content_id" : "'+content_id+"
+    }
+  };
 }
 
 const dummyData = {

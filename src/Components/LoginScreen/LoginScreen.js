@@ -11,9 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-// import {CognitoAuth} from 'amazon-cognito-auth-js';
-
+import AWS from 'aws-sdk';
 
 import 'Components/LoginScreen/LoginScreen.css';
 
@@ -22,58 +20,62 @@ import Logo from 'Components/Logo/Logo';
 
 const ADMIN_PASSWORD = 'asdf';
 
-const DB_URL = require('config').db_url;
 const BASE_URL = require('config').base_url;
 
-
-// var authData = {
-//   ClientId: 'ap-southeast-1_ZxjB83Bfy',
-//   UserPoolId: '256a3d3ett1nsfrasp0r4vrsk8',
-//   TokenScopesArray: ['profile', 'email', 'openid', 'aws.cognito.signin.user.admin', 'phone'],
-//   RedirectUriSignIn: '/',
-//   RedirectUriSignOut: '/'
-// }
-
-// var auth = AmazonCognitoIdentity.CognitoAuth(authData);
-
-const login = (url, username, password, urlNext) => {
+const login = (type, username, password, urlNext) => {
   if (username == '' || password == '') {
     alert('Isi username dan password');
   }
   else {
-    axios.get(url+'?username='+username)
-    .then(response => {
-      console.log(response.data)
-      if (response.data.length == 1) {
-        if (response.data[0].username == username && response.data[0].password == password) {
-          // DO SOMETHING HERE
+    AWS.config.update({
+      region: 'ap-southeast-1',
+      credentials: new AWS.Credentials({
+        accessKeyId: "AKIA6AOWNMA4JZGARCNX",
+        secretAccessKey: "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"
+      })
+    });
+    var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
+    // create JSON object for parameters for invoking Lambda function
+    var pullParams = {
+      FunctionName : type,
+      InvocationType : 'RequestResponse',
+      LogType : 'None',
+      Payload : '{"username": "'+username+'", "password": "'+password+'"}'
+    };
+    // create variable to hold data returned by the Lambda function
+    var pullResults;
+
+    lambda.invoke(pullParams, function(error, data) {
+      if (error) {
+        console.log(error);
+        alert("error");
+      } else {
+        pullResults = JSON.parse(data.Payload);
+        console.log(pullResults);
+        if (pullResults.statusCode == 200) {
           window.location.href = urlNext;
         }
+        else if (pullResults.body.message != null || pullResults.body.message != "") {
+          alert(pullResults.body.message);
+        }
         else {
-          alert('Username atau password salah');
+          alert("Terjadi kesalahan");
         }
       }
-      else {
-        alert('Username atau password salah');
-      }
-    })
-    .catch(error => {
-      console.log(error);
-      alert('Terjadi kesalahan');
     });
   }
 };
 
 const loginAdmin = (username, password) => {
-  login(DB_URL+"/admin", username, password, BASE_URL+"/admin-dashboard");
+  login("login-admin", username, password, BASE_URL+"/admin-dashboard");
 };
 
 const loginSeller = (username, password) => {
-  login(DB_URL+"/sellers", username, password, BASE_URL+"/seller-dashboard");
+  login("login-seller", username, password, BASE_URL+"/seller-dashboard");
 };
 
 const loginPromotor = (username, password) => {
-  login(DB_URL+"/promotors", username, password, BASE_URL+"/promotor-dashboard");
+  login("login-promotor", username, password, BASE_URL+"/promotor-dashboard");
 };
 
 class LoginScreen extends React.Component {
