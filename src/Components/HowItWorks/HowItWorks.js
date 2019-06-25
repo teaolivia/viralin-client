@@ -223,7 +223,15 @@ class HowItWorks extends React.Component {
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <img src={howitworks} alt="How It Works" className="clientPhotos" />
+              <div className="videoWrapper">
+                <iframe
+                  title="video"
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/lXToyv0W3Is"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                />
+              </div>
             </Grid>
             <Grid
               className="Clients"
