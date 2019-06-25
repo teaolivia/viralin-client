@@ -298,14 +298,14 @@ class Home extends React.Component {
           >
             <Grid item className="Head">
               <Typography
-                variant="h4"
+                variant="h5"
                 align="center"
               >
-                Bagaimana Anda Bisa Memulai
+                BAGAIMANA ANDA BISA MEMULAI
               </Typography>
               <br />
               <Typography
-                variant="h5"
+                variant="subtitle1"
                 align="center"
               >
                 {`Kini untuk menjadi Viral dan memperoleh uang akan
@@ -380,6 +380,7 @@ class Home extends React.Component {
                 item
                 md={12}
                 container
+                spacing={2}
               >
                 <Grid item md={12}>&nbsp;</Grid>
                 <Grid item md={12}>&nbsp;</Grid>
@@ -390,7 +391,7 @@ class Home extends React.Component {
                 <Grid
                   item
                   md={12}
-                  spacing={2}
+                  spacing={4}
                   container
                   justify="center"
                   alignItems="flex-start"
@@ -461,7 +462,7 @@ class Home extends React.Component {
                     <Typography variant="h1" align="center">
                       <Share fontSize="inherit" />
                     </Typography>
-                    <Typography variant="subtitle1" align="justify">
+                    <Typography variant="subtitle1" align="center">
                       {`Dapatkan penghasilan tambahan dengan melakukan
                       kegiatanmu sehari-hari yaitu share foto dan video`}
                     </Typography>
@@ -479,7 +480,7 @@ class Home extends React.Component {
                     <Typography variant="h1" align="center">
                       <MonetizationOn fontSize="inherit" />
                     </Typography>
-                    <Typography variant="subtitle1" align="justify">
+                    <Typography variant="subtitle1" align="center">
                       {`Jual apa saja yang mau kamu jual
                       tanpa harus punya produknya`}
                     </Typography>
