@@ -1013,7 +1013,7 @@ class Home extends React.Component {
             className="FooterBottomContainer"
           >
             <Typography variant="subtitle1" align="center">
-              Copyright 2019 Viralin
+              Copyright 2019 Viralin | Powered by PT Telekomunikasi Indonesia (Persero) Tbk
             </Typography>
           </div>
         </div>
