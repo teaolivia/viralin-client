@@ -301,7 +301,7 @@ class HowItWorks extends React.Component {
                             )}
                           </CountUp>
                         )}
-                        title="Atur Konten Iklan &amp; Viralkan"
+                        title="ATUR KONTEN IKLAN &amp; VIRALKAN"
                       />
                       <CardMedia
                         title="Langkah 1"
@@ -351,7 +351,7 @@ class HowItWorks extends React.Component {
                             )}
                           </CountUp>
                         )}
-                        title="Pilih Konten Iklan"
+                        title="PILIH KONTEN IKLAN"
                       />
                       <CardMedia
                         title="Langkah 2"
@@ -398,7 +398,7 @@ class HowItWorks extends React.Component {
                             )}
                           </CountUp>
                         )}
-                        title="Get Referral Link &amp; Mulai Viralkan"
+                        title="GET REFERRAL LINK &amp; MULAI VIRALKAN"
                       />
                       <CardMedia
                         title="Langkah 3"
@@ -447,7 +447,7 @@ class HowItWorks extends React.Component {
                             )}
                           </CountUp>
                         )}
-                        title="Viralin mengubah click, like and share menjadi Uang"
+                        title="VIRALIN MENGUBAH CLICK, LIKE AND SHARE MENJADI UANG"
                       />
                       <CardMedia
                         title="Langkah 4"
@@ -498,7 +498,7 @@ class HowItWorks extends React.Component {
                             )}
                           </CountUp>
                         )}
-                        title="Get Customer &amp; Rewards"
+                        title="GET CUSTOMER &amp; REWARDS"
                       />
                       <CardMedia
                         title="Langkah 5"
