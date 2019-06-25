@@ -30,7 +30,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <Switch>
         <div className="App">
           <Route path="/" exact component={Home} />
           <Route path="/cara-kerja" exact component={HowItWorks} />
@@ -50,7 +50,7 @@ class App extends Component {
           <Route path="/seller-add-konten/" exact component={SellerCreateKontenScreen} />
           <Route path="/seller-my-promotor/" exact component={SellerMyPromotorScreen} />
         </div>
-      </Router>
+      </Switch>
     );
   }
 }
