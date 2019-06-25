@@ -134,3 +134,7 @@
 .Home .FooterLogo {
   max-width: 25%;
 }
+
+.Home .clientItem {
+  border: 1px solid lightgrey;
+}
