@@ -655,6 +655,7 @@ class Home extends React.Component {
             <Grid
               className="Clients"
               container
+              spacing={2}
             >
               <Grid item xs={12}>&nbsp;</Grid>
               <Grid item xs={12}>&nbsp;</Grid>
@@ -673,6 +674,7 @@ class Home extends React.Component {
                 xs={12}
                 container
                 spacing={5}
+                className="clientItem"
               >
                 <Grid item xs={4}>
                   <img src={client1} alt="Client 1" className="clientPhotos" />
@@ -683,7 +685,7 @@ class Home extends React.Component {
                   xs={8}
                 >
                   <Grid item xs={12}>
-                    <Typography variant="h5">Paket Indihome Pekalongan</Typography>
+                    <Typography variant="subtitle1">Paket Indihome Pekalongan</Typography>
                   </Grid>
                   <Grid
                     item
@@ -692,7 +694,7 @@ class Home extends React.Component {
                     spacing={2}
                   >
                     <Grid item><Error /></Grid>
-                    <Grid item><Typography variant="subtitle1">2 Transaksi : 1 Point</Typography></Grid>
+                    <Grid item><Typography variant="subtitle2">2 Transaksi : 1 Point</Typography></Grid>
                   </Grid>
                   <Grid
                     item
@@ -701,7 +703,7 @@ class Home extends React.Component {
                     spacing={2}
                   >
                     <Grid item><CardGiftcard /></Grid>
-                    <Grid item><Typography variant="subtitle1">@Point = Rp 50.000,-</Typography></Grid>
+                    <Grid item><Typography variant="subtitle2">@Point = Rp 50.000,-</Typography></Grid>
                   </Grid>
                   <Grid
                     item
@@ -710,7 +712,7 @@ class Home extends React.Component {
                     spacing={2}
                   >
                     <Grid item><CalendarToday /></Grid>
-                    <Grid item><Typography variant="subtitle1">Massa berlaku sampai 30 September 2019</Typography></Grid>
+                    <Grid item><Typography variant="subtitle2">Massa berlaku sampai 30 September 2019</Typography></Grid>
                   </Grid>
                   <Grid
                     item
@@ -719,7 +721,7 @@ class Home extends React.Component {
                     spacing={2}
                   >
                     <Grid item><Group /></Grid>
-                    <Grid item><Typography variant="subtitle1">Referral : 1 dari 5 orang</Typography></Grid>
+                    <Grid item><Typography variant="subtitle2">Referral : 1 dari 5 orang</Typography></Grid>
                   </Grid>
                 </Grid>
               </Grid>
@@ -730,6 +732,7 @@ class Home extends React.Component {
                 xs={12}
                 container
                 spacing={5}
+                className="clientItem"
               >
                 <Grid item xs={4}>
                   <img src={client2} alt="Client 2" className="clientPhotos" />
@@ -740,7 +743,7 @@ class Home extends React.Component {
                   xs={8}
                 >
                   <Grid item xs={12}>
-                    <Typography variant="h5">Lapangan Badminton Diponegoro</Typography>
+                    <Typography variant="subtitle1">Lapangan Badminton Diponegoro</Typography>
                   </Grid>
                   <Grid
                     item
@@ -749,7 +752,7 @@ class Home extends React.Component {
                     spacing={2}
                   >
                     <Grid item><Error /></Grid>
-                    <Grid item><Typography variant="subtitle1">1 Transaksi : 2 Point</Typography></Grid>
+                    <Grid item><Typography variant="subtitle2">1 Transaksi : 2 Point</Typography></Grid>
                   </Grid>
                   <Grid
                     item
@@ -758,7 +761,7 @@ class Home extends React.Component {
                     spacing={2}
                   >
                     <Grid item><CardGiftcard /></Grid>
-                    <Grid item><Typography variant="subtitle1">@Point = Rp 15.000,-</Typography></Grid>
+                    <Grid item><Typography variant="subtitle2">@Point = Rp 15.000,-</Typography></Grid>
                   </Grid>
                   <Grid
                     item
@@ -767,7 +770,7 @@ class Home extends React.Component {
                     spacing={2}
                   >
                     <Grid item><CalendarToday /></Grid>
-                    <Grid item><Typography variant="subtitle1">Massa berlaku sampai 22 Juli 2019</Typography></Grid>
+                    <Grid item><Typography variant="subtitle2">Massa berlaku sampai 22 Juli 2019</Typography></Grid>
                   </Grid>
                   <Grid
                     item
@@ -776,7 +779,7 @@ class Home extends React.Component {
                     spacing={2}
                   >
                     <Grid item><Group /></Grid>
-                    <Grid item><Typography variant="subtitle1">Referral : 3 dari 3 orang</Typography></Grid>
+                    <Grid item><Typography variant="subtitle2">Referral : 3 dari 3 orang</Typography></Grid>
                   </Grid>
                 </Grid>
               </Grid>
@@ -787,6 +790,7 @@ class Home extends React.Component {
                 xs={12}
                 container
                 spacing={5}
+                className="clientItem"
               >
                 <Grid item xs={4}>
                   <img src={client3} alt="Client 3" className="clientPhotos" />
@@ -797,7 +801,7 @@ class Home extends React.Component {
                   xs={8}
                 >
                   <Grid item xs={12}>
-                    <Typography variant="h5">Bubur Malam Special Benny, Alun - Alun Pekalongan</Typography>
+                    <Typography variant="subtitle1">Bubur Malam Special Benny, Alun - Alun Pekalongan</Typography>
                   </Grid>
                   <Grid
                     item
@@ -806,7 +810,7 @@ class Home extends React.Component {
                     spacing={2}
                   >
                     <Grid item><Error /></Grid>
-                    <Grid item><Typography variant="subtitle1">1 Transaksi : 1 Point</Typography></Grid>
+                    <Grid item><Typography variant="subtitle2">1 Transaksi : 1 Point</Typography></Grid>
                   </Grid>
                   <Grid
                     item
@@ -815,7 +819,7 @@ class Home extends React.Component {
                     spacing={2}
                   >
                     <Grid item><CardGiftcard /></Grid>
-                    <Grid item><Typography variant="subtitle1">@Point = Rp 10.000,-</Typography></Grid>
+                    <Grid item><Typography variant="subtitle2">@Point = Rp 10.000,-</Typography></Grid>
                   </Grid>
                   <Grid
                     item
@@ -824,7 +828,7 @@ class Home extends React.Component {
                     spacing={2}
                   >
                     <Grid item><CalendarToday /></Grid>
-                    <Grid item><Typography variant="subtitle1">Massa berlaku sampai 11 November 2019</Typography></Grid>
+                    <Grid item><Typography variant="subtitle2">Massa berlaku sampai 11 November 2019</Typography></Grid>
                   </Grid>
                   <Grid
                     item
@@ -833,7 +837,7 @@ class Home extends React.Component {
                     spacing={2}
                   >
                     <Grid item><Group /></Grid>
-                    <Grid item><Typography variant="subtitle1">Referral : 4 dari 8 orang</Typography></Grid>
+                    <Grid item><Typography variant="subtitle2">Referral : 4 dari 8 orang</Typography></Grid>
                   </Grid>
                 </Grid>
               </Grid>
