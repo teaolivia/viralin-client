@@ -20,13 +20,13 @@ AWS.config.update({
 });
 var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
 
-const sellerData = (type, seller_id) => {  
+const sellerData = (seller_id) => {  
   var params = {
-    FunctionName: type,
+    FunctionName: 'seller-view',
     InvocationType: 'RequestResponse',
     LogType: 'None',
     Payload: {
-      "seller_id" : "'+seller_id+'",
+      "seller_id" : seller_id,
       "business_name": "'+business_name+'",
       "business_type": "'+business_type+'",
       "email": "'+email+'",
@@ -46,39 +46,25 @@ const sellerData = (type, seller_id) => {
     else
       result = JSON.parse(data.Payload);           // successful response
   });
-    console.log(data)
+    return result;
 }
 
-const NumberOfTotalPromotors = () => {
+const NumberOfTotalPromotors = (seller_id) => {
   var params = {
     FunctionName: 'seller-n-promotors',
     InvocationType: 'RequestResponse',
     LogType: 'None',
     Payload: {
-      "seller_id": "+seller_id+"
+      "seller_id": seller_id
     }
   };
-
+  var result;
   lambda.invoke(params, function(err, data){
-
+    if (err) console.log(err, err.stack); // an error occurred
+    else
+      result = JSON.parse(data.Payload);       
   });
-}
-
-const AddPosting = (submitted) => {
-  var paramContent = {
-    FunctionName: 'post-content',
-    InvocationType: 'RequestResponse',
-    LogType: 'None',
-    Payload: JSON.stringify(submitted)
-  };
-  var paramContent = {
-    FunctionName: 'create-relations',
-    InvocationType: 'RequestResponse',
-    LogType: 'None',
-    Payload: {
-      "content_id" : "'+content_id+"
-    }
-  };
+  return result;
 }
 
 const dummyData = {

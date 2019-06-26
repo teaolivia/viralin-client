@@ -34,11 +34,21 @@ class SellerCreateKontenScreen extends React.Component {
     this.state = {
       username: 'Joko',
       judulKonten: '',
+      submittedjudulKonten: '',
       jenisKonten: '',
-      jenisKontenValue: 0,
+      submittedjenisKonten: '',
+      durasi: '',
+      submittedDurasi: '',
+      lingkupValue: '',
+      submittedlingkupValue: '',
+      modalViral: '',
+      submittedmodalViral: '',
+      gamesRule: '',
+      submittedgamesRule: ''
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.changeDurasiValue = this.changeDurasiValue.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSelectChange = this.handleSelectChange.bind(this);
     this.handleRadioChange = this.handleRadioChange.bind(this);
   }
 
@@ -58,21 +68,135 @@ class SellerCreateKontenScreen extends React.Component {
     });
   }
 
+  changeDurasiValue(event) {
+    this.setState({ durasi: event.target.value });
+  }
+
   handleRadioChange(event) {
     this.setState({ lingkupValue: event.target.value });
+  }
+
+  handleSubmit(event) {
+    const {
+      jenisKonten,
+      judulKonten,
+      durasi,
+      lingkupValue,
+      modalViral,
+      gamesRule
+    } = this.state;
+    event.preventDefault();
+    this.setState({
+      submittedjudulKonten: judulKonten,
+      submittedjenisKonten: jenisKonten,
+      submittedDurasi: durasi,
+      submittedlingkupValue: lingkupValue,
+      submittedmodalViral: modalViral,
+      submittedgamesRule: gamesRule
+    }, () => {
+      const {
+        submittedjudulKonten,
+        submittedjenisKonten,
+        submittedDurasi,    
+        submittedlingkupValue,
+        submittedmodalViral,
+        submittedgamesRule    
+      } = this.state;
+      const submitted = {
+        judul_konten: submittedjudulKonten,
+        jenis_konten: submittedjenisKonten,
+        durasi_: submittedDurasi,
+        lingkup_value: submittedlingkupValue,
+        modal_viral: submittedmodalViral,
+        games_rule: submittedgamesRule
+      };
+      console.table(submitted);
+      if (this.validateSubmit(submitted)) {
+        this.addContent(submitted);
+      }
+    });
+  }
+
+  validateSubmit(submitted) {
+    if (submitted.judul_konten == '') {
+      alert('Isi Konten');
+      return false;
+    }
+    else if (submitted.jenis_konten == '') {
+      alert('Isi Jenis Konten');
+      return false;
+    }
+    // else if (submitted.durasi_ == '') {
+    //   alert('Isi Durasi');
+    //   return false;
+    // }
+    else if (submitted.lingkup_value == '') {
+      alert('Isi Lingkup Value');
+      return false;
+    }
+    // else if (submitted.modal_viral == '') {
+    //   alert('Isi Modal Viral');
+    //   return false;
+    // }
+    else if (submitted.games_rule == '') {
+      alert('Isi Games Rule');
+      return false;
+    }
+    return true;
+  } 
+
+  addContent(submitted) {
+    AWS.config.update({
+      region: 'ap-southeast-1',
+      credentials: new AWS.Credentials({
+        accessKeyId: "AKIA6AOWNMA4JZGARCNX",
+        secretAccessKey: "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"
+      })
+    });
+    var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
+    // create JSON object for parameters for invoking Lambda function
+    var pullParams = {
+      FunctionName : 'post-content',
+      InvocationType : 'RequestResponse',
+      LogType : 'None',
+      Payload : JSON.stringify(submitted)
+    };
+    // create variable to hold data returned by the Lambda function
+    var pullResults;
+
+    lambda.invoke(pullParams, function(error, data) {
+      if (error) {
+        console.log(error);
+        alert("error");
+      } else {
+        pullResults = JSON.parse(data.Payload);
+        console.log(pullResults);
+        if (pullResults.statusCode == 200) {
+          alert('Content telah ditambahkan');
+        }
+        else if (pullResults.body.message != null || pullResults.body.message != "") {
+          alert(pullResults.body.message);
+        }
+        else {
+          alert("Terjadi kesalahan");
+        }
+      }
+    });
   }
 
   render() {
     const {
       username,
       judulKonten,
-      jenisKontenValue,
+      jenisKonten,
+      durasi,
       lingkupValue,
       gamesRule,
       modalValue,
     } = this.state;
     return (
       <div className="SellerCreateKontenScreen">
+        <form onSubmit={this.handleSubmit}>
         <Navigation
           isWithHomeButton
           isWithNotificationButton
@@ -95,15 +219,19 @@ class SellerCreateKontenScreen extends React.Component {
                     <Typography variant="h5">Jenis Konten</Typography>
                   </Grid>
                   <Grid item md={9} xs={12}>
-                    <FormControl className="FormControl" variant="filled" fullWidth>
-                      <Select
-                        native
-                        value={jenisKontenValue}
-                        onChange={this.changeProvinsiValue}
-                      >
-                        <option value={0}>Pilih Jenis Konten&nbsp;&nbsp;&nbsp;</option>
-                      </Select>
-                    </FormControl>
+                  <Typography variant="h5">
+                      <TextField
+                        id="filled-jenisKonten"
+                        label="Jenis Konten"
+                        className="TextField"
+                        margin="normal"
+                        variant="filled"
+                        name="jenisKonten"
+                        fullWidth
+                        value={jenisKonten}
+                        onChange={this.handleInputChange}
+                      />
+                    </Typography>
                   </Grid>
                 </Grid>
               </Grid>
@@ -149,6 +277,8 @@ class SellerCreateKontenScreen extends React.Component {
                       InputLabelProps={{
                         shrink: true,
                       }}
+                      value={durasi}
+                      onChange={this.changeDurasiValue}
                     />
                   </Grid>
                 </Grid>
@@ -195,6 +325,8 @@ class SellerCreateKontenScreen extends React.Component {
                       marks={marks}
                       valueLabelDisplay="on"
                       valueLabelFormat={x => `Rp ${(x * 10000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}.-`}
+                      onChange={ (e, modalValue) => this.modalValue = modalValue }
+                      onDragStop={ (e) => this.props.update(e, control.id, this.modalValue)}
                     />
                   </Grid>
                 </Grid>
@@ -226,16 +358,19 @@ class SellerCreateKontenScreen extends React.Component {
               </Grid>
               <Grid item xs={12}>
                 <Grid container justify="center">
-                  <Button>
-                    <Paper>
+                  <Button
+                      variant="contained"
+                      color="primary"
+                      className="Button"
+                      type="submit">
                       <Typography variant="h5">&nbsp;Buat Konten Viral&nbsp;</Typography>
-                    </Paper>
                   </Button>
                 </Grid>
               </Grid>
             </Grid>
           </Paper>
         </div>
+        </form>
       </div>
     );
   }
