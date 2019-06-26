@@ -128,3 +128,17 @@
 .AboutUs .AboutLogo {
   max-width:100%;
 }
+
+.AboutUs .FABWhatsapp {
+  position:fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #53bfa5;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.AboutUs .FABWhatsapp a {
+  color: white;
+  text-decoration: white;
+}

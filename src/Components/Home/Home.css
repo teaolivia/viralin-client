@@ -138,3 +138,17 @@
 .Home .clientItem {
   border: 1px solid lightgrey;
 }
+
+.Home .FABWhatsapp {
+  position:fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #53bfa5;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.Home .FABWhatsapp a {
+  color: white;
+  text-decoration: white;
+}
