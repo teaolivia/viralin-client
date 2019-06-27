@@ -14,66 +14,11 @@ import 'Components/SellerLoginScreen/SellerLoginScreen.css';
 import logo1 from 'images/logo1.png';
 import logo2 from 'images/logo2.png';
 
-const redirectloginAdmin = () => {
-  return (
-    <Link to="/admin-dashboard" />
-  );
-};
 
 const redirectloginSeller = () => {
   return (
     <Link to="/seller-dashboard" />
   );
-};
-
-const redirectloginPromotor = () => {
-  return (
-    <Link to="/promotor-dashboard" />
-  );
-};
-
-const loginAdmin = (username, password) => {
-  if (username == '' || password == '') {
-    alert('Isi username dan password');
-  }
-  else {
-    AWS.config.update({
-      region: 'ap-southeast-1',
-      credentials: new AWS.Credentials({
-        accessKeyId: "AKIA6AOWNMA4JZGARCNX",
-        secretAccessKey: "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"
-      })
-    });
-    var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
-    // create JSON object for parameters for invoking Lambda function
-    var pullParams = {
-      FunctionName : 'login-admin',
-      InvocationType : 'RequestResponse',
-      LogType : 'None',
-      Payload : '{"username": "'+username+'", "password": "'+password+'"}'
-    };
-    // create variable to hold data returned by the Lambda function
-    var pullResults;
-
-    lambda.invoke(pullParams, function(error, data) {
-      if (error) {
-        console.log(error);
-        alert("error");
-      } else {
-        pullResults = JSON.parse(data.Payload);
-        console.log(pullResults);
-        if (pullResults.statusCode == 200) {
-          redirectloginAdmin();
-        }
-        else if (pullResults.body.message != null || pullResults.body.message != "") {
-          alert(pullResults.body.message);
-        }
-        else {
-          alert("Terjadi kesalahan");
-        }
-      }
-    });
-  }
 };
 
 const loginSeller = (username, password) => {
@@ -108,50 +53,6 @@ const loginSeller = (username, password) => {
         console.log(pullResults);
         if (pullResults.statusCode == 200) {
           redirectloginSeller();
-        }
-        else if (pullResults.body.message != null || pullResults.body.message != "") {
-          alert(pullResults.body.message);
-        }
-        else {
-          alert("Terjadi kesalahan");
-        }
-      }
-    });
-  }
-};
-
-const loginPromotor = (username, password) => {
-  if (username == '' || password == '') {
-    alert('Isi username dan password');
-  }
-  else {
-    AWS.config.update({
-      region: 'ap-southeast-1',
-      credentials: new AWS.Credentials({
-        accessKeyId: "AKIA6AOWNMA4JZGARCNX",
-        secretAccessKey: "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"
-      })
-    });
-    var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
-    // create JSON object for parameters for invoking Lambda function
-    var pullParams = {
-      FunctionName : 'login-promotor',
-      InvocationType : 'RequestResponse',
-      LogType : 'None',
-      Payload : '{"username": "'+username+'", "password": "'+password+'"}'
-    };
-    // create variable to hold data returned by the Lambda function
-    var pullResults;
-
-    lambda.invoke(pullParams, function(error, data) {
-      if (error) {
-        console.log(error);
-        alert("error");
-      } else {
-        pullResults = JSON.parse(data.Payload);
-        console.log(pullResults);
-        if (pullResults.statusCode == 200) {
-          redirectloginPromotor();
         }
         else if (pullResults.body.message != null || pullResults.body.message != "") {
           alert(pullResults.body.message);
@@ -310,6 +211,7 @@ class SellerLoginScreen extends React.Component {
                       variant="contained"
                       color="primary"
                       className="Button"
+                      href="/seller-dashboard"
                     >
                       <Typography variant="subtitle1">Login Sebagai Pebisnis</Typography>
                     </Button>
