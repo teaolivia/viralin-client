@@ -28,6 +28,10 @@ const marks = [
   },
 ];
 
+const handleChangeSliderValue = (event, newValue) => {
+  setValue(newValue);
+};
+
 class SellerCreateKontenScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -71,6 +75,8 @@ class SellerCreateKontenScreen extends React.Component {
   changeDurasiValue(event) {
     this.setState({ durasi: event.target.value });
   }
+
+
 
   handleRadioChange(event) {
     this.setState({ lingkupValue: event.target.value });
@@ -325,8 +331,8 @@ class SellerCreateKontenScreen extends React.Component {
                       marks={marks}
                       valueLabelDisplay="on"
                       valueLabelFormat={x => `Rp ${(x * 10000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}.-`}
-                      onChange={ (e, modalValue) => this.modalValue = modalValue }
-                      onDragStop={ (e) => this.props.update(e, control.id, this.modalValue)}
+                      value={modalValue}
+                      onChange={ handleChangeSliderValue }
                     />
                   </Grid>
                 </Grid>

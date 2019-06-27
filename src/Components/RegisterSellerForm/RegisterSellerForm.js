@@ -2,6 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import React from 'react';
+import { Redirect, Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -16,8 +17,15 @@ import axios from 'axios';
 import fetchProvinsiApi from 'Api/fetchProvinsiApi';
 import fetchKabupatenKotaApi from 'Api/fetchKabupatenKotaApi';
 
-
+const redirectPage = () => {
+  return (
+    <Link to="/seller-dashboard" />
+  );
+}
 class RegisterSellerForm extends React.Component {
+  // state = {
+  //   navigate: false
+  // }
   constructor(props) {
     super(props);
     this.state = {
@@ -164,7 +172,7 @@ class RegisterSellerForm extends React.Component {
         console.log(pullResults);
         if (pullResults.statusCode == 200) {
           alert('Registrasi berhasil');
-          window.location.href = '/seller-dashboard';
+          redirectPage();
         }
         else if (pullResults.body.message != null || pullResults.body.message != "") {
           alert(pullResults.body.message);
@@ -310,7 +318,7 @@ class RegisterSellerForm extends React.Component {
       alamat,
       username,
       password,
-      passwordConfirmation,
+      passwordConfirmation
     } = this.state;
     const provinsis = provinsiArray.map(i => <option key={i.id} value={i.id}>{i.nama}</option>);
     const kabupatenKotas = kabupatenKotaArray.map(
@@ -511,6 +519,7 @@ class RegisterSellerForm extends React.Component {
             color="primary"
             className="Button"
             type="submit"
+            href="/seller-dashboard"
           >
             <Typography variant="subtitle1">Register</Typography>
           </Button>
