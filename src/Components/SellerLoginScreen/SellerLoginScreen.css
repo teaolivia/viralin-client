@@ -1,0 +1,18 @@
+.SellerLoginScreen {
+    width:100%;
+    min-height: 100vh;
+    background-color: #fff3e0;
+}
+
+.SellerLoginScreen .Paper {
+    padding: 20px;
+}
+
+.SellerLoginScreen .Link {
+    color: orangered;
+    text-decoration: orange;
+}
+
+.SellerLoginScreen .Logo {
+    width: 40%;
+}
