@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -10,7 +8,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Search from '@material-ui/icons/Search';
 import FilterList from '@material-ui/icons/FilterList';
 import Language from '@material-ui/icons/Language';
-
+import AWS from 'aws-sdk';
 import Navigation from 'Components/Navigation/Navigation';
 import PromotorList from 'Components/PromotorList/PromotorList';
 
@@ -53,6 +51,46 @@ class SellerMyPromotorScreen extends React.Component {
       username: 'Joko',
     };
   }
+
+getPromotorIDs(seller_id) {
+  AWS.config.update({
+    region: 'ap-southeast-1',
+    credentials: new AWS.Credentials({
+      accessKeyId: "AKIA6AOWNMA4JZGARCNX",
+      secretAccessKey: "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"
+    })
+  });
+  var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
+  // create JSON object for parameters for invoking Lambda function
+  var pullParams = {
+    FunctionName : 'seller-n-promotors',
+    InvocationType : 'RequestResponse',
+    LogType : 'None',
+    Payload : seller_id
+  };
+  // create variable to hold data returned by the Lambda function
+  var pullResults;
+  var n_promotors;
+
+  lambda.invoke(pullParams, function(error, data) {
+    if (error) {
+      console.log(error);
+      alert("error");
+    } else {
+      pullResults = JSON.parse(data.Payload);
+      console.log(pullResults);
+      if (pullResults.statusCode == 200) {
+        n_promotors = len(pullResults)
+      }
+      else if (pullResults.body.message != null || pullResults.body.message != "") {
+        alert(pullResults.body.message);
+      }
+      else {
+        alert("Terjadi kesalahan");
+      }
+    }
+  });
+}
 
   render() {
     const { username } = this.state;
