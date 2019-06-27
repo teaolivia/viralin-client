@@ -20,53 +20,6 @@ AWS.config.update({
 });
 var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
 
-const sellerData = (seller_id) => {  
-  var params = {
-    FunctionName: 'seller-view',
-    InvocationType: 'RequestResponse',
-    LogType: 'None',
-    Payload: {
-      "seller_id" : seller_id,
-      "business_name": "'+business_name+'",
-      "business_type": "'+business_type+'",
-      "email": "'+email+'",
-      "name": "'+name+'",
-      "password": "'+password+'",
-      "phone": "'+phone+'",
-      "province": "'+province+'",
-      "username": "'+username+'",
-      "birthplace": "'+birthplace+'",
-      "city": "'+city+'"
-    } /* required */
-  //  Payload: PAYLOAD_AS_A_STRING
-  };
-  var result;
-  lambda.invoke(params, function(err, data) {
-    if (err) console.log(err, err.stack); // an error occurred
-    else
-      result = JSON.parse(data.Payload);           // successful response
-  });
-    return result;
-}
-
-const NumberOfTotalPromotors = (seller_id) => {
-  var params = {
-    FunctionName: 'seller-n-promotors',
-    InvocationType: 'RequestResponse',
-    LogType: 'None',
-    Payload: {
-      "seller_id": seller_id
-    }
-  };
-  var result;
-  lambda.invoke(params, function(err, data){
-    if (err) console.log(err, err.stack); // an error occurred
-    else
-      result = JSON.parse(data.Payload);       
-  });
-  return result;
-}
-
 const dummyData = {
   id: '1',
   title: 'Indihome Paket Gamer',
@@ -118,6 +71,53 @@ class SellerDashboard extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleContentFormPopOut = this.handleContentFormPopOut.bind(this);
+  }
+
+  sellerData() {  
+    var params = {
+      FunctionName: 'seller-view',
+      InvocationType: 'RequestResponse',
+      LogType: 'None',
+      Payload: {
+        "seller_id" : seller_id,
+        "business_name": "'+business_name+'",
+        "business_type": "'+business_type+'",
+        "email": "'+email+'",
+        "name": "'+name+'",
+        "password": "'+password+'",
+        "phone": "'+phone+'",
+        "province": "'+province+'",
+        "username": "'+username+'",
+        "birthplace": "'+birthplace+'",
+        "city": "'+city+'"
+      } /* required */
+    //  Payload: PAYLOAD_AS_A_STRING
+    };
+    var result;
+    lambda.invoke(params, function(err, data) {
+      if (err) console.log(err, err.stack); // an error occurred
+      else
+        result = data.Payload;           // successful response
+    });
+      return result;
+  }
+  
+  NumberOfTotalPromotors(){
+    var params = {
+      FunctionName: 'seller-n-promotors',
+      InvocationType: 'RequestResponse',
+      LogType: 'None',
+      Payload: {
+        "seller_id": seller_id
+      }
+    };
+    var result;
+    lambda.invoke(params, function(err, data){
+      if (err) console.log(err, err.stack); // an error occurred
+      else
+        result = data.Payload;       
+    });
+    return len(result);
   }
 
   handleContentFormPopOut(event) {

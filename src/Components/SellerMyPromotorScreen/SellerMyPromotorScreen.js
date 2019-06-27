@@ -66,7 +66,9 @@ getPromotorIDs(seller_id) {
     FunctionName : 'seller-n-promotors',
     InvocationType : 'RequestResponse',
     LogType : 'None',
-    Payload : seller_id
+    Payload : {
+      "seller_id": seller_id
+    }
   };
   // create variable to hold data returned by the Lambda function
   var pullResults;
@@ -77,7 +79,7 @@ getPromotorIDs(seller_id) {
       console.log(error);
       alert("error");
     } else {
-      pullResults = JSON.parse(data.Payload);
+      pullResults = data.Payload;
       console.log(pullResults);
       if (pullResults.statusCode == 200) {
         n_promotors = len(pullResults)
