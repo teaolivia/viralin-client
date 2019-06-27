@@ -13,7 +13,9 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import AWS from 'aws-sdk';
 
-import 'Components/LoginScreen/LoginScreen.css';
+import 'Components/PromotorLoginScreen/PromotorLoginScreen.css';
+import logo1 from 'images/logo1.png';
+import logo2 from 'images/logo2.png';
 
 import TabContainer from 'Components/TabContainer/TabContainer';
 
@@ -167,10 +169,7 @@ const loginPromotor = (username, password) => {
   }
 };
 
-
-
-
-class LoginScreen extends React.Component {
+class PromotorLoginScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -242,10 +241,10 @@ class LoginScreen extends React.Component {
       tabValue,
       username,
       password,
-      dashboardValue
+      dashboardValue,
     } = this.state;
     return (
-      <div className="LoginScreen">
+      <div className="PromotorLoginScreen">
         <Grid
           container
           direction="row"
@@ -259,65 +258,90 @@ class LoginScreen extends React.Component {
           <Grid item xs={12} sm={6}>
             <Container>
               <Paper className="Paper">
-                <Tabs
-                  value={tabValue}
-                  onChange={this.changeTabValue}
+                <Grid
+                  container
+                  justify="center"
+                  alignItems="center"
+                  spacing={2}
                 >
-                  <Tab label="Akun Bisnis" />
-                  <Tab label="Akun Promotor" />
-                  <Tab label="Akun Admin" />
-                </Tabs>
-                <TabContainer>
-                  <TextField
-                    id="filled-username"
-                    label="Username"
-                    className="TextField"
-                    margin="normal"
-                    variant="filled"
-                    fullWidth
-                    value={username}
-                    onChange={this.changeUsernameValue}
-                  />
-                  <TextField
-                    id="filled-password"
-                    label="Password"
-                    className="TextField"
-                    margin="normal"
-                    variant="filled"
-                    type="password"
-                    fullWidth
-                    value={password}
-                    onChange={this.changePasswordValue}
-                  />
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className="Button"
-                    href={dashboardValue}
+                  <Grid
+                    item
+                    xs={12}
+                    container
+                    justify="center"
                   >
-                    <Typography variant="subtitle1">Login</Typography>
-                  </Button>
-                  {
-                    (tabValue === 0 || tabValue === 1)
-                      && (
-                      <Box component="span">
-                        <br />
-                        <br />
-                        <Link to="/forgot-password" className="Button">Forgot Password?</Link>
-                      </Box>
-                      )
-                  }
-                </TabContainer>
-              </Paper>
-              {
-                (tabValue === 0 || tabValue === 1)
-                  && (
-                    <Typography variant="subtitle1">
-                      <br />
-                      Promosi? Viralin ajaaa..
+                    <img src={logo2} alt="logo2" className="Logo" />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    container
+                    justify="center"
+                  >
+                    <img src={logo1} alt="logo1" className="Logo" />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      id="filled-username"
+                      label="Username"
+                      className="TextField"
+                      margin="normal"
+                      variant="filled"
+                      fullWidth
+                      value={username}
+                      onChange={this.changeUsernameValue}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      id="filled-password"
+                      label="Password"
+                      className="TextField"
+                      margin="normal"
+                      variant="filled"
+                      type="password"
+                      fullWidth
+                      value={password}
+                      onChange={this.changePasswordValue}
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    container
+                    justify="center"
+                  >
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className="Button"
+                    >
+                      <Typography variant="subtitle1">Login Sebagai Promotor</Typography>
+                    </Button>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    container
+                    justify="center"
+                  >
+                    <Typography variant="subtitle2">
+                      <Link to="/forgot-password" className="Link">Lupa Password?</Link>
                     </Typography>
-                  )
-              }
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    container
+                    justify="center"
+                  >
+                    <Typography variant="subtitle2">
+                      <Link to="/login-pebisnis" className="Link">Klik Di Sini</Link>
+                      &nbsp; Untuk Login Sebagai Pebisnis
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </Paper>
             </Container>
           </Grid>
           <Grid item xs={3} />
@@ -327,4 +351,4 @@ class LoginScreen extends React.Component {
   }
 }
 
-export default LoginScreen;
+export default PromotorLoginScreen;

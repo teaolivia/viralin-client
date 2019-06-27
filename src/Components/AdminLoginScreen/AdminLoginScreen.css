@@ -1,0 +1,18 @@
+.AdminLoginScreen {
+    width:100%;
+    min-height: 100vh;
+    background-color: #fff3e0;
+}
+
+.AdminLoginScreen .Paper {
+    padding: 20px;
+}
+
+.AdminLoginScreen .Link {
+    color: orangered;
+    text-decoration: orange;
+}
+
+.AdminLoginScreen .Logo {
+    width: 40%;
+}

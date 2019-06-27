@@ -1,0 +1,18 @@
+.PromotorLoginScreen {
+    width:100%;
+    min-height: 100vh;
+    background-color: #fff3e0;
+}
+
+.PromotorLoginScreen .Paper {
+    padding: 20px;
+}
+
+.PromotorLoginScreen .Link {
+    color: orangered;
+    text-decoration: orange;
+}
+
+.PromotorLoginScreen .Logo {
+    width: 40%;
+}
