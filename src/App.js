@@ -2,7 +2,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import LoginScreen from 'Components/LoginScreen/LoginScreen';
+import AdminLoginScreen from 'Components/AdminLoginScreen/AdminLoginScreen';
+import PromotorLoginScreen from 'Components/PromotorLoginScreen/PromotorLoginScreen';
+import SellerLoginScreen from 'Components/SellerLoginScreen/SellerLoginScreen';
 import RegisterScreen from 'Components/RegisterScreen/RegisterScreen';
 import AdminDashboardScreen from 'Components/AdminDashboardScreen/AdminDashboardScreen';
 import PromotorDatabaseScreen from 'Components/PromotorDatabaseScreen/PromotorDatabaseScreen';
@@ -35,7 +37,9 @@ class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/cara-kerja" exact component={HowItWorks} />
           <Route path="/tentang-kami" exact component={AboutUs} />
-          <Route path="/login" exact component={LoginScreen} />
+          <Route path="/login-admin" exact component={AdminLoginScreen} />
+          <Route path="/login-promotor" exact component={PromotorLoginScreen} />
+          <Route path="/login-pebisnis" exact component={SellerLoginScreen} />
           <Route path="/register" exact component={RegisterScreen} />
           <Route path="/seller-dashboard" exact component={SellerDashboardScreen} />
           <Route path="/admin-dashboard" exact component={AdminDashboardScreen} />
