@@ -2,6 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import React from 'react';
+import { Redirect, Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -16,7 +17,11 @@ import AWS from 'aws-sdk';
 import fetchProvinsiApi from 'Api/fetchProvinsiApi';
 import fetchKabupatenKotaApi from 'Api/fetchKabupatenKotaApi';
 
-const BASE_URL = require('config').base_url;
+const redirectPage = () => {
+  return (
+    <Link to="/promotor-dashboard" />
+  );
+}
 
 class RegisterPromotorForm extends React.Component {
   constructor(props) {
@@ -171,7 +176,7 @@ class RegisterPromotorForm extends React.Component {
         console.log(pullResults);
         if (pullResults.statusCode == 200) {
           alert('Registrasi berhasil');
-          window.location.href = '/promotor-dashboard';
+          redirectPage();
         }
         else if (pullResults.body.message != null || pullResults.body.message != "") {
           alert(pullResults.body.message);
@@ -551,6 +556,7 @@ class RegisterPromotorForm extends React.Component {
             color="primary"
             className="Button"
             type="submit"
+            href="/promotor-dashboard"
           >
             <Typography variant="subtitle1">Register</Typography>
           </Button>

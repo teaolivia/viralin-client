@@ -16,13 +16,26 @@ import AWS from 'aws-sdk';
 import 'Components/LoginScreen/LoginScreen.css';
 
 import TabContainer from 'Components/TabContainer/TabContainer';
-import Logo from 'Components/Logo/Logo';
 
-const ADMIN_PASSWORD = 'asdf';
+const redirectloginAdmin = () => {
+  return (
+    <Link to="/admin-dashboard" />
+  );
+};
 
-const BASE_URL = require('config').base_url;
+const redirectloginSeller = () => {
+  return (
+    <Link to="/seller-dashboard" />
+  );
+};
 
-const login = (type, username, password, urlNext) => {
+const redirectloginPromotor = () => {
+  return (
+    <Link to="/promotor-dashboard" />
+  );
+};
+
+const loginAdmin = (username, password) => {
   if (username == '' || password == '') {
     alert('Isi username dan password');
   }
@@ -37,7 +50,7 @@ const login = (type, username, password, urlNext) => {
     var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
     // create JSON object for parameters for invoking Lambda function
     var pullParams = {
-      FunctionName : type,
+      FunctionName : 'login-admin',
       InvocationType : 'RequestResponse',
       LogType : 'None',
       Payload : '{"username": "'+username+'", "password": "'+password+'"}'
@@ -53,7 +66,7 @@ const login = (type, username, password, urlNext) => {
         pullResults = JSON.parse(data.Payload);
         console.log(pullResults);
         if (pullResults.statusCode == 200) {
-          window.location.href = urlNext;
+          redirectloginAdmin();
         }
         else if (pullResults.body.message != null || pullResults.body.message != "") {
           alert(pullResults.body.message);
@@ -66,27 +79,108 @@ const login = (type, username, password, urlNext) => {
   }
 };
 
-const loginAdmin = (username, password) => {
-  login("login-admin", username, password, BASE_URL+"/admin-dashboard");
-};
-
 const loginSeller = (username, password) => {
-  login("login-seller", username, password, BASE_URL+"/seller-dashboard");
+  if (username == '' || password == '') {
+    alert('Isi username dan password');
+  }
+  else {
+    AWS.config.update({
+      region: 'ap-southeast-1',
+      credentials: new AWS.Credentials({
+        accessKeyId: "AKIA6AOWNMA4JZGARCNX",
+        secretAccessKey: "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"
+      })
+    });
+    var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
+    // create JSON object for parameters for invoking Lambda function
+    var pullParams = {
+      FunctionName : 'login-seller',
+      InvocationType : 'RequestResponse',
+      LogType : 'None',
+      Payload : '{"username": "'+username+'", "password": "'+password+'"}'
+    };
+    // create variable to hold data returned by the Lambda function
+    var pullResults;
+
+    lambda.invoke(pullParams, function(error, data) {
+      if (error) {
+        console.log(error);
+        alert("error");
+      } else {
+        pullResults = JSON.parse(data.Payload);
+        console.log(pullResults);
+        if (pullResults.statusCode == 200) {
+          redirectloginSeller();
+        }
+        else if (pullResults.body.message != null || pullResults.body.message != "") {
+          alert(pullResults.body.message);
+        }
+        else {
+          alert("Terjadi kesalahan");
+        }
+      }
+    });
+  }
 };
 
 const loginPromotor = (username, password) => {
-  login("login-promotor", username, password, BASE_URL+"/promotor-dashboard");
+  if (username == '' || password == '') {
+    alert('Isi username dan password');
+  }
+  else {
+    AWS.config.update({
+      region: 'ap-southeast-1',
+      credentials: new AWS.Credentials({
+        accessKeyId: "AKIA6AOWNMA4JZGARCNX",
+        secretAccessKey: "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"
+      })
+    });
+    var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
+    // create JSON object for parameters for invoking Lambda function
+    var pullParams = {
+      FunctionName : 'login-promotor',
+      InvocationType : 'RequestResponse',
+      LogType : 'None',
+      Payload : '{"username": "'+username+'", "password": "'+password+'"}'
+    };
+    // create variable to hold data returned by the Lambda function
+    var pullResults;
+
+    lambda.invoke(pullParams, function(error, data) {
+      if (error) {
+        console.log(error);
+        alert("error");
+      } else {
+        pullResults = JSON.parse(data.Payload);
+        console.log(pullResults);
+        if (pullResults.statusCode == 200) {
+          redirectloginPromotor();
+        }
+        else if (pullResults.body.message != null || pullResults.body.message != "") {
+          alert(pullResults.body.message);
+        }
+        else {
+          alert("Terjadi kesalahan");
+        }
+      }
+    });
+  }
 };
+
+
+
 
 class LoginScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       tabValue: 0,
+      dashboardValue: '',
       username: '',
       password: '',
     };
     this.changeTabValue = this.changeTabValue.bind(this);
+    this.changeDashboardValue = this.changeDashboardValue.bind(this);
     this.changeUsernameValue = this.changeUsernameValue.bind(this);
     this.changePasswordValue = this.changePasswordValue.bind(this);
     this.loginButtonClickHandler = this.loginButtonClickHandler.bind(this);
@@ -110,24 +204,32 @@ class LoginScreen extends React.Component {
     this.setState({ adminValue: event.target.value });
   }
 
+  changeDashboardValue(event) {
+    this.setState({ dashboardValue: event.target.value});
+  }
+
   loginButtonClickHandler() {
     const {
       username,
       password,
       tabValue,
       adminValue,
+      dashboardValue
     } = this.state;
     switch (tabValue) {
       case 0:
         // Login pebisnis
+        dashboardValue = '/seller-dashboard'
         loginSeller(username, password);
         break;
       case 1:
         // Login promotor
+        dashboardValue = 'promotor-dashboard'
         loginPromotor(username, password);
         break;
       case 2:
         // Login admin
+        dashboardValue = '/admin-dashboard'
         loginAdmin(username, password);
         break;
       default:
@@ -140,6 +242,7 @@ class LoginScreen extends React.Component {
       tabValue,
       username,
       password,
+      dashboardValue
     } = this.state;
     return (
       <div className="LoginScreen">
@@ -190,7 +293,7 @@ class LoginScreen extends React.Component {
                     variant="contained"
                     color="primary"
                     className="Button"
-                    onClick={this.loginButtonClickHandler}
+                    href={dashboardValue}
                   >
                     <Typography variant="subtitle1">Login</Typography>
                   </Button>
@@ -201,8 +304,6 @@ class LoginScreen extends React.Component {
                         <br />
                         <br />
                         <Link to="/forgot-password" className="Button">Forgot Password?</Link>
-                        &nbsp; | &nbsp;
-                        <Link to="/register" className="Button">Register</Link>
                       </Box>
                       )
                   }

@@ -76,8 +76,6 @@ class SellerCreateKontenScreen extends React.Component {
     this.setState({ durasi: event.target.value });
   }
 
-
-
   handleRadioChange(event) {
     this.setState({ lingkupValue: event.target.value });
   }
@@ -148,6 +146,7 @@ class SellerCreateKontenScreen extends React.Component {
       alert('Isi Games Rule');
       return false;
     }
+    alert('Penambahan konten berhasil!')
     return true;
   } 
 
