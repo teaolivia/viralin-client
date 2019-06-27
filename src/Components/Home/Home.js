@@ -212,7 +212,7 @@ class Home extends React.Component {
             <Grid
               item
             >
-              <Link to="/login" className="url bgMain">
+              <Link to="/login-promotor" className="url bgMain">
                 Login
               </Link>
             </Grid>
@@ -325,13 +325,15 @@ class Home extends React.Component {
                 md={4}
                 className="borderRight"
               >
-                <Typography
-                  variant="h5"
-                  className="withBorder"
-                  align="center"
-                >
-                  Viralkan Produk Saya
-                </Typography>
+                <Link to="/login-pebisnis">
+                  <Typography
+                    variant="h5"
+                    className="withBorder"
+                    align="center"
+                  >
+                    Viralkan Produk Saya
+                  </Typography>
+                </Link>
                 <br />
                 <Typography
                   align="center"
@@ -344,13 +346,15 @@ class Home extends React.Component {
                 md={4}
                 className="borderLeft"
               >
-                <Typography
-                  variant="h5"
-                  className="withBorder"
-                  align="center"
-                >
-                  Dapatkan Uang Saya
-                </Typography>
+                <Link to="/login-promotor">
+                  <Typography
+                    variant="h5"
+                    className="withBorder"
+                    align="center"
+                  >
+                    Dapatkan Uang Saya
+                  </Typography>
+                </Link>
                 <br />
                 <Typography
                   align="center"
