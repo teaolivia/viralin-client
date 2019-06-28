@@ -202,6 +202,12 @@ class PromotorKontenViralDashboard extends React.Component {
                         VIRALIN
                       </Button>
                     </Grid>
+                    <Grid item>
+                        <Typography variant="subtitle1">
+                          &nbsp;
+                          {row.link}
+                        </Typography>
+                    </Grid>
                   </Grid>
                 </Grid>
               </Paper>

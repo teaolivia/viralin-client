@@ -27,6 +27,7 @@ const activeData = {
   maxReferral: 0,
   duration_start: '01/01/2019',
   duration_end: '01/02/2019',
+  link: 'https://myviralin.com/Joko/data1'
 };
 
 const activeData2 = {
@@ -40,6 +41,7 @@ const activeData2 = {
   maxReferral: 0,
   duration_start: '01/01/2019',
   duration_end: '01/02/2019',
+  link: 'https://myviralin.com/Joko/data2'
 };
 
 const rowsData = [
