@@ -29,7 +29,7 @@ const promotorData = {
 
 const promotor2Data = {
   id: 1,
-  username: 'Joko',
+  username: 'SpongeBob',
   level: 'A',
   clicks: 0,
   likes: 0,

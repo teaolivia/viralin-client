@@ -22,8 +22,8 @@ var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'}
 
 const dummyData = {
   id: '1',
-  title: 'Indihome Paket Gamer',
-  seller: 'Joko',
+  title: 'Ayam Bakar Mas Stereo',
+  seller: 'Karen',
   status: 'TRUE',
   referral: 'Open',
   duration_start: '01/01/2019',

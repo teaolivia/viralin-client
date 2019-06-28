@@ -18,22 +18,22 @@ const dummyData = {
 
 const activeData = {
   id: '1',
-  title: 'Indihome Paket Gamer',
-  seller: 'Joko',
-  rule: '2 transaksi = 1 poin',
-  reward: '@poin = Rp 50.000,-',
+  title: 'Buy 1 Get 1',
+  seller: 'Ayam Bakar Mas Stereo',
+  rule: 'Beli paket minimal 50.000 gratis satu porsi Nasi Timbel',
+  reward: 'satu porsi nasi timbel',
   status: 'TRUE',
   referral: 0,
   maxReferral: 0,
   duration_start: '01/01/2019',
   duration_end: '01/02/2019',
-  link: 'https://myviralin.com/Joko/data1'
+  link: 'https://myviralin.com/seller2/data1'
 };
 
 const activeData2 = {
   id: '2',
   title: 'Indihome Paket Gamer',
-  seller: 'Joko',
+  seller: 'Telkomsel',
   rule: '2 transaksi = 1 poin',
   reward: '@poin = Rp 50.000,-',
   status: 'TRUE',
@@ -41,7 +41,7 @@ const activeData2 = {
   maxReferral: 0,
   duration_start: '01/01/2019',
   duration_end: '01/02/2019',
-  link: 'https://myviralin.com/Joko/data2'
+  link: 'https://myviralin.com/seller1/data2'
 };
 
 const rowsData = [
