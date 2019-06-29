@@ -11,7 +11,7 @@ import PromotorKontenViralDashboard from 'Components/PromotorKontenViralDashboar
 import 'Components/PromotorDashboardScreen/PromotorDashboardScreen.css';
 
 const dummyData = {
-  username: 'Joko',
+  username: 'SpongeBob',
   role: 'Promotor',
 };
 
@@ -33,7 +33,7 @@ const activeData = {
 const activeData2 = {
   id: '2',
   title: 'Indihome Paket Gamer',
-  seller: 'Telkomsel',
+  seller: 'Eugene Krabs',
   rule: '2 transaksi = 1 poin',
   reward: '@poin = Rp 50.000,-',
   status: 'TRUE',

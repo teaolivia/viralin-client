@@ -32,10 +32,51 @@ const bulan = [
   'Desember',
 ];
 
+
+
 class PromotorKontenViralDashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  getKonten() {
+    AWS.config.update({
+      region: 'ap-southeast-1',
+      credentials: new AWS.Credentials({
+        accessKeyId: "AKIA6AOWNMA4JZGARCNX",
+        secretAccessKey: "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"
+      })
+    });
+    var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
+    // create JSON object for parameters for invoking Lambda function
+    var pullParams = {
+      FunctionName : 'list-of-contents',
+      InvocationType : 'RequestResponse',
+      LogType : 'None'
+    };
+    // create variable to hold data returned by the Lambda function
+    var pullResults;
+
+    lambda.invoke(pullParams, function(error, data) {
+      if (error) {
+        console.log(error);
+        alert("error");
+      } else {
+        pullResults = JSON.parse(data.Payload);
+        console.log(pullResults);
+        if (pullResults.statusCode == 200) {
+          console.log('Memuat konten berhasil');
+          console.log(pullResults)
+        }
+        else if (pullResults.body.message != null || pullResults.body.message != "") {
+          console.log(pullResults.body.message);
+        }
+        else {
+          console.log("Terjadi kesalahan");
+        }
+      }
+    });
   }
 
   render() {

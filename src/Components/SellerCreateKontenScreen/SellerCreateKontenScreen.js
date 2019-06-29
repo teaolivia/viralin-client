@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -28,9 +28,6 @@ const marks = [
   },
 ];
 
-const handleChangeSliderValue = (event, newValue) => {
-  setValue(newValue);
-};
 
 class SellerCreateKontenScreen extends React.Component {
   constructor(props) {
@@ -41,18 +38,19 @@ class SellerCreateKontenScreen extends React.Component {
       submittedjudulKonten: '',
       jenisKonten: '',
       submittedjenisKonten: '',
-      durasi: '',
+      durasiValue: '',
       submittedDurasi: '',
       lingkupValue: '',
       submittedlingkupValue: '',
-      modalViral: '',
-      submittedmodalViral: '',
+      modalValue: 0,
+      submittedmodalValue: 0,
       gamesRule: '',
       submittedgamesRule: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeDurasiValue = this.changeDurasiValue.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleInputChangeModal = this.handleInputChangeModal.bind(this);
     this.handleRadioChange = this.handleRadioChange.bind(this);
   }
 
@@ -61,6 +59,10 @@ class SellerCreateKontenScreen extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  handleInputChangeModal(event) {
+    this.setState({ modalValue: event.target.value });
   }
 
   handleSelectChange(event) {
@@ -73,7 +75,7 @@ class SellerCreateKontenScreen extends React.Component {
   }
 
   changeDurasiValue(event) {
-    this.setState({ durasi: event.target.value });
+    this.setState({ durasiValue: event.target.value });
   }
 
   handleRadioChange(event) {
@@ -84,18 +86,18 @@ class SellerCreateKontenScreen extends React.Component {
     const {
       jenisKonten,
       judulKonten,
-      durasi,
+      durasiValue,
       lingkupValue,
-      modalViral,
+      modalValue,
       gamesRule
     } = this.state;
     event.preventDefault();
     this.setState({
       submittedjudulKonten: judulKonten,
       submittedjenisKonten: jenisKonten,
-      submittedDurasi: durasi,
+      submittedDurasi: durasiValue,
       submittedlingkupValue: lingkupValue,
-      submittedmodalViral: modalViral,
+      submittedmodalValue: modalValue,
       submittedgamesRule: gamesRule
     }, () => {
       const {
@@ -103,15 +105,15 @@ class SellerCreateKontenScreen extends React.Component {
         submittedjenisKonten,
         submittedDurasi,    
         submittedlingkupValue,
-        submittedmodalViral,
+        submittedmodalValue,
         submittedgamesRule    
       } = this.state;
       const submitted = {
-        judul_konten: submittedjudulKonten,
-        jenis_konten: submittedjenisKonten,
-        durasi_: submittedDurasi,
-        lingkup_value: submittedlingkupValue,
-        modal_viral: submittedmodalViral,
+        title: submittedjudulKonten,
+        content_type: submittedjenisKonten,
+        duration_end: submittedDurasi,
+        type: submittedlingkupValue,
+        asset: submittedmodalValue,
         games_rule: submittedgamesRule
       };
       console.table(submitted);
@@ -122,11 +124,11 @@ class SellerCreateKontenScreen extends React.Component {
   }
 
   validateSubmit(submitted) {
-    if (submitted.judul_konten == '') {
+    if (submitted.title == '') {
       alert('Isi Konten');
       return false;
     }
-    else if (submitted.jenis_konten == '') {
+    else if (submitted.content_type == '') {
       alert('Isi Jenis Konten');
       return false;
     }
@@ -134,7 +136,7 @@ class SellerCreateKontenScreen extends React.Component {
     //   alert('Isi Durasi');
     //   return false;
     // }
-    else if (submitted.lingkup_value == '') {
+    else if (submitted.type == '') {
       alert('Isi Lingkup Value');
       return false;
     }
@@ -194,7 +196,7 @@ class SellerCreateKontenScreen extends React.Component {
       username,
       judulKonten,
       jenisKonten,
-      durasi,
+      durasiValue,
       lingkupValue,
       gamesRule,
       modalValue,
@@ -282,7 +284,7 @@ class SellerCreateKontenScreen extends React.Component {
                       InputLabelProps={{
                         shrink: true,
                       }}
-                      value={durasi}
+                      value={durasiValue}
                       onChange={this.changeDurasiValue}
                     />
                   </Grid>
@@ -322,17 +324,19 @@ class SellerCreateKontenScreen extends React.Component {
                     <Typography variant="h5">Modal Viral</Typography>
                   </Grid>
                   <Grid item md={9} xs={12}>
-                    <Slider
-                      defaultValue={80}
-                      getAriaValueText={modalValue}
-                      aria-labelledby="discrete-slider-always"
-                      step={1}
-                      marks={marks}
-                      valueLabelDisplay="on"
-                      valueLabelFormat={x => `Rp ${(x * 10000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}.-`}
-                      value={modalValue}
-                      onChange={ handleChangeSliderValue }
-                    />
+                    <Typography variant="h5">
+                      <TextField
+                        id="filled-modalValue"
+                        label="Modal Viralin"
+                        className="TextField"
+                        margin="normal"
+                        variant="filled"
+                        name="modalValue"
+                        fullWidth
+                        value={modalValue}
+                        onChange={this.handleInputChangeModal}
+                      />
+                    </Typography>
                   </Grid>
                 </Grid>
               </Grid>
