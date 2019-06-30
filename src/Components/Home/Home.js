@@ -188,16 +188,16 @@ class Home extends React.Component {
             <Grid
               item
             >
-              <Link to="/" className="url">
+              <Link to="/" className="url customfont">
                 Beranda
               </Link>
-              <Link to="/cara-kerja" className="url">
+              <Link to="/cara-kerja" className="url customfont">
                 Cara Kerja
               </Link>
-              <Link to="/tentang-kami" className="url">
+              <Link to="/tentang-kami" className="url customfont">
                 Tentang Kami
               </Link>
-              <AnchorLink href="#feedback" className="url">
+              <AnchorLink href="#feedback" className="url customfont">
                 Feedback
               </AnchorLink>
             </Grid>
