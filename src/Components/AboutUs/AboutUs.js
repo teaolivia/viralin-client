@@ -166,7 +166,7 @@ class AboutUs extends React.Component {
               <Link to="/cara-kerja" className="url">
                 Cara Kerja
               </Link>
-              <Link to="/about-us" className="url">
+              <Link to="/tentang-kami" className="url">
                 Tentang Kami
               </Link>
             </Grid>
