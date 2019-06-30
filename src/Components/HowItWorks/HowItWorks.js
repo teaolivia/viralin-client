@@ -106,7 +106,7 @@ class HowItWorks extends React.Component {
             <Grid
               item
             >
-              <a className="url" href="#">
+              <a className="url" href="https://www.facebook.com/viralin.bisnismu.5">
                 <SvgIcon
                   viewBox="0 0 24 24"
                 >
@@ -595,7 +595,7 @@ class HowItWorks extends React.Component {
                   </Typography>
                 </Grid>
                 <Grid item md={12}>
-                  <Link to="/" className="footerLinks">
+                  <a href="https://www.facebook.com/viralin.bisnismu.5" className="footerLinks">
                     <Typography variant="subtitle1">
                       <SvgIcon
                         viewBox="0 0 24 24"
@@ -606,7 +606,7 @@ class HowItWorks extends React.Component {
                       </SvgIcon>
                       viralin Bisnismu
                     </Typography>
-                  </Link>
+                  </a>
                 </Grid>
                 <Grid item md={12}>
                   <a href="https://twitter.com/goviralin" className="footerLinks">
