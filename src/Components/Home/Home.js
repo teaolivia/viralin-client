@@ -250,9 +250,9 @@ class Home extends React.Component {
                 </Typography>
                 <br />
                 <br />
-                <AnchorLink href="#footer" className="link">
+                <Link to="/tentang-kami" className="link">
                   Info Lebih Lanjut
-                </AnchorLink>
+                </Link>
               </div>
             </div>
             <div>
@@ -264,7 +264,7 @@ class Home extends React.Component {
                 <Typography variant="h5">sebesar-besarnya!</Typography>
                 <br />
                 <br />
-                <Link to="/" className="link">
+                <Link to="/tentang-kami" className="link">
                   Info Lebih Lanjut
                 </Link>
               </div>
@@ -285,7 +285,7 @@ class Home extends React.Component {
                 </Typography>
                 <br />
                 <br />
-                <Link to="/" className="link">
+                <Link to="/tentang-kami" className="link">
                   Info Lebih Lanjut
                 </Link>
               </div>
