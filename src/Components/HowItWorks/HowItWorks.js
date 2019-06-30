@@ -196,7 +196,7 @@ class HowItWorks extends React.Component {
             <Grid
               item
             >
-              <Link to="/login" className="url bgMain">
+              <Link to="/login-promotor" className="url bgMain">
                 Login
               </Link>
             </Grid>
