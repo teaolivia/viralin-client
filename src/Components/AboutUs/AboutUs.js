@@ -42,7 +42,7 @@ class AboutUs extends React.Component {
             <Grid
               item
             >
-              <Link className="url" to="/faq">FAQ</Link>
+              <Link className="url customfont1" to="/faq">FAQ</Link>
             </Grid>
             <Grid
               item
@@ -52,7 +52,7 @@ class AboutUs extends React.Component {
             <Grid
               item
             >
-              <Link className="url" to="/support">Support</Link>
+              <Link className="url customfont1" to="/support">Support</Link>
             </Grid>
           </Grid>
           <Grid
@@ -126,25 +126,25 @@ class AboutUs extends React.Component {
             spacing={2}
           >
             <Grid item md={4}>
-              <Typography variant="subtitle1">
+              <Typography variant="subtitle1" className="customfont1">
                 <Domain />
-                &nbsp;Address
+                {' Address'}
               </Typography>
-              <Typography variant="subtitle1" align="center">Jl. Pemuda No.45, Kergon, Pekalongan</Typography>
+              <Typography variant="subtitle1" align="center" className="customfont1">Jl. Pemuda No.45, Kergon, Pekalongan</Typography>
             </Grid>
             <Grid item md={4}>
-              <Typography variant="subtitle1">
+              <Typography variant="subtitle1" className="customfont1">
                 <Phone />
-                &nbsp;0823 2393 6436
+                {' 0823 2393 6436'}
               </Typography>
-              <Typography variant="subtitle1" align="center">Call us for more details!</Typography>
+              <Typography variant="subtitle1" align="center" className="customfont1">Call us for more details!</Typography>
             </Grid>
             <Grid item md={4}>
-              <Typography variant="subtitle1">
+              <Typography variant="subtitle1" className="customfont1">
                 <Email />
-                &nbsp;Mail Us Today
+                {' Mail Us Today'}
               </Typography>
-              <Typography variant="subtitle1" align="center">kuyviralin@gmail.com</Typography>
+              <Typography variant="subtitle1" align="center" className="customfont1">kuyviralin@gmail.com</Typography>
             </Grid>
           </Grid>
         </Grid>
@@ -160,13 +160,13 @@ class AboutUs extends React.Component {
             <Grid
               item
             >
-              <Link to="/" className="url">
+              <Link to="/" className="url customfont1">
                 Beranda
               </Link>
-              <Link to="/cara-kerja" className="url">
+              <Link to="/cara-kerja" className="url customfont1">
                 Cara Kerja
               </Link>
-              <Link to="/tentang-kami" className="url">
+              <Link to="/tentang-kami" className="url customfont1">
                 Tentang Kami
               </Link>
             </Grid>
@@ -181,14 +181,14 @@ class AboutUs extends React.Component {
             <Grid
               item
             >
-              <Link to="/login-promotor" className="url bgMain">
+              <Link to="/login-promotor" className="url bgMain customfont1">
                 Login
               </Link>
             </Grid>
             <Grid
               item
             >
-              <Link to="/register" className="url bgMain">
+              <Link to="/register" className="url bgMain customfont1">
                 Register
               </Link>
             </Grid>
