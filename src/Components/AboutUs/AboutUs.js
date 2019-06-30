@@ -306,7 +306,7 @@ class AboutUs extends React.Component {
                 </Grid>
                 <Grid item md={12}>&nbsp;</Grid>
                 <Grid item md={12}>
-                  <Link to="/faq" className="footerLinks">
+                  <Link to="/" className="footerLinks">
                     <Typography variant="subtitle1">
                       www.myviralin.com
                     </Typography>
