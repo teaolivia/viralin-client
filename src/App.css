@@ -1,3 +1,20 @@
+@font-face {
+  font-family: "Viralin";
+  src: url(./Fonts/font.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Gotham";
+  src: url(./Fonts/gotham.otf) format("truetype");
+}
+
 .App {
   /* text-align: center; */
+}
+
+.customfont1 {
+  font-family: 'Viralin' !important;
+}
+
+.customfont2 {
+  font-family: 'Gotham' !important;
 }
