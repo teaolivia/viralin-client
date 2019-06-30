@@ -1023,7 +1023,7 @@ class Home extends React.Component {
           </div>
         </div>
         <div aria-label="Whatsapp" className="FABWhatsapp" target="_blank">
-          <a href="https://wa.me/6282216880095">
+          <a href="https://wa.me/6282323936436">
             <Grid
               container
             >

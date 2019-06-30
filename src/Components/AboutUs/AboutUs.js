@@ -397,7 +397,7 @@ class AboutUs extends React.Component {
           </div>
         </div>
         <div aria-label="Whatsapp" className="FABWhatsapp">
-          <a href="https://wa.me/6282216880095" target="_blank">
+          <a href="https://wa.me/6282323936436" target="_blank">
             <Grid
               container
             >
