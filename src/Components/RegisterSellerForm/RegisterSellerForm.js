@@ -12,16 +12,11 @@ import Select from '@material-ui/core/Select';
 import FilledInput from '@material-ui/core/FilledInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import axios from 'axios';
-
+import AWS from 'aws-sdk';
 import fetchProvinsiApi from 'Api/fetchProvinsiApi';
 import fetchKabupatenKotaApi from 'Api/fetchKabupatenKotaApi';
 
-const redirectPage = () => {
-  return (
-    <Link to="/seller-dashboard" />
-  );
-}
+
 class RegisterSellerForm extends React.Component {
   // state = {
   //   navigate: false
@@ -171,8 +166,7 @@ class RegisterSellerForm extends React.Component {
         pullResults = JSON.parse(data.Payload);
         console.log(pullResults);
         if (pullResults.statusCode == 200) {
-          alert('Registrasi berhasil');
-          redirectPage();
+          alert('Registrasi berhasil! Silahkan ke halaman login untuk masuk ke dashboard.');
         }
         else if (pullResults.body.message != null || pullResults.body.message != "") {
           alert(pullResults.body.message);
@@ -519,7 +513,6 @@ class RegisterSellerForm extends React.Component {
             color="primary"
             className="Button"
             type="submit"
-            href="/seller-dashboard"
           >
             <Typography variant="subtitle1">Register</Typography>
           </Button>

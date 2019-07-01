@@ -16,6 +16,7 @@ import Error from '@material-ui/icons/Error';
 import CalendarToday from '@material-ui/icons/CalendarToday';
 import CardGiftcard from '@material-ui/icons/CardGiftcard';
 import Group from '@material-ui/icons/Group';
+import AWS from 'aws-sdk';
 
 const bulan = [
   'Januari',
@@ -40,7 +41,7 @@ class PromotorKontenViralDashboard extends React.Component {
     this.state = {};
   }
 
-  getKonten() {
+  getContents() {
     AWS.config.update({
       region: 'ap-southeast-1',
       credentials: new AWS.Credentials({
@@ -67,7 +68,6 @@ class PromotorKontenViralDashboard extends React.Component {
         console.log(pullResults);
         if (pullResults.statusCode == 200) {
           console.log('Memuat konten berhasil');
-          console.log(pullResults)
         }
         else if (pullResults.body.message != null || pullResults.body.message != "") {
           console.log(pullResults.body.message);
@@ -76,7 +76,7 @@ class PromotorKontenViralDashboard extends React.Component {
           console.log("Terjadi kesalahan");
         }
       }
-    });
+    });    
   }
 
   render() {
