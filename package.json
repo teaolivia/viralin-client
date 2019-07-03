@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/index.js --exec babel-node",
     "start": "webpack-dev-server --open --hot --mode development",
-    "build": "webpack --mode NODE_ENV=production",
+    "build": "webpack --mode production",
     "deploy": "aws s3 sync build/ s3://viralin-client-view --profile admin-s3",
     "format": "prettier --write \"src/**/*.js\""
   },
