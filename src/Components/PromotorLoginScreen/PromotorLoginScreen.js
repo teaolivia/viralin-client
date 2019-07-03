@@ -35,11 +35,11 @@ class PromotorLoginScreen extends React.Component {
     this.changeTabValue(null, 0);
   }
 
-  setRedirect = () => {
-    this.setState({
-      thisDashboard: true
-    })
-  }
+  // setRedirect = () => {
+  //   this.setState({
+  //     thisDashboard: true
+  //   })
+  // }
 
   renderRedirect = () => {
     if (this.state.thisDashboard) {
