@@ -41,11 +41,11 @@ class PromotorLoginScreen extends React.Component {
   //   })
   // }
 
-  renderRedirect = () => {
-    if (this.state.thisDashboard) {
-      return <Redirect to='/promotor-dashboard' />
-    }
-  }
+  // renderRedirect = () => {
+  //   if (this.state.thisDashboard) {
+  //     return <Redirect to='/promotor-dashboard' />
+  //   }
+  // }
 
   changeTabValue(event, newValue) {
     this.setState({ tabValue: newValue });
