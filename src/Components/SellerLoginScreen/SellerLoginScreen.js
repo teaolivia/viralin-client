@@ -15,11 +15,7 @@ import logo1 from 'images/logo1.png';
 import logo2 from 'images/logo2.png';
 
 
-const redirectloginSeller = () => {
-  return (
-    <Link to="/seller-dashboard" />
-  );
-};
+const BASE_URL = require('config').base_url;
 
 const loginSeller = (username, password) => {
   if (username == '' || password == '') {
@@ -52,7 +48,7 @@ const loginSeller = (username, password) => {
         pullResults = JSON.parse(data.Payload);
         console.log(pullResults);
         if (pullResults.statusCode == 200) {
-          redirectloginSeller();
+          window.location.href= BASE_URL + '/seller-dashboard';
         }
         else if (pullResults.body.message != null || pullResults.body.message != "") {
           alert(pullResults.body.message);
@@ -80,6 +76,7 @@ class SellerLoginScreen extends React.Component {
     this.changePasswordValue = this.changePasswordValue.bind(this);
     this.loginButtonClickHandler = this.loginButtonClickHandler.bind(this);
     this.changeAdminValue = this.changeAdminValue.bind(this);
+    this.redirectToSellerDashboard = this.redirectToSellerDashboard.bind(this);
     this.changeTabValue(null, 0);
   }
 
@@ -130,6 +127,11 @@ class SellerLoginScreen extends React.Component {
       default:
         break;
     }
+  }
+
+  redirectToSellerDashboard() {
+    let path = `/seller-dashboard`;
+    this.props.history.push(path);
   }
 
   render() {
@@ -211,7 +213,7 @@ class SellerLoginScreen extends React.Component {
                       variant="contained"
                       color="primary"
                       className="Button"
-                      href="/seller-dashboard"
+                      onClick={this.changeDashboardValue}
                     >
                       <Typography variant="subtitle1">Login Sebagai Pebisnis</Typography>
                     </Button>

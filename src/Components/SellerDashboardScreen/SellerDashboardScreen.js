@@ -102,10 +102,14 @@ class SellerDashboard extends React.Component {
     });
       return result;
   }
+
+  handleChangeNumberOfTotalPromotors(event) {
+    this.setState({})
+  }
   
   NumberOfTotalPromotors(){
     var params = {
-      FunctionName: 'seller-n-promotors',
+      FunctionName: 'n-promotors',
       InvocationType: 'RequestResponse',
       LogType: 'None',
       Payload: {

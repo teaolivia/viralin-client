@@ -15,10 +15,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: 'babel-loader',
-        // use: {
-        //   loader: 'babel-loader',
-        // },
+        use: 'babel-loader'
       },
       {
         test: /\.(png|jp(e*)g|svg)$/,
@@ -66,6 +63,14 @@ module.exports = {
     new webpack.ProvidePlugin({
       _map: ['lodash', 'map'],
     }),
+    // new webpack.DefinePlugin({
+    //   // Dynamically access local environment variables based on the environment
+    //   ENV: JSON.stringify(require(path.join(__dirname, "src", "config", env))),
+    //   "process.env": {
+    //     // defaults the environment to development if not specified
+    //     "NODE_ENV": JSON.stringify(process.env.NODE_ENV || "development")
+    //   }
+    // })
   ],
   entry: [
     './src/index.js',
