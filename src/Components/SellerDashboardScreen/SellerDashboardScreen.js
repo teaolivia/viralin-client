@@ -15,8 +15,8 @@ import Navigation from 'Components/Navigation/Navigation';
 import SellerKontenViralTable from 'Components/SellerKontenViralTable/SellerKontenViralTable';
 
 AWS.config.update({
-  accessKeyId: 'AKIA6AOWNMA4PI2CP33G', 
-  secretAccessKey: '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'
+  accessKeyId: 'AKIA6AOWNMA4JZGARCNX', 
+  secretAccessKey: '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'
 });
 var lambda = new AWS.Lambda({region: 'ap-southeast-1', apiVersion: '2015-03-31'});
 
@@ -72,6 +72,34 @@ class SellerDashboard extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleContentFormPopOut = this.handleContentFormPopOut.bind(this);
+    this.getNPromotors();
+  }
+
+  getNPromotors() {
+    var pullParams = {
+      FunctionName : 'n-promotors',
+      InvocationType : 'RequestResponse',
+      LogType : 'None',
+    };
+    // create variable to hold data returned by the Lambda function
+    var pullResults;
+
+    lambda.invoke(pullParams, function(error, data) {
+      if (error) {
+        console.log(error);
+        alert("error");
+      } else {
+        pullResults = JSON.parse(data.Payload);
+        console.log(pullResults);
+        if (pullResults.statusCode == 200) {
+          window.document.getElementById("total-Promotor").innerHTML = "Total Promotor: " + pullResults.body.Count;
+          window.document.getElementById("total-PromotorAktif").innerHTML = "";
+        }
+        else {
+          alert("Terjadi kesalahan");
+        }
+      }
+    });
   }
 
   sellerData() {  
@@ -200,8 +228,8 @@ class SellerDashboard extends React.Component {
                         alignItems="flex-start"
                         justify="flex-start"
                       >
-                        <Typography variant="subtitle1">{ `Total ${button.name}: ${button.count}` }</Typography>
-                        <Typography variant="subtitle1">{ `Total Aktif: ${button.activeCount}` }</Typography>
+                        <Typography variant="subtitle1" id={ `total-${button.name}` }>{ `Total ${button.name}: ${button.count}` }</Typography>
+                        <Typography variant="subtitle1" id={ `total-${button.name}Aktif` }>{ `Total Aktif: ${button.activeCount}` }</Typography>
                       </Grid>
                     </Grid>
                   </Grid>
